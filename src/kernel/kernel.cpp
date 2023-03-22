@@ -7,9 +7,6 @@
 #include <x86/gdt.h>
 #include <x86/idt.h>
 
-#include <mem/pmm.hpp>
-#include <mem/vmm.h>
-
 uint8_t stack[16384];
 
 __attribute__((section(".stivale2hdr"), used))
@@ -55,10 +52,6 @@ extern "C" void kmain(stivale2_struct* stivale)
 	VGA::puts("[x]: Remapped IRQs via PIC\n");
 
 	VGA::puts("[x]: Loading physical memory\n");
-
-	PhysicalMemory::Init(reinterpret_cast<stivale2_struct_tag_memmap*>(get_tag(stivale, STIVALE2_STRUCT_TAG_MEMMAP_ID)));
-
-	VirtualMemory::Initialize();
 
 	for (;;);
 }
