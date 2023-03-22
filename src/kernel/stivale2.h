@@ -299,4 +299,6 @@ struct stivale2_struct_vmap {
     uint64_t addr;
 } __attribute__((__packed__));
 
+void* get_tag(stivale2_struct* first_tag, uint64_t tag_id);
+
 #endif

@@ -7,4 +7,8 @@ g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/k
 g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/lib/bitmap.cpp -o build/bitmap.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/mem/vmm.cpp -o build/vmm.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/mem/heap.cpp -o build/heap.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/apic.cpp -o build/apic.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/ioapic.cpp -o build/ioapic.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/pit.cpp -o build/pit.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -pedantic -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/acpi.cpp -o build/acpi.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 ld -n -nostdlib -T linkd/link.ld build/*.o -o kernel.elf

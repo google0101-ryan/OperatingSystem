@@ -1,1331 +1,323 @@
 section .text
 extern isr_common
 
-; Interrupt service routines
-isr0:
-	cli
-	push 0
-	push 0
-	jmp isr_common
-isr1:
-	cli
-	push 0
-	push 1
-	jmp isr_common
-isr2:
-	cli
-	push 0
-	push 2
-	jmp isr_common
-isr3:
-	cli
-	push 0
-	push 3
-	jmp isr_common
-isr4:
-	cli
-	push 0
-	push 4
-	jmp isr_common
-isr5:
-	cli
-	push 0
-	push 5
-	jmp isr_common
-isr6:
-	cli
-	push 0
-	push 6
-	jmp isr_common
-isr7:
-	cli
-	push 0
-	push 7
-	jmp isr_common
-isr8:
-	cli
-	nop
-	push 8
-	jmp isr_common
-isr9:
-	cli
-	push 0
-	push 9
-	jmp isr_common
-isr10:
-	cli
-	nop
-	push 10
-	jmp isr_common
-isr11:
-	cli
-	nop
-	push 11
-	jmp isr_common
-isr12:
-	cli
-	nop
-	push 12
-	jmp isr_common
-isr13:
-	cli
-	nop
-	push 13
-	jmp isr_common
-isr14:
-	cli
-	nop
-	push 14
-	jmp isr_common
-isr15:
-	cli
-	push 0
-	push 15
-	jmp isr_common
-isr16:
-	cli
-	push 0
-	push 16
-	jmp isr_common
-isr17:
-	cli
-	nop
-	push 17
-	jmp isr_common
-isr18:
-	cli
-	push 0
-	push 18
-	jmp isr_common
-isr19:
-	cli
-	push 0
-	push 19
-	jmp isr_common
-isr20:
-	cli
-	push 0
-	push 20
-	jmp isr_common
-isr21:
-	cli
-	push 0
-	push 21
-	jmp isr_common
-isr22:
-	cli
-	push 0
-	push 22
-	jmp isr_common
-isr23:
-	cli
-	push 0
-	push 23
-	jmp isr_common
-isr24:
-	cli
-	push 0
-	push 24
-	jmp isr_common
-isr25:
-	cli
-	push 0
-	push 25
-	jmp isr_common
-isr26:
-	cli
-	push 0
-	push 26
-	jmp isr_common
-isr27:
-	cli
-	push 0
-	push 27
-	jmp isr_common
-isr28:
-	cli
-	push 0
-	push 28
-	jmp isr_common
-isr29:
-	cli
-	push 0
-	push 29
-	jmp isr_common
-isr30:
-	cli
-	push 0
-	push 30
-	jmp isr_common
-isr31:
-	cli
-	push 0
-	push 31
-	jmp isr_common
-isr32:
-	cli
-	push 0
-	push 32
-	jmp isr_common
-isr33:
-	cli
-	push 0
-	push 33
-	jmp isr_common
-isr34:
-	cli
-	push 0
-	push 34
-	jmp isr_common
-isr35:
-	cli
-	push 0
-	push 35
-	jmp isr_common
-isr36:
-	cli
-	push 0
-	push 36
-	jmp isr_common
-isr37:
-	cli
-	push 0
-	push 37
-	jmp isr_common
-isr38:
-	cli
-	push 0
-	push 38
-	jmp isr_common
-isr39:
-	cli
-	push 0
-	push 39
-	jmp isr_common
-isr40:
-	cli
-	push 0
-	push 40
-	jmp isr_common
-isr41:
-	cli
-	push 0
-	push 41
-	jmp isr_common
-isr42:
-	cli
-	push 0
-	push 42
-	jmp isr_common
-isr43:
-	cli
-	push 0
-	push 43
-	jmp isr_common
-isr44:
-	cli
-	push 0
-	push 44
-	jmp isr_common
-isr45:
-	cli
-	push 0
-	push 45
-	jmp isr_common
-isr46:
-	cli
-	push 0
-	push 46
-	jmp isr_common
-isr47:
-	cli
-	push 0
-	push 47
-	jmp isr_common
-isr48:
-	cli
-	push 0
-	push 48
-	jmp isr_common
-isr49:
-	cli
-	push 0
-	push 49
-	jmp isr_common
-isr50:
-	cli
-	push 0
-	push 50
-	jmp isr_common
-isr51:
-	cli
-	push 0
-	push 51
-	jmp isr_common
-isr52:
-	cli
-	push 0
-	push 52
-	jmp isr_common
-isr53:
-	cli
-	push 0
-	push 53
-	jmp isr_common
-isr54:
-	cli
-	push 0
-	push 54
-	jmp isr_common
-isr55:
-	cli
-	push 0
-	push 55
-	jmp isr_common
-isr56:
-	cli
-	push 0
-	push 56
-	jmp isr_common
-isr57:
-	cli
-	push 0
-	push 57
-	jmp isr_common
-isr58:
-	cli
-	push 0
-	push 58
-	jmp isr_common
-isr59:
-	cli
-	push 0
-	push 59
-	jmp isr_common
-isr60:
-	cli
-	push 0
-	push 60
-	jmp isr_common
-isr61:
-	cli
-	push 0
-	push 61
-	jmp isr_common
-isr62:
-	cli
-	push 0
-	push 62
-	jmp isr_common
-isr63:
-	cli
-	push 0
-	push 63
-	jmp isr_common
-isr64:
-	cli
-	push 0
-	push 64
-	jmp isr_common
-isr65:
-	cli
-	push 0
-	push 65
-	jmp isr_common
-isr66:
-	cli
-	push 0
-	push 66
-	jmp isr_common
-isr67:
-	cli
-	push 0
-	push 67
-	jmp isr_common
-isr68:
-	cli
-	push 0
-	push 68
-	jmp isr_common
-isr69:
-	cli
-	push 0
-	push 69
-	jmp isr_common
-isr70:
-	cli
-	push 0
-	push 70
-	jmp isr_common
-isr71:
-	cli
-	push 0
-	push 71
-	jmp isr_common
-isr72:
-	cli
-	push 0
-	push 72
-	jmp isr_common
-isr73:
-	cli
-	push 0
-	push 73
-	jmp isr_common
-isr74:
-	cli
-	push 0
-	push 74
-	jmp isr_common
-isr75:
-	cli
-	push 0
-	push 75
-	jmp isr_common
-isr76:
-	cli
-	push 0
-	push 76
-	jmp isr_common
-isr77:
-	cli
-	push 0
-	push 77
-	jmp isr_common
-isr78:
-	cli
-	push 0
-	push 78
-	jmp isr_common
-isr79:
-	cli
-	push 0
-	push 79
-	jmp isr_common
-isr80:
-	cli
-	push 0
-	push 80
-	jmp isr_common
-isr81:
-	cli
-	push 0
-	push 81
-	jmp isr_common
-isr82:
-	cli
-	push 0
-	push 82
-	jmp isr_common
-isr83:
-	cli
-	push 0
-	push 83
-	jmp isr_common
-isr84:
-	cli
-	push 0
-	push 84
-	jmp isr_common
-isr85:
-	cli
-	push 0
-	push 85
-	jmp isr_common
-isr86:
-	cli
-	push 0
-	push 86
-	jmp isr_common
-isr87:
-	cli
-	push 0
-	push 87
-	jmp isr_common
-isr88:
-	cli
-	push 0
-	push 88
-	jmp isr_common
-isr89:
-	cli
-	push 0
-	push 89
-	jmp isr_common
-isr90:
-	cli
-	push 0
-	push 90
-	jmp isr_common
-isr91:
-	cli
-	push 0
-	push 91
-	jmp isr_common
-isr92:
-	cli
-	push 0
-	push 92
-	jmp isr_common
-isr93:
-	cli
-	push 0
-	push 93
-	jmp isr_common
-isr94:
-	cli
-	push 0
-	push 94
-	jmp isr_common
-isr95:
-	cli
-	push 0
-	push 95
-	jmp isr_common
-isr96:
-	cli
-	push 0
-	push 96
-	jmp isr_common
-isr97:
-	cli
-	push 0
-	push 97
-	jmp isr_common
-isr98:
-	cli
-	push 0
-	push 98
-	jmp isr_common
-isr99:
-	cli
-	push 0
-	push 99
-	jmp isr_common
-isr100:
-	cli
-	push 0
-	push 100
-	jmp isr_common
-isr101:
-	cli
-	push 0
-	push 101
-	jmp isr_common
-isr102:
-	cli
-	push 0
-	push 102
-	jmp isr_common
-isr103:
-	cli
-	push 0
-	push 103
-	jmp isr_common
-isr104:
-	cli
-	push 0
-	push 104
-	jmp isr_common
-isr105:
-	cli
-	push 0
-	push 105
-	jmp isr_common
-isr106:
-	cli
-	push 0
-	push 106
-	jmp isr_common
-isr107:
-	cli
-	push 0
-	push 107
-	jmp isr_common
-isr108:
-	cli
-	push 0
-	push 108
-	jmp isr_common
-isr109:
-	cli
-	push 0
-	push 109
-	jmp isr_common
-isr110:
-	cli
-	push 0
-	push 110
-	jmp isr_common
-isr111:
-	cli
-	push 0
-	push 111
-	jmp isr_common
-isr112:
-	cli
-	push 0
-	push 112
-	jmp isr_common
-isr113:
-	cli
-	push 0
-	push 113
-	jmp isr_common
-isr114:
-	cli
-	push 0
-	push 114
-	jmp isr_common
-isr115:
-	cli
-	push 0
-	push 115
-	jmp isr_common
-isr116:
-	cli
-	push 0
-	push 116
-	jmp isr_common
-isr117:
-	cli
-	push 0
-	push 117
-	jmp isr_common
-isr118:
-	cli
-	push 0
-	push 118
-	jmp isr_common
-isr119:
-	cli
-	push 0
-	push 119
-	jmp isr_common
-isr120:
-	cli
-	push 0
-	push 120
-	jmp isr_common
-isr121:
-	cli
-	push 0
-	push 121
-	jmp isr_common
-isr122:
-	cli
-	push 0
-	push 122
-	jmp isr_common
-isr123:
-	cli
-	push 0
-	push 123
-	jmp isr_common
-isr124:
-	cli
-	push 0
-	push 124
-	jmp isr_common
-isr125:
-	cli
-	push 0
-	push 125
-	jmp isr_common
-isr126:
-	cli
-	push 0
-	push 126
-	jmp isr_common
-isr127:
-	cli
-	push 0
-	push 127
-	jmp isr_common
-isr128:
-	cli
-	push 0
-	push 128
-	jmp isr_common
-isr129:
-	cli
-	push 0
-	push 129
-	jmp isr_common
-isr130:
-	cli
-	push 0
-	push 130
-	jmp isr_common
-isr131:
-	cli
-	push 0
-	push 131
-	jmp isr_common
-isr132:
-	cli
-	push 0
-	push 132
-	jmp isr_common
-isr133:
-	cli
-	push 0
-	push 133
-	jmp isr_common
-isr134:
-	cli
-	push 0
-	push 134
-	jmp isr_common
-isr135:
-	cli
-	push 0
-	push 135
-	jmp isr_common
-isr136:
-	cli
-	push 0
-	push 136
-	jmp isr_common
-isr137:
-	cli
-	push 0
-	push 137
-	jmp isr_common
-isr138:
-	cli
-	push 0
-	push 138
-	jmp isr_common
-isr139:
-	cli
-	push 0
-	push 139
-	jmp isr_common
-isr140:
-	cli
-	push 0
-	push 140
-	jmp isr_common
-isr141:
-	cli
-	push 0
-	push 141
-	jmp isr_common
-isr142:
-	cli
-	push 0
-	push 142
-	jmp isr_common
-isr143:
-	cli
-	push 0
-	push 143
-	jmp isr_common
-isr144:
-	cli
-	push 0
-	push 144
-	jmp isr_common
-isr145:
-	cli
-	push 0
-	push 145
-	jmp isr_common
-isr146:
-	cli
-	push 0
-	push 146
-	jmp isr_common
-isr147:
-	cli
-	push 0
-	push 147
-	jmp isr_common
-isr148:
-	cli
-	push 0
-	push 148
-	jmp isr_common
-isr149:
-	cli
-	push 0
-	push 149
-	jmp isr_common
-isr150:
-	cli
-	push 0
-	push 150
-	jmp isr_common
-isr151:
-	cli
-	push 0
-	push 151
-	jmp isr_common
-isr152:
-	cli
-	push 0
-	push 152
-	jmp isr_common
-isr153:
-	cli
-	push 0
-	push 153
-	jmp isr_common
-isr154:
-	cli
-	push 0
-	push 154
-	jmp isr_common
-isr155:
-	cli
-	push 0
-	push 155
-	jmp isr_common
-isr156:
-	cli
-	push 0
-	push 156
-	jmp isr_common
-isr157:
-	cli
-	push 0
-	push 157
-	jmp isr_common
-isr158:
-	cli
-	push 0
-	push 158
-	jmp isr_common
-isr159:
-	cli
-	push 0
-	push 159
-	jmp isr_common
-isr160:
-	cli
-	push 0
-	push 160
-	jmp isr_common
-isr161:
-	cli
-	push 0
-	push 161
-	jmp isr_common
-isr162:
-	cli
-	push 0
-	push 162
-	jmp isr_common
-isr163:
-	cli
-	push 0
-	push 163
-	jmp isr_common
-isr164:
-	cli
-	push 0
-	push 164
-	jmp isr_common
-isr165:
-	cli
-	push 0
-	push 165
-	jmp isr_common
-isr166:
-	cli
-	push 0
-	push 166
-	jmp isr_common
-isr167:
-	cli
-	push 0
-	push 167
-	jmp isr_common
-isr168:
-	cli
-	push 0
-	push 168
-	jmp isr_common
-isr169:
-	cli
-	push 0
-	push 169
-	jmp isr_common
-isr170:
-	cli
-	push 0
-	push 170
-	jmp isr_common
-isr171:
-	cli
-	push 0
-	push 171
-	jmp isr_common
-isr172:
-	cli
-	push 0
-	push 172
-	jmp isr_common
-isr173:
-	cli
-	push 0
-	push 173
-	jmp isr_common
-isr174:
-	cli
-	push 0
-	push 174
-	jmp isr_common
-isr175:
-	cli
-	push 0
-	push 175
-	jmp isr_common
-isr176:
-	cli
-	push 0
-	push 176
-	jmp isr_common
-isr177:
-	cli
-	push 0
-	push 177
-	jmp isr_common
-isr178:
-	cli
-	push 0
-	push 178
-	jmp isr_common
-isr179:
-	cli
-	push 0
-	push 179
-	jmp isr_common
-isr180:
-	cli
-	push 0
-	push 180
-	jmp isr_common
-isr181:
-	cli
-	push 0
-	push 181
-	jmp isr_common
-isr182:
-	cli
-	push 0
-	push 182
-	jmp isr_common
-isr183:
-	cli
-	push 0
-	push 183
-	jmp isr_common
-isr184:
-	cli
-	push 0
-	push 184
-	jmp isr_common
-isr185:
-	cli
-	push 0
-	push 185
-	jmp isr_common
-isr186:
-	cli
-	push 0
-	push 186
-	jmp isr_common
-isr187:
-	cli
-	push 0
-	push 187
-	jmp isr_common
-isr188:
-	cli
-	push 0
-	push 188
-	jmp isr_common
-isr189:
-	cli
-	push 0
-	push 189
-	jmp isr_common
-isr190:
-	cli
-	push 0
-	push 190
-	jmp isr_common
-isr191:
-	cli
-	push 0
-	push 191
-	jmp isr_common
-isr192:
-	cli
-	push 0
-	push 192
-	jmp isr_common
-isr193:
-	cli
-	push 0
-	push 193
-	jmp isr_common
-isr194:
-	cli
-	push 0
-	push 194
-	jmp isr_common
-isr195:
-	cli
-	push 0
-	push 195
-	jmp isr_common
-isr196:
-	cli
-	push 0
-	push 196
-	jmp isr_common
-isr197:
-	cli
-	push 0
-	push 197
-	jmp isr_common
-isr198:
-	cli
-	push 0
-	push 198
-	jmp isr_common
-isr199:
-	cli
-	push 0
-	push 199
-	jmp isr_common
-isr200:
-	cli
-	push 0
-	push 200
-	jmp isr_common
-isr201:
-	cli
-	push 0
-	push 201
-	jmp isr_common
-isr202:
-	cli
-	push 0
-	push 202
-	jmp isr_common
-isr203:
-	cli
-	push 0
-	push 203
-	jmp isr_common
-isr204:
-	cli
-	push 0
-	push 204
-	jmp isr_common
-isr205:
-	cli
-	push 0
-	push 205
-	jmp isr_common
-isr206:
-	cli
-	push 0
-	push 206
-	jmp isr_common
-isr207:
-	cli
-	push 0
-	push 207
-	jmp isr_common
-isr208:
-	cli
-	push 0
-	push 208
-	jmp isr_common
-isr209:
-	cli
-	push 0
-	push 209
-	jmp isr_common
-isr210:
-	cli
-	push 0
-	push 210
-	jmp isr_common
-isr211:
-	cli
-	push 0
-	push 211
-	jmp isr_common
-isr212:
-	cli
-	push 0
-	push 212
-	jmp isr_common
-isr213:
-	cli
-	push 0
-	push 213
-	jmp isr_common
-isr214:
-	cli
-	push 0
-	push 214
-	jmp isr_common
-isr215:
-	cli
-	push 0
-	push 215
-	jmp isr_common
-isr216:
-	cli
-	push 0
-	push 216
-	jmp isr_common
-isr217:
-	cli
-	push 0
-	push 217
-	jmp isr_common
-isr218:
-	cli
-	push 0
-	push 218
-	jmp isr_common
-isr219:
-	cli
-	push 0
-	push 219
-	jmp isr_common
-isr220:
-	cli
-	push 0
-	push 220
-	jmp isr_common
-isr221:
-	cli
-	push 0
-	push 221
-	jmp isr_common
-isr222:
-	cli
-	push 0
-	push 222
-	jmp isr_common
-isr223:
-	cli
-	push 0
-	push 223
-	jmp isr_common
-isr224:
-	cli
-	push 0
-	push 224
-	jmp isr_common
-isr225:
-	cli
-	push 0
-	push 225
-	jmp isr_common
-isr226:
-	cli
-	push 0
-	push 226
-	jmp isr_common
-isr227:
-	cli
-	push 0
-	push 227
-	jmp isr_common
-isr228:
-	cli
-	push 0
-	push 228
-	jmp isr_common
-isr229:
-	cli
-	push 0
-	push 229
-	jmp isr_common
-isr230:
-	cli
-	push 0
-	push 230
-	jmp isr_common
-isr231:
-	cli
-	push 0
-	push 231
-	jmp isr_common
-isr232:
-	cli
-	push 0
-	push 232
-	jmp isr_common
-isr233:
-	cli
-	push 0
-	push 233
-	jmp isr_common
-isr234:
-	cli
-	push 0
-	push 234
-	jmp isr_common
-isr235:
-	cli
-	push 0
-	push 235
-	jmp isr_common
-isr236:
-	cli
-	push 0
-	push 236
-	jmp isr_common
-isr237:
-	cli
-	push 0
-	push 237
-	jmp isr_common
-isr238:
-	cli
-	push 0
-	push 238
-	jmp isr_common
-isr239:
-	cli
-	push 0
-	push 239
-	jmp isr_common
-isr240:
-	cli
-	push 0
-	push 240
-	jmp isr_common
-isr241:
-	cli
-	push 0
-	push 241
-	jmp isr_common
-isr242:
-	cli
-	push 0
-	push 242
-	jmp isr_common
-isr243:
-	cli
-	push 0
-	push 243
-	jmp isr_common
-isr244:
-	cli
-	push 0
-	push 244
-	jmp isr_common
-isr245:
-	cli
-	push 0
-	push 245
-	jmp isr_common
-isr246:
-	cli
-	push 0
-	push 246
-	jmp isr_common
-isr247:
-	cli
-	push 0
-	push 247
-	jmp isr_common
-isr248:
-	cli
-	push 0
-	push 248
-	jmp isr_common
-isr249:
-	cli
-	push 0
-	push 249
-	jmp isr_common
-isr250:
-	cli
-	push 0
-	push 250
-	jmp isr_common
-isr251:
-	cli
-	push 0
-	push 251
-	jmp isr_common
-isr252:
-	cli
-	push 0
-	push 252
-	jmp isr_common
-isr253:
-	cli
-	push 0
-	push 253
-	jmp isr_common
-isr254:
-	cli
-	push 0
-	push 254
-	jmp isr_common
-isr255:
-	cli
-	push 0
-	push 255
-	jmp isr_common
+%macro isr_stub_noerr 1
+isr%1:
+	push qword 0
+	mov dword[rsp+4], %1
+	jmp isr_common
+%endmacro
+
+%macro isr_stub_err 1
+isr%1:
+	mov dword[rsp+4], %1
+	jmp isr_common
+%endmacro
+
+%macro isr_stub_irq 1
+global isr_stub_%1
+isr%1:
+	push qword %1
+	jmp isr_common
+%endmacro
+
+%macro isr_stub_ipi 2
+global isr_stub_%1
+isr%1:
+	push qword %1
+	jmp isr_common
+%endmacro
+
+isr_stub_noerr 0
+isr_stub_noerr 1
+isr_stub_noerr 2
+isr_stub_noerr 3
+isr_stub_noerr 4
+isr_stub_noerr 5
+isr_stub_noerr 6
+isr_stub_noerr 7
+isr_stub_err 8
+isr_stub_noerr 9
+isr_stub_err 10
+isr_stub_err 11
+isr_stub_err 12
+isr_stub_err 13
+isr_stub_err 14
+isr_stub_noerr 15
+isr_stub_noerr 16
+isr_stub_err 17
+isr_stub_noerr 18
+isr_stub_noerr 19
+isr_stub_noerr 20
+isr_stub_noerr 21
+isr_stub_noerr 22
+isr_stub_noerr 23
+isr_stub_noerr 24
+isr_stub_noerr 25
+isr_stub_noerr 26
+isr_stub_noerr 27
+isr_stub_noerr 28
+isr_stub_noerr 29
+isr_stub_err 30
+isr_stub_noerr 31
+
+; Unused PIC interrupts
+isr_stub_irq 32
+isr_stub_irq 33
+isr_stub_irq 34
+isr_stub_irq 35
+isr_stub_irq 36
+isr_stub_irq 37
+isr_stub_irq 38
+isr_stub_irq 39
+isr_stub_irq 40
+isr_stub_irq 41
+isr_stub_irq 42
+isr_stub_irq 43
+isr_stub_irq 44
+isr_stub_irq 45
+isr_stub_irq 46
+isr_stub_irq 47
+
+; Other (IRQs)
+isr_stub_irq 48
+isr_stub_irq 49
+isr_stub_irq 50
+isr_stub_irq 51
+isr_stub_irq 52
+isr_stub_irq 53
+isr_stub_irq 54
+isr_stub_irq 55
+isr_stub_irq 56
+isr_stub_irq 57
+isr_stub_irq 58
+isr_stub_irq 59
+isr_stub_irq 60
+isr_stub_irq 61
+isr_stub_irq 62
+isr_stub_irq 63
+isr_stub_irq 64
+isr_stub_irq 65
+isr_stub_irq 66
+isr_stub_irq 67
+isr_stub_irq 68
+isr_stub_irq 69
+isr_stub_irq 70
+isr_stub_irq 71
+isr_stub_irq 72
+isr_stub_irq 73
+isr_stub_irq 74
+isr_stub_irq 75
+isr_stub_irq 76
+isr_stub_irq 77
+isr_stub_irq 78
+isr_stub_irq 79
+isr_stub_irq 80
+isr_stub_irq 81
+isr_stub_irq 82
+isr_stub_irq 83
+isr_stub_irq 84
+isr_stub_irq 85
+isr_stub_irq 86
+isr_stub_irq 87
+isr_stub_irq 88
+isr_stub_irq 89
+isr_stub_irq 90
+isr_stub_irq 91
+isr_stub_irq 92
+isr_stub_irq 93
+isr_stub_irq 94
+isr_stub_irq 95
+isr_stub_irq 96
+isr_stub_irq 97
+isr_stub_irq 98
+isr_stub_irq 99
+isr_stub_irq 100
+isr_stub_irq 101
+isr_stub_irq 102
+isr_stub_irq 103
+isr_stub_irq 104
+isr_stub_irq 105
+isr_stub_irq 106
+isr_stub_irq 107
+isr_stub_irq 108
+isr_stub_irq 109
+isr_stub_irq 110
+isr_stub_irq 111
+isr_stub_irq 112
+isr_stub_irq 113
+isr_stub_irq 114
+isr_stub_irq 115
+isr_stub_irq 116
+isr_stub_irq 117
+isr_stub_irq 118
+isr_stub_irq 119
+isr_stub_irq 120
+isr_stub_irq 121
+isr_stub_irq 122
+isr_stub_irq 123
+isr_stub_irq 124
+isr_stub_irq 125
+isr_stub_irq 126
+isr_stub_irq 127
+isr_stub_irq 128
+isr_stub_irq 129
+isr_stub_irq 130
+isr_stub_irq 131
+isr_stub_irq 132
+isr_stub_irq 133
+isr_stub_irq 134
+isr_stub_irq 135
+isr_stub_irq 136
+isr_stub_irq 137
+isr_stub_irq 138
+isr_stub_irq 139
+isr_stub_irq 140
+isr_stub_irq 141
+isr_stub_irq 142
+isr_stub_irq 143
+isr_stub_irq 144
+isr_stub_irq 145
+isr_stub_irq 146
+isr_stub_irq 147
+isr_stub_irq 148
+isr_stub_irq 149
+isr_stub_irq 150
+isr_stub_irq 151
+isr_stub_irq 152
+isr_stub_irq 153
+isr_stub_irq 154
+isr_stub_irq 155
+isr_stub_irq 156
+isr_stub_irq 157
+isr_stub_irq 158
+isr_stub_irq 159
+isr_stub_irq 160
+isr_stub_irq 161
+isr_stub_irq 162
+isr_stub_irq 163
+isr_stub_irq 164
+isr_stub_irq 165
+isr_stub_irq 166
+isr_stub_irq 167
+isr_stub_irq 168
+isr_stub_irq 169
+isr_stub_irq 170
+isr_stub_irq 171
+isr_stub_irq 172
+isr_stub_irq 173
+isr_stub_irq 174
+isr_stub_irq 175
+isr_stub_irq 176
+isr_stub_irq 177
+isr_stub_irq 178
+isr_stub_irq 179
+isr_stub_irq 180
+isr_stub_irq 181
+isr_stub_irq 182
+isr_stub_irq 183
+isr_stub_irq 184
+isr_stub_irq 185
+isr_stub_irq 186
+isr_stub_irq 187
+isr_stub_irq 188
+isr_stub_irq 189
+isr_stub_irq 190
+isr_stub_irq 191
+isr_stub_irq 192
+isr_stub_irq 193
+isr_stub_irq 194
+isr_stub_irq 195
+isr_stub_irq 196
+isr_stub_irq 197
+isr_stub_irq 198
+isr_stub_irq 199
+isr_stub_irq 200
+isr_stub_irq 201
+isr_stub_irq 202
+isr_stub_irq 203
+isr_stub_irq 204
+isr_stub_irq 205
+isr_stub_irq 206
+isr_stub_irq 207
+isr_stub_irq 208
+isr_stub_irq 209
+isr_stub_irq 210
+isr_stub_irq 211
+isr_stub_irq 212
+isr_stub_irq 213
+isr_stub_irq 214
+isr_stub_irq 215
+isr_stub_irq 216
+isr_stub_irq 217
+isr_stub_irq 218
+isr_stub_irq 219
+isr_stub_irq 220
+isr_stub_irq 221
+isr_stub_irq 222
+isr_stub_irq 223
+isr_stub_irq 224
+isr_stub_irq 225
+isr_stub_irq 226
+isr_stub_irq 227
+isr_stub_irq 228
+isr_stub_irq 229
+isr_stub_irq 230
+isr_stub_irq 231
+isr_stub_irq 232
+isr_stub_irq 233
+isr_stub_irq 234
+isr_stub_irq 235
+isr_stub_irq 236
+isr_stub_irq 237
+isr_stub_irq 238
+isr_stub_irq 239
+isr_stub_irq 240
+isr_stub_irq 241
+isr_stub_irq 242
+isr_stub_irq 243
+isr_stub_irq 244
+isr_stub_irq 245
+isr_stub_irq 246
+isr_stub_irq 247
+
+; Careful changing these! They must match the values in interrupts.h
+isr_stub_ipi 248, sched_hint
+isr_stub_ipi 249, tlb_shootdown
+isr_stub_ipi 250, abort 
+isr_stub_noerr 251 ; NMI
+isr_stub_irq 252 ; LINT0
+isr_stub_irq 253 ; LINT1
+isr_stub_irq 254 ; LAPIC timer
+isr_stub_irq 255 
+; APIC Spurious interrupt vector
 
 extern InterruptHandler
 
 isr_common:
+	push rdi
+	push rsi
+	push rdx
+	push rcx
+	push rax
+	push r8
+	push r9
+	push r10
+	push r11
+
 	mov rdi, rsp
-
-	push r15
-    push r14
-    push r13
-    push r12
-    push r11
-    push r10
-    push r9
-    push r8
-    push rbp
-    push rdi
-    push rsi
-    push rdx
-    push rcx
-    push rbx
-    push rax
-
-    cld
-
 	call InterruptHandler
-
-	mov rdi, rax
 isr_done:
-	mov rsp, rdi
+	pop r11
+	pop r10
+	pop r9
+	pop r8
 	pop rax
-    pop rbx
-    pop rcx
-    pop rdx
-    pop rsi
+	pop rcx
+	pop rdx
+	pop rsi
 	pop rdi
-    pop rbp
-    pop r8
-    pop r9
-    pop r10
-    pop r11
-    pop r12
-    pop r13
-    pop r14
-    pop r15
+	add rsp, 8
 
     iretq
 

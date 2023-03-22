@@ -27,7 +27,7 @@ void memcpy(void* dst, void* src, uint64_t size)
 	uint8_t* dest = (uint8_t*)dst;
 	uint8_t* source = (uint8_t*)src;
 
-	for (int i = 0; i < size; i++)
+	for (uint64_t i = 0; i < size; i++)
 		dest[i] = source[i];
 }
 
@@ -41,10 +41,10 @@ void memsetw(char* dst, uint16_t c, int l)
 {
 	l /= 2;
 
-	uint16_t* dest = (uint16_t*)dest;
+	uint16_t* dest = (uint16_t*)dst;
 
 	for (int i = 0; i < l; i++)
-		dst[i] = c;
+		dest[i] = c;
 }
 
 void Scroll()
@@ -112,6 +112,16 @@ void VGA::seek_to(int _x, int _y)
 	SetCursorPos();
 }
 
+int VGA::get_x()
+{
+	return x;
+}
+
+int VGA::get_y()
+{
+	return y;
+}
+
 void swap(char& c1, char& c2)
 {
 	char tmp = c1;
@@ -131,24 +141,25 @@ void reverse(char* str, int length)
 	}
 }
 
-char* itoa(int val, int base)
-{	
-	static char buf[32] = {0};
+void itoa(char *buf, unsigned long int n, int base)
+{
+    unsigned long int tmp;
+    int i, j;
 
-	if (!val)
-	{
-		buf[0] = '0';
-		buf[1] = '\0';
-		return buf;
-	}
-	
-	int i = 30;
-	
-	for(; val && i ; --i, val /= base)
-	
-		buf[i] = "0123456789abcdef"[val % base];
-	
-	return &buf[i+1];
+    tmp = n;
+    i = 0;
+
+    do {
+        tmp = n % base;
+        buf[i++] = (tmp < 10) ? (tmp + '0') : (tmp + 'a' - 10);
+    } while (n /= base);
+    buf[i--] = 0;
+
+    for (j = 0; j < i; j++, i--) {
+        tmp = buf[j];
+        buf[j] = buf[i];
+        buf[i] = tmp;
+    }
 }
 
 char* ltoa(long val, int base)
@@ -183,13 +194,17 @@ void VGA::vprint_format(const char *fmt, va_list args)
 			case 'd':
 			{
 				int d = va_arg(args, int);
-				puts(itoa(d, 10));
+				char buf[32] = {0};
+				itoa(buf, d, 10);
+				puts(buf);
 				break;
 			}
 			case 'x':
 			{
 				int x = va_arg(args, int);
-				puts(itoa(x, 16));
+				char buf[32] = {0};
+				itoa(buf, x, 16);
+				puts(buf);
 				break;
 			}
 			case 'l':

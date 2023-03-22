@@ -8,6 +8,8 @@ static IDT::IDTDescriptor idtDescriptor;
 
 extern "C" uintptr_t isr_table[256];
 
+IDT::IntFunc lookup_table[256];
+
 void RegisterIDTEntry(int index, uint64_t addr, uint8_t gate_type, uint8_t ist)
 {
 	idt[index].ist = ist;
@@ -21,10 +23,19 @@ void RegisterIDTEntry(int index, uint64_t addr, uint8_t gate_type, uint8_t ist)
 
 extern "C" IDT::registers_t* InterruptHandler(IDT::registers_t* r)
 {
-	printf("Unhandled interrupt %d at 0x%x!\n", r->int_no, r->rip);
+	uint8_t int_no = r->info & 0xFF;
 
-	asm volatile("cli");
-	for (;;);
+	if (!lookup_table[int_no])
+	{
+		printf("[IDT]: Unhandled interrupt %d\n", int_no);
+		asm volatile("cli");
+		for(;;)
+			asm volatile("hlt");
+	}
+
+	lookup_table[int_no]();
+
+	return r;
 }
 
 void IDT::Init()
@@ -37,4 +48,9 @@ void IDT::Init()
 	
 	asm volatile("lidt %0" :: "m"(idtDescriptor));
 	asm volatile("sti");
+}
+
+void IDT::RegisterEntry(int interrupt, IntFunc func)
+{
+	lookup_table[interrupt] = func;
 }

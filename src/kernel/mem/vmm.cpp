@@ -26,27 +26,9 @@ struct PageMapLevel4
 	pml4_entry entries[512];
 };
 
-struct flags
-{
-    enum : uint64_t
-    {
-        present = 1,
-        writable = 2,
-        user_mode = 4,
-        write_through = 8,
-        cache_disable = 16,
-        accessed = 32,
-        dirty = 64,
-        attribute_ext = 128,
-        big_page = 128,
-        huge_page = 128,
-        global = 256,
-    };
-};
-
 PageMapLevel4* top_level = nullptr;
 
-void MapPage(uint64_t phys, uint64_t virt, int flags)
+void  VirtualMemory::MapPage(uint64_t phys, uint64_t virt, int flags)
 {
 	uint64_t pml4_index = (virt >> 39) & 0x1FF;
 	uint64_t pdpt_index = (virt >> 30) & 0x1FF;
@@ -71,24 +53,33 @@ void MapPage(uint64_t phys, uint64_t virt, int flags)
 	pagetable->entries[pt_index] = phys | flags;
 }
 
-void MapPage(uint64_t phys, uint64_t virt, uint64_t count, int flags)
+void VirtualMemory::MapPage(uint64_t phys, uint64_t virt, uint64_t count, int flags)
 {
 	for (size_t i = 0; i < count; i++)
 		MapPage(phys+(i*0x1000), virt+(i*0x1000), flags);
 }
 
+#define FOUR_MEGS (1024*1024*4)
+
 void VirtualMemory::Initialize()
 {
 	top_level = (PageMapLevel4*)PhysicalMemory::AllocPages(sizeof(PageMapLevel4) / 0x1000);
-
+	
 	// Map the kernel
-	MapPage(0, 0xffffffff80000000, 0xC000, flags::present | flags::writable);
-
+	MapPage(0, 0xffffffff80000000, 0x50000, flags::present | flags::writable);
+	
 	// Map VGA
 	MapPage(0xB8000, 0xB8000, flags::present | flags::writable);
 
+	// Identity map the bottom 2MiB, and mirror it to 0xffff800000000000
+	for (int i = 0; i < (FOUR_MEGS / 0x1000); i++)
+	{
+		uint64_t addr = i * 0x1000;
+		MapPage(addr, addr, flags::present | flags::writable);
+	}
+
 	// Find and map the heap
-	MapPage((uint64_t)PhysicalMemory::AllocPages(HEAP_SIZE / 0x1000), HEAP_BEGIN, HEAP_SIZE / 0x1000, flags::present | flags::writable);
+	MapPage((uint64_t)PhysicalMemory::AllocPages(HEAP_SIZE / 0x1000), HEAP_BEGIN, ALIGN(HEAP_SIZE / 0x1000, 0x1000), flags::present | flags::writable);
 
 	asm volatile("mov %0, %%cr3\n\t" :: "r"(top_level) : "memory");
 }

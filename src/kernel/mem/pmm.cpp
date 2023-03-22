@@ -4,9 +4,6 @@
 #include <stddef.h>
 #include "pmm.h"
 
-#define __ALIGN_MASK(x,mask)    (((x)+(mask))&~(mask))
-#define ALIGN(x,a)              __ALIGN_MASK(x,(__typeof__(x))(a)-1)
-
 Bitmap bitmap;
 static uintptr_t highest_addr = 0;
 static size_t lastI = 0;
@@ -49,7 +46,7 @@ void *PhysicalMemory::AllocPages(size_t count)
 		}
 	}
 
-	for (int i = 0; i < count * 0x1000; i++)
+	for (uint64_t i = 0; i < count * 0x1000; i++)
 		*(reinterpret_cast<uint8_t*>(ret)) = 0;
 	
 	usedRam += count * 0x1000;
