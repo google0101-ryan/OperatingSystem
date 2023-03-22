@@ -2,6 +2,10 @@
 
 #include <stdint.h>
 #include <stivale2.h>
+#include <stddef.h>
+
+#define HEAP_SIZE 32*1024
+#define HEAP_BEGIN 0xffffa00000000000
 
 namespace PhysicalMemory
 {

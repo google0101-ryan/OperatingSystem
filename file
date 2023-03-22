@@ -1,0 +1,3206 @@
+
+kernel.elf:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+ffffffff80202000 <_ZN6BitmapixEm>:
+ffffffff80202000:	f3 0f 1e fa          	endbr64 
+ffffffff80202004:	55                   	push   %rbp
+ffffffff80202005:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202008:	48 83 ec 10          	sub    $0x10,%rsp
+ffffffff8020200c:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+ffffffff80202010:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+ffffffff80202014:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80202018:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff8020201c:	48 89 d6             	mov    %rdx,%rsi
+ffffffff8020201f:	48 89 c7             	mov    %rax,%rdi
+ffffffff80202022:	e8 a5 00 00 00       	call   ffffffff802020cc <_ZN6Bitmap3GetEm>
+ffffffff80202027:	c9                   	leave  
+ffffffff80202028:	c3                   	ret    
+ffffffff80202029:	90                   	nop
+
+ffffffff8020202a <_ZN6Bitmap3SetEmb>:
+ffffffff8020202a:	f3 0f 1e fa          	endbr64 
+ffffffff8020202e:	55                   	push   %rbp
+ffffffff8020202f:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202032:	48 83 ec 28          	sub    $0x28,%rsp
+ffffffff80202036:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff8020203a:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff8020203e:	89 d0                	mov    %edx,%eax
+ffffffff80202040:	88 45 dc             	mov    %al,-0x24(%rbp)
+ffffffff80202043:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff80202047:	48 c1 e8 03          	shr    $0x3,%rax
+ffffffff8020204b:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff8020204f:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff80202053:	83 e0 07             	and    $0x7,%eax
+ffffffff80202056:	88 45 f7             	mov    %al,-0x9(%rbp)
+ffffffff80202059:	0f b6 45 f7          	movzbl -0x9(%rbp),%eax
+ffffffff8020205d:	ba 80 00 00 00       	mov    $0x80,%edx
+ffffffff80202062:	89 c1                	mov    %eax,%ecx
+ffffffff80202064:	d3 fa                	sar    %cl,%edx
+ffffffff80202066:	89 d0                	mov    %edx,%eax
+ffffffff80202068:	88 45 f6             	mov    %al,-0xa(%rbp)
+ffffffff8020206b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020206f:	48 8b 10             	mov    (%rax),%rdx
+ffffffff80202072:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202076:	48 01 d0             	add    %rdx,%rax
+ffffffff80202079:	0f b6 00             	movzbl (%rax),%eax
+ffffffff8020207c:	89 c2                	mov    %eax,%edx
+ffffffff8020207e:	0f b6 45 f6          	movzbl -0xa(%rbp),%eax
+ffffffff80202082:	f7 d0                	not    %eax
+ffffffff80202084:	89 d1                	mov    %edx,%ecx
+ffffffff80202086:	21 c1                	and    %eax,%ecx
+ffffffff80202088:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020208c:	48 8b 10             	mov    (%rax),%rdx
+ffffffff8020208f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202093:	48 01 d0             	add    %rdx,%rax
+ffffffff80202096:	89 ca                	mov    %ecx,%edx
+ffffffff80202098:	88 10                	mov    %dl,(%rax)
+ffffffff8020209a:	80 7d dc 00          	cmpb   $0x0,-0x24(%rbp)
+ffffffff8020209e:	74 24                	je     ffffffff802020c4 <_ZN6Bitmap3SetEmb+0x9a>
+ffffffff802020a0:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802020a4:	48 8b 10             	mov    (%rax),%rdx
+ffffffff802020a7:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff802020ab:	48 01 d0             	add    %rdx,%rax
+ffffffff802020ae:	0f b6 00             	movzbl (%rax),%eax
+ffffffff802020b1:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ffffffff802020b5:	48 8b 0a             	mov    (%rdx),%rcx
+ffffffff802020b8:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff802020bc:	48 01 ca             	add    %rcx,%rdx
+ffffffff802020bf:	0a 45 f6             	or     -0xa(%rbp),%al
+ffffffff802020c2:	88 02                	mov    %al,(%rdx)
+ffffffff802020c4:	b8 01 00 00 00       	mov    $0x1,%eax
+ffffffff802020c9:	c9                   	leave  
+ffffffff802020ca:	c3                   	ret    
+ffffffff802020cb:	90                   	nop
+
+ffffffff802020cc <_ZN6Bitmap3GetEm>:
+ffffffff802020cc:	f3 0f 1e fa          	endbr64 
+ffffffff802020d0:	55                   	push   %rbp
+ffffffff802020d1:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802020d4:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff802020d8:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff802020dc:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff802020e0:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff802020e4:	48 c1 e8 03          	shr    $0x3,%rax
+ffffffff802020e8:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff802020ec:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff802020f0:	83 e0 07             	and    $0x7,%eax
+ffffffff802020f3:	88 45 f7             	mov    %al,-0x9(%rbp)
+ffffffff802020f6:	0f b6 45 f7          	movzbl -0x9(%rbp),%eax
+ffffffff802020fa:	ba 80 00 00 00       	mov    $0x80,%edx
+ffffffff802020ff:	89 c1                	mov    %eax,%ecx
+ffffffff80202101:	d3 fa                	sar    %cl,%edx
+ffffffff80202103:	89 d0                	mov    %edx,%eax
+ffffffff80202105:	88 45 f6             	mov    %al,-0xa(%rbp)
+ffffffff80202108:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020210c:	48 8b 10             	mov    (%rax),%rdx
+ffffffff8020210f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202113:	48 01 d0             	add    %rdx,%rax
+ffffffff80202116:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80202119:	22 45 f6             	and    -0xa(%rbp),%al
+ffffffff8020211c:	84 c0                	test   %al,%al
+ffffffff8020211e:	74 07                	je     ffffffff80202127 <_ZN6Bitmap3GetEm+0x5b>
+ffffffff80202120:	b8 01 00 00 00       	mov    $0x1,%eax
+ffffffff80202125:	eb 05                	jmp    ffffffff8020212c <_ZN6Bitmap3GetEm+0x60>
+ffffffff80202127:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff8020212c:	c9                   	leave  
+ffffffff8020212d:	c3                   	ret    
+
+ffffffff8020212e <_ZN3GDT4InitEv>:
+ffffffff8020212e:	f3 0f 1e fa          	endbr64 
+ffffffff80202132:	55                   	push   %rbp
+ffffffff80202133:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202136:	66 c7 05 c1 3e 00 00 	movw   $0x0,0x3ec1(%rip)        # ffffffff80206000 <_ZL3gdt>
+ffffffff8020213d:	00 00 
+ffffffff8020213f:	66 c7 05 ba 3e 00 00 	movw   $0x0,0x3eba(%rip)        # ffffffff80206002 <_ZL3gdt+0x2>
+ffffffff80202146:	00 00 
+ffffffff80202148:	c6 05 b5 3e 00 00 00 	movb   $0x0,0x3eb5(%rip)        # ffffffff80206004 <_ZL3gdt+0x4>
+ffffffff8020214f:	c6 05 af 3e 00 00 00 	movb   $0x0,0x3eaf(%rip)        # ffffffff80206005 <_ZL3gdt+0x5>
+ffffffff80202156:	c6 05 a9 3e 00 00 00 	movb   $0x0,0x3ea9(%rip)        # ffffffff80206006 <_ZL3gdt+0x6>
+ffffffff8020215d:	c6 05 a3 3e 00 00 00 	movb   $0x0,0x3ea3(%rip)        # ffffffff80206007 <_ZL3gdt+0x7>
+ffffffff80202164:	66 c7 05 9b 3e 00 00 	movw   $0x0,0x3e9b(%rip)        # ffffffff80206008 <_ZL3gdt+0x8>
+ffffffff8020216b:	00 00 
+ffffffff8020216d:	66 c7 05 94 3e 00 00 	movw   $0x0,0x3e94(%rip)        # ffffffff8020600a <_ZL3gdt+0xa>
+ffffffff80202174:	00 00 
+ffffffff80202176:	c6 05 8f 3e 00 00 00 	movb   $0x0,0x3e8f(%rip)        # ffffffff8020600c <_ZL3gdt+0xc>
+ffffffff8020217d:	c6 05 89 3e 00 00 9a 	movb   $0x9a,0x3e89(%rip)        # ffffffff8020600d <_ZL3gdt+0xd>
+ffffffff80202184:	c6 05 83 3e 00 00 20 	movb   $0x20,0x3e83(%rip)        # ffffffff8020600e <_ZL3gdt+0xe>
+ffffffff8020218b:	c6 05 7d 3e 00 00 00 	movb   $0x0,0x3e7d(%rip)        # ffffffff8020600f <_ZL3gdt+0xf>
+ffffffff80202192:	66 c7 05 75 3e 00 00 	movw   $0x0,0x3e75(%rip)        # ffffffff80206010 <_ZL3gdt+0x10>
+ffffffff80202199:	00 00 
+ffffffff8020219b:	66 c7 05 6e 3e 00 00 	movw   $0x0,0x3e6e(%rip)        # ffffffff80206012 <_ZL3gdt+0x12>
+ffffffff802021a2:	00 00 
+ffffffff802021a4:	c6 05 69 3e 00 00 00 	movb   $0x0,0x3e69(%rip)        # ffffffff80206014 <_ZL3gdt+0x14>
+ffffffff802021ab:	c6 05 63 3e 00 00 92 	movb   $0x92,0x3e63(%rip)        # ffffffff80206015 <_ZL3gdt+0x15>
+ffffffff802021b2:	c6 05 5d 3e 00 00 00 	movb   $0x0,0x3e5d(%rip)        # ffffffff80206016 <_ZL3gdt+0x16>
+ffffffff802021b9:	c6 05 57 3e 00 00 00 	movb   $0x0,0x3e57(%rip)        # ffffffff80206017 <_ZL3gdt+0x17>
+ffffffff802021c0:	66 c7 05 4f 3e 00 00 	movw   $0x0,0x3e4f(%rip)        # ffffffff80206018 <_ZL3gdt+0x18>
+ffffffff802021c7:	00 00 
+ffffffff802021c9:	66 c7 05 48 3e 00 00 	movw   $0x0,0x3e48(%rip)        # ffffffff8020601a <_ZL3gdt+0x1a>
+ffffffff802021d0:	00 00 
+ffffffff802021d2:	c6 05 43 3e 00 00 00 	movb   $0x0,0x3e43(%rip)        # ffffffff8020601c <_ZL3gdt+0x1c>
+ffffffff802021d9:	c6 05 3d 3e 00 00 fa 	movb   $0xfa,0x3e3d(%rip)        # ffffffff8020601d <_ZL3gdt+0x1d>
+ffffffff802021e0:	c6 05 37 3e 00 00 20 	movb   $0x20,0x3e37(%rip)        # ffffffff8020601e <_ZL3gdt+0x1e>
+ffffffff802021e7:	c6 05 31 3e 00 00 00 	movb   $0x0,0x3e31(%rip)        # ffffffff8020601f <_ZL3gdt+0x1f>
+ffffffff802021ee:	66 c7 05 21 3e 00 00 	movw   $0x0,0x3e21(%rip)        # ffffffff80206018 <_ZL3gdt+0x18>
+ffffffff802021f5:	00 00 
+ffffffff802021f7:	66 c7 05 1a 3e 00 00 	movw   $0x0,0x3e1a(%rip)        # ffffffff8020601a <_ZL3gdt+0x1a>
+ffffffff802021fe:	00 00 
+ffffffff80202200:	c6 05 15 3e 00 00 00 	movb   $0x0,0x3e15(%rip)        # ffffffff8020601c <_ZL3gdt+0x1c>
+ffffffff80202207:	c6 05 0f 3e 00 00 f2 	movb   $0xf2,0x3e0f(%rip)        # ffffffff8020601d <_ZL3gdt+0x1d>
+ffffffff8020220e:	c6 05 09 3e 00 00 00 	movb   $0x0,0x3e09(%rip)        # ffffffff8020601e <_ZL3gdt+0x1e>
+ffffffff80202215:	c6 05 03 3e 00 00 00 	movb   $0x0,0x3e03(%rip)        # ffffffff8020601f <_ZL3gdt+0x1f>
+ffffffff8020221c:	66 c7 05 03 3e 00 00 	movw   $0x68,0x3e03(%rip)        # ffffffff80206028 <_ZL3gdt+0x28>
+ffffffff80202223:	68 00 
+ffffffff80202225:	66 c7 05 fc 3d 00 00 	movw   $0x0,0x3dfc(%rip)        # ffffffff8020602a <_ZL3gdt+0x2a>
+ffffffff8020222c:	00 00 
+ffffffff8020222e:	c6 05 f7 3d 00 00 00 	movb   $0x0,0x3df7(%rip)        # ffffffff8020602c <_ZL3gdt+0x2c>
+ffffffff80202235:	c6 05 f1 3d 00 00 89 	movb   $0x89,0x3df1(%rip)        # ffffffff8020602d <_ZL3gdt+0x2d>
+ffffffff8020223c:	c6 05 eb 3d 00 00 00 	movb   $0x0,0x3deb(%rip)        # ffffffff8020602e <_ZL3gdt+0x2e>
+ffffffff80202243:	c6 05 e5 3d 00 00 00 	movb   $0x0,0x3de5(%rip)        # ffffffff8020602f <_ZL3gdt+0x2f>
+ffffffff8020224a:	c7 05 dc 3d 00 00 00 	movl   $0x0,0x3ddc(%rip)        # ffffffff80206030 <_ZL3gdt+0x30>
+ffffffff80202251:	00 00 00 
+ffffffff80202254:	c7 05 d6 3d 00 00 00 	movl   $0x0,0x3dd6(%rip)        # ffffffff80206034 <_ZL3gdt+0x34>
+ffffffff8020225b:	00 00 00 
+ffffffff8020225e:	66 c7 05 d1 3d 00 00 	movw   $0x37,0x3dd1(%rip)        # ffffffff80206038 <_ZL13gdtDescriptor>
+ffffffff80202265:	37 00 
+ffffffff80202267:	48 c7 c0 00 60 20 80 	mov    $0xffffffff80206000,%rax
+ffffffff8020226e:	48 89 05 c5 3d 00 00 	mov    %rax,0x3dc5(%rip)        # ffffffff8020603a <_ZL13gdtDescriptor+0x2>
+ffffffff80202275:	48 c7 c0 38 60 20 80 	mov    $0xffffffff80206038,%rax
+ffffffff8020227c:	48 89 c7             	mov    %rax,%rdi
+ffffffff8020227f:	e8 0c 00 00 00       	call   ffffffff80202290 <loadGdt>
+ffffffff80202284:	90                   	nop
+ffffffff80202285:	5d                   	pop    %rbp
+ffffffff80202286:	c3                   	ret    
+ffffffff80202287:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ffffffff8020228e:	00 00 
+
+ffffffff80202290 <loadGdt>:
+ffffffff80202290:	0f 01 17             	lgdt   (%rdi)
+ffffffff80202293:	66 b8 10 00          	mov    $0x10,%ax
+ffffffff80202297:	8e d8                	mov    %eax,%ds
+ffffffff80202299:	8e d0                	mov    %eax,%ss
+ffffffff8020229b:	8e e0                	mov    %eax,%fs
+ffffffff8020229d:	8e e8                	mov    %eax,%gs
+ffffffff8020229f:	8e c0                	mov    %eax,%es
+ffffffff802022a1:	5f                   	pop    %rdi
+ffffffff802022a2:	6a 08                	push   $0x8
+ffffffff802022a4:	57                   	push   %rdi
+ffffffff802022a5:	48 cb                	lretq  
+
+ffffffff802022a7 <_Z16RegisterIDTEntryimhh>:
+ffffffff802022a7:	f3 0f 1e fa          	endbr64 
+ffffffff802022ab:	55                   	push   %rbp
+ffffffff802022ac:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802022af:	48 83 ec 18          	sub    $0x18,%rsp
+ffffffff802022b3:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ffffffff802022b6:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+ffffffff802022ba:	89 c8                	mov    %ecx,%eax
+ffffffff802022bc:	88 55 f8             	mov    %dl,-0x8(%rbp)
+ffffffff802022bf:	88 45 ec             	mov    %al,-0x14(%rbp)
+ffffffff802022c2:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802022c5:	48 98                	cltq   
+ffffffff802022c7:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff802022cb:	48 8d 90 64 60 20 80 	lea    -0x7fdf9f9c(%rax),%rdx
+ffffffff802022d2:	0f b6 45 ec          	movzbl -0x14(%rbp),%eax
+ffffffff802022d6:	88 02                	mov    %al,(%rdx)
+ffffffff802022d8:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802022db:	48 98                	cltq   
+ffffffff802022dd:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff802022e1:	48 05 62 60 20 80    	add    $0xffffffff80206062,%rax
+ffffffff802022e7:	66 c7 00 08 00       	movw   $0x8,(%rax)
+ffffffff802022ec:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802022ef:	48 98                	cltq   
+ffffffff802022f1:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff802022f5:	48 8d 90 65 60 20 80 	lea    -0x7fdf9f9b(%rax),%rdx
+ffffffff802022fc:	0f b6 45 f8          	movzbl -0x8(%rbp),%eax
+ffffffff80202300:	88 02                	mov    %al,(%rdx)
+ffffffff80202302:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80202305:	48 98                	cltq   
+ffffffff80202307:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff8020230b:	48 05 6c 60 20 80    	add    $0xffffffff8020606c,%rax
+ffffffff80202311:	c7 00 00 00 00 00    	movl   $0x0,(%rax)
+ffffffff80202317:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff8020231b:	89 c2                	mov    %eax,%edx
+ffffffff8020231d:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80202320:	48 98                	cltq   
+ffffffff80202322:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff80202326:	48 05 60 60 20 80    	add    $0xffffffff80206060,%rax
+ffffffff8020232c:	66 89 10             	mov    %dx,(%rax)
+ffffffff8020232f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff80202333:	48 c1 e8 10          	shr    $0x10,%rax
+ffffffff80202337:	89 c2                	mov    %eax,%edx
+ffffffff80202339:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff8020233c:	48 98                	cltq   
+ffffffff8020233e:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff80202342:	48 05 66 60 20 80    	add    $0xffffffff80206066,%rax
+ffffffff80202348:	66 89 10             	mov    %dx,(%rax)
+ffffffff8020234b:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff8020234f:	48 c1 e8 20          	shr    $0x20,%rax
+ffffffff80202353:	89 c2                	mov    %eax,%edx
+ffffffff80202355:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80202358:	48 98                	cltq   
+ffffffff8020235a:	48 c1 e0 04          	shl    $0x4,%rax
+ffffffff8020235e:	48 05 68 60 20 80    	add    $0xffffffff80206068,%rax
+ffffffff80202364:	89 10                	mov    %edx,(%rax)
+ffffffff80202366:	90                   	nop
+ffffffff80202367:	c9                   	leave  
+ffffffff80202368:	c3                   	ret    
+
+ffffffff80202369 <InterruptHandler>:
+ffffffff80202369:	f3 0f 1e fa          	endbr64 
+ffffffff8020236d:	55                   	push   %rbp
+ffffffff8020236e:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202371:	48 83 ec 10          	sub    $0x10,%rsp
+ffffffff80202375:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+ffffffff80202379:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff8020237d:	48 8b 90 88 00 00 00 	mov    0x88(%rax),%rdx
+ffffffff80202384:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202388:	48 8b 40 78          	mov    0x78(%rax),%rax
+ffffffff8020238c:	48 89 c6             	mov    %rax,%rsi
+ffffffff8020238f:	48 c7 c7 00 10 20 80 	mov    $0xffffffff80201000,%rdi
+ffffffff80202396:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff8020239b:	e8 34 1b 00 00       	call   ffffffff80203ed4 <_ZN3VGA12print_formatEPKcz>
+ffffffff802023a0:	fa                   	cli    
+ffffffff802023a1:	eb fe                	jmp    ffffffff802023a1 <InterruptHandler+0x38>
+
+ffffffff802023a3 <_ZN3IDT4InitEv>:
+ffffffff802023a3:	f3 0f 1e fa          	endbr64 
+ffffffff802023a7:	55                   	push   %rbp
+ffffffff802023a8:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802023ab:	48 83 ec 10          	sub    $0x10,%rsp
+ffffffff802023af:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff802023b6:	eb 25                	jmp    ffffffff802023dd <_ZN3IDT4InitEv+0x3a>
+ffffffff802023b8:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802023bb:	48 98                	cltq   
+ffffffff802023bd:	48 8b 34 c5 00 50 20 	mov    -0x7fdfb000(,%rax,8),%rsi
+ffffffff802023c4:	80 
+ffffffff802023c5:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802023c8:	b9 00 00 00 00       	mov    $0x0,%ecx
+ffffffff802023cd:	ba 8e 00 00 00       	mov    $0x8e,%edx
+ffffffff802023d2:	89 c7                	mov    %eax,%edi
+ffffffff802023d4:	e8 ce fe ff ff       	call   ffffffff802022a7 <_Z16RegisterIDTEntryimhh>
+ffffffff802023d9:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff802023dd:	81 7d fc ff 00 00 00 	cmpl   $0xff,-0x4(%rbp)
+ffffffff802023e4:	7e d2                	jle    ffffffff802023b8 <_ZN3IDT4InitEv+0x15>
+ffffffff802023e6:	48 c7 c0 60 60 20 80 	mov    $0xffffffff80206060,%rax
+ffffffff802023ed:	48 89 05 6e 4c 00 00 	mov    %rax,0x4c6e(%rip)        # ffffffff80207062 <_ZL13idtDescriptor+0x2>
+ffffffff802023f4:	66 c7 05 63 4c 00 00 	movw   $0xfff,0x4c63(%rip)        # ffffffff80207060 <_ZL13idtDescriptor>
+ffffffff802023fb:	ff 0f 
+ffffffff802023fd:	0f 01 1d 5c 4c 00 00 	lidt   0x4c5c(%rip)        # ffffffff80207060 <_ZL13idtDescriptor>
+ffffffff80202404:	fb                   	sti    
+ffffffff80202405:	90                   	nop
+ffffffff80202406:	c9                   	leave  
+ffffffff80202407:	c3                   	ret    
+ffffffff80202408:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ffffffff8020240f:	00 
+
+ffffffff80202410 <isr0>:
+ffffffff80202410:	fa                   	cli    
+ffffffff80202411:	6a 00                	push   $0x0
+ffffffff80202413:	6a 00                	push   $0x0
+ffffffff80202415:	e9 48 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020241a <isr1>:
+ffffffff8020241a:	fa                   	cli    
+ffffffff8020241b:	6a 00                	push   $0x0
+ffffffff8020241d:	6a 01                	push   $0x1
+ffffffff8020241f:	e9 3e 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202424 <isr2>:
+ffffffff80202424:	fa                   	cli    
+ffffffff80202425:	6a 00                	push   $0x0
+ffffffff80202427:	6a 02                	push   $0x2
+ffffffff80202429:	e9 34 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020242e <isr3>:
+ffffffff8020242e:	fa                   	cli    
+ffffffff8020242f:	6a 00                	push   $0x0
+ffffffff80202431:	6a 03                	push   $0x3
+ffffffff80202433:	e9 2a 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202438 <isr4>:
+ffffffff80202438:	fa                   	cli    
+ffffffff80202439:	6a 00                	push   $0x0
+ffffffff8020243b:	6a 04                	push   $0x4
+ffffffff8020243d:	e9 20 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202442 <isr5>:
+ffffffff80202442:	fa                   	cli    
+ffffffff80202443:	6a 00                	push   $0x0
+ffffffff80202445:	6a 05                	push   $0x5
+ffffffff80202447:	e9 16 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020244c <isr6>:
+ffffffff8020244c:	fa                   	cli    
+ffffffff8020244d:	6a 00                	push   $0x0
+ffffffff8020244f:	6a 06                	push   $0x6
+ffffffff80202451:	e9 0c 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202456 <isr7>:
+ffffffff80202456:	fa                   	cli    
+ffffffff80202457:	6a 00                	push   $0x0
+ffffffff80202459:	6a 07                	push   $0x7
+ffffffff8020245b:	e9 02 0b 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202460 <isr8>:
+ffffffff80202460:	fa                   	cli    
+ffffffff80202461:	90                   	nop
+ffffffff80202462:	6a 08                	push   $0x8
+ffffffff80202464:	e9 f9 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202469 <isr9>:
+ffffffff80202469:	fa                   	cli    
+ffffffff8020246a:	6a 00                	push   $0x0
+ffffffff8020246c:	6a 09                	push   $0x9
+ffffffff8020246e:	e9 ef 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202473 <isr10>:
+ffffffff80202473:	fa                   	cli    
+ffffffff80202474:	90                   	nop
+ffffffff80202475:	6a 0a                	push   $0xa
+ffffffff80202477:	e9 e6 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020247c <isr11>:
+ffffffff8020247c:	fa                   	cli    
+ffffffff8020247d:	90                   	nop
+ffffffff8020247e:	6a 0b                	push   $0xb
+ffffffff80202480:	e9 dd 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202485 <isr12>:
+ffffffff80202485:	fa                   	cli    
+ffffffff80202486:	90                   	nop
+ffffffff80202487:	6a 0c                	push   $0xc
+ffffffff80202489:	e9 d4 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020248e <isr13>:
+ffffffff8020248e:	fa                   	cli    
+ffffffff8020248f:	90                   	nop
+ffffffff80202490:	6a 0d                	push   $0xd
+ffffffff80202492:	e9 cb 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202497 <isr14>:
+ffffffff80202497:	fa                   	cli    
+ffffffff80202498:	90                   	nop
+ffffffff80202499:	6a 0e                	push   $0xe
+ffffffff8020249b:	e9 c2 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024a0 <isr15>:
+ffffffff802024a0:	fa                   	cli    
+ffffffff802024a1:	6a 00                	push   $0x0
+ffffffff802024a3:	6a 0f                	push   $0xf
+ffffffff802024a5:	e9 b8 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024aa <isr16>:
+ffffffff802024aa:	fa                   	cli    
+ffffffff802024ab:	6a 00                	push   $0x0
+ffffffff802024ad:	6a 10                	push   $0x10
+ffffffff802024af:	e9 ae 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024b4 <isr17>:
+ffffffff802024b4:	fa                   	cli    
+ffffffff802024b5:	90                   	nop
+ffffffff802024b6:	6a 11                	push   $0x11
+ffffffff802024b8:	e9 a5 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024bd <isr18>:
+ffffffff802024bd:	fa                   	cli    
+ffffffff802024be:	6a 00                	push   $0x0
+ffffffff802024c0:	6a 12                	push   $0x12
+ffffffff802024c2:	e9 9b 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024c7 <isr19>:
+ffffffff802024c7:	fa                   	cli    
+ffffffff802024c8:	6a 00                	push   $0x0
+ffffffff802024ca:	6a 13                	push   $0x13
+ffffffff802024cc:	e9 91 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024d1 <isr20>:
+ffffffff802024d1:	fa                   	cli    
+ffffffff802024d2:	6a 00                	push   $0x0
+ffffffff802024d4:	6a 14                	push   $0x14
+ffffffff802024d6:	e9 87 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024db <isr21>:
+ffffffff802024db:	fa                   	cli    
+ffffffff802024dc:	6a 00                	push   $0x0
+ffffffff802024de:	6a 15                	push   $0x15
+ffffffff802024e0:	e9 7d 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024e5 <isr22>:
+ffffffff802024e5:	fa                   	cli    
+ffffffff802024e6:	6a 00                	push   $0x0
+ffffffff802024e8:	6a 16                	push   $0x16
+ffffffff802024ea:	e9 73 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024ef <isr23>:
+ffffffff802024ef:	fa                   	cli    
+ffffffff802024f0:	6a 00                	push   $0x0
+ffffffff802024f2:	6a 17                	push   $0x17
+ffffffff802024f4:	e9 69 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802024f9 <isr24>:
+ffffffff802024f9:	fa                   	cli    
+ffffffff802024fa:	6a 00                	push   $0x0
+ffffffff802024fc:	6a 18                	push   $0x18
+ffffffff802024fe:	e9 5f 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202503 <isr25>:
+ffffffff80202503:	fa                   	cli    
+ffffffff80202504:	6a 00                	push   $0x0
+ffffffff80202506:	6a 19                	push   $0x19
+ffffffff80202508:	e9 55 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020250d <isr26>:
+ffffffff8020250d:	fa                   	cli    
+ffffffff8020250e:	6a 00                	push   $0x0
+ffffffff80202510:	6a 1a                	push   $0x1a
+ffffffff80202512:	e9 4b 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202517 <isr27>:
+ffffffff80202517:	fa                   	cli    
+ffffffff80202518:	6a 00                	push   $0x0
+ffffffff8020251a:	6a 1b                	push   $0x1b
+ffffffff8020251c:	e9 41 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202521 <isr28>:
+ffffffff80202521:	fa                   	cli    
+ffffffff80202522:	6a 00                	push   $0x0
+ffffffff80202524:	6a 1c                	push   $0x1c
+ffffffff80202526:	e9 37 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020252b <isr29>:
+ffffffff8020252b:	fa                   	cli    
+ffffffff8020252c:	6a 00                	push   $0x0
+ffffffff8020252e:	6a 1d                	push   $0x1d
+ffffffff80202530:	e9 2d 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202535 <isr30>:
+ffffffff80202535:	fa                   	cli    
+ffffffff80202536:	6a 00                	push   $0x0
+ffffffff80202538:	6a 1e                	push   $0x1e
+ffffffff8020253a:	e9 23 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020253f <isr31>:
+ffffffff8020253f:	fa                   	cli    
+ffffffff80202540:	6a 00                	push   $0x0
+ffffffff80202542:	6a 1f                	push   $0x1f
+ffffffff80202544:	e9 19 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202549 <isr32>:
+ffffffff80202549:	fa                   	cli    
+ffffffff8020254a:	6a 00                	push   $0x0
+ffffffff8020254c:	6a 20                	push   $0x20
+ffffffff8020254e:	e9 0f 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202553 <isr33>:
+ffffffff80202553:	fa                   	cli    
+ffffffff80202554:	6a 00                	push   $0x0
+ffffffff80202556:	6a 21                	push   $0x21
+ffffffff80202558:	e9 05 0a 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020255d <isr34>:
+ffffffff8020255d:	fa                   	cli    
+ffffffff8020255e:	6a 00                	push   $0x0
+ffffffff80202560:	6a 22                	push   $0x22
+ffffffff80202562:	e9 fb 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202567 <isr35>:
+ffffffff80202567:	fa                   	cli    
+ffffffff80202568:	6a 00                	push   $0x0
+ffffffff8020256a:	6a 23                	push   $0x23
+ffffffff8020256c:	e9 f1 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202571 <isr36>:
+ffffffff80202571:	fa                   	cli    
+ffffffff80202572:	6a 00                	push   $0x0
+ffffffff80202574:	6a 24                	push   $0x24
+ffffffff80202576:	e9 e7 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020257b <isr37>:
+ffffffff8020257b:	fa                   	cli    
+ffffffff8020257c:	6a 00                	push   $0x0
+ffffffff8020257e:	6a 25                	push   $0x25
+ffffffff80202580:	e9 dd 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202585 <isr38>:
+ffffffff80202585:	fa                   	cli    
+ffffffff80202586:	6a 00                	push   $0x0
+ffffffff80202588:	6a 26                	push   $0x26
+ffffffff8020258a:	e9 d3 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020258f <isr39>:
+ffffffff8020258f:	fa                   	cli    
+ffffffff80202590:	6a 00                	push   $0x0
+ffffffff80202592:	6a 27                	push   $0x27
+ffffffff80202594:	e9 c9 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202599 <isr40>:
+ffffffff80202599:	fa                   	cli    
+ffffffff8020259a:	6a 00                	push   $0x0
+ffffffff8020259c:	6a 28                	push   $0x28
+ffffffff8020259e:	e9 bf 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025a3 <isr41>:
+ffffffff802025a3:	fa                   	cli    
+ffffffff802025a4:	6a 00                	push   $0x0
+ffffffff802025a6:	6a 29                	push   $0x29
+ffffffff802025a8:	e9 b5 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025ad <isr42>:
+ffffffff802025ad:	fa                   	cli    
+ffffffff802025ae:	6a 00                	push   $0x0
+ffffffff802025b0:	6a 2a                	push   $0x2a
+ffffffff802025b2:	e9 ab 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025b7 <isr43>:
+ffffffff802025b7:	fa                   	cli    
+ffffffff802025b8:	6a 00                	push   $0x0
+ffffffff802025ba:	6a 2b                	push   $0x2b
+ffffffff802025bc:	e9 a1 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025c1 <isr44>:
+ffffffff802025c1:	fa                   	cli    
+ffffffff802025c2:	6a 00                	push   $0x0
+ffffffff802025c4:	6a 2c                	push   $0x2c
+ffffffff802025c6:	e9 97 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025cb <isr45>:
+ffffffff802025cb:	fa                   	cli    
+ffffffff802025cc:	6a 00                	push   $0x0
+ffffffff802025ce:	6a 2d                	push   $0x2d
+ffffffff802025d0:	e9 8d 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025d5 <isr46>:
+ffffffff802025d5:	fa                   	cli    
+ffffffff802025d6:	6a 00                	push   $0x0
+ffffffff802025d8:	6a 2e                	push   $0x2e
+ffffffff802025da:	e9 83 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025df <isr47>:
+ffffffff802025df:	fa                   	cli    
+ffffffff802025e0:	6a 00                	push   $0x0
+ffffffff802025e2:	6a 2f                	push   $0x2f
+ffffffff802025e4:	e9 79 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025e9 <isr48>:
+ffffffff802025e9:	fa                   	cli    
+ffffffff802025ea:	6a 00                	push   $0x0
+ffffffff802025ec:	6a 30                	push   $0x30
+ffffffff802025ee:	e9 6f 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025f3 <isr49>:
+ffffffff802025f3:	fa                   	cli    
+ffffffff802025f4:	6a 00                	push   $0x0
+ffffffff802025f6:	6a 31                	push   $0x31
+ffffffff802025f8:	e9 65 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802025fd <isr50>:
+ffffffff802025fd:	fa                   	cli    
+ffffffff802025fe:	6a 00                	push   $0x0
+ffffffff80202600:	6a 32                	push   $0x32
+ffffffff80202602:	e9 5b 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202607 <isr51>:
+ffffffff80202607:	fa                   	cli    
+ffffffff80202608:	6a 00                	push   $0x0
+ffffffff8020260a:	6a 33                	push   $0x33
+ffffffff8020260c:	e9 51 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202611 <isr52>:
+ffffffff80202611:	fa                   	cli    
+ffffffff80202612:	6a 00                	push   $0x0
+ffffffff80202614:	6a 34                	push   $0x34
+ffffffff80202616:	e9 47 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020261b <isr53>:
+ffffffff8020261b:	fa                   	cli    
+ffffffff8020261c:	6a 00                	push   $0x0
+ffffffff8020261e:	6a 35                	push   $0x35
+ffffffff80202620:	e9 3d 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202625 <isr54>:
+ffffffff80202625:	fa                   	cli    
+ffffffff80202626:	6a 00                	push   $0x0
+ffffffff80202628:	6a 36                	push   $0x36
+ffffffff8020262a:	e9 33 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020262f <isr55>:
+ffffffff8020262f:	fa                   	cli    
+ffffffff80202630:	6a 00                	push   $0x0
+ffffffff80202632:	6a 37                	push   $0x37
+ffffffff80202634:	e9 29 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202639 <isr56>:
+ffffffff80202639:	fa                   	cli    
+ffffffff8020263a:	6a 00                	push   $0x0
+ffffffff8020263c:	6a 38                	push   $0x38
+ffffffff8020263e:	e9 1f 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202643 <isr57>:
+ffffffff80202643:	fa                   	cli    
+ffffffff80202644:	6a 00                	push   $0x0
+ffffffff80202646:	6a 39                	push   $0x39
+ffffffff80202648:	e9 15 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020264d <isr58>:
+ffffffff8020264d:	fa                   	cli    
+ffffffff8020264e:	6a 00                	push   $0x0
+ffffffff80202650:	6a 3a                	push   $0x3a
+ffffffff80202652:	e9 0b 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202657 <isr59>:
+ffffffff80202657:	fa                   	cli    
+ffffffff80202658:	6a 00                	push   $0x0
+ffffffff8020265a:	6a 3b                	push   $0x3b
+ffffffff8020265c:	e9 01 09 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202661 <isr60>:
+ffffffff80202661:	fa                   	cli    
+ffffffff80202662:	6a 00                	push   $0x0
+ffffffff80202664:	6a 3c                	push   $0x3c
+ffffffff80202666:	e9 f7 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020266b <isr61>:
+ffffffff8020266b:	fa                   	cli    
+ffffffff8020266c:	6a 00                	push   $0x0
+ffffffff8020266e:	6a 3d                	push   $0x3d
+ffffffff80202670:	e9 ed 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202675 <isr62>:
+ffffffff80202675:	fa                   	cli    
+ffffffff80202676:	6a 00                	push   $0x0
+ffffffff80202678:	6a 3e                	push   $0x3e
+ffffffff8020267a:	e9 e3 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020267f <isr63>:
+ffffffff8020267f:	fa                   	cli    
+ffffffff80202680:	6a 00                	push   $0x0
+ffffffff80202682:	6a 3f                	push   $0x3f
+ffffffff80202684:	e9 d9 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202689 <isr64>:
+ffffffff80202689:	fa                   	cli    
+ffffffff8020268a:	6a 00                	push   $0x0
+ffffffff8020268c:	6a 40                	push   $0x40
+ffffffff8020268e:	e9 cf 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202693 <isr65>:
+ffffffff80202693:	fa                   	cli    
+ffffffff80202694:	6a 00                	push   $0x0
+ffffffff80202696:	6a 41                	push   $0x41
+ffffffff80202698:	e9 c5 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020269d <isr66>:
+ffffffff8020269d:	fa                   	cli    
+ffffffff8020269e:	6a 00                	push   $0x0
+ffffffff802026a0:	6a 42                	push   $0x42
+ffffffff802026a2:	e9 bb 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026a7 <isr67>:
+ffffffff802026a7:	fa                   	cli    
+ffffffff802026a8:	6a 00                	push   $0x0
+ffffffff802026aa:	6a 43                	push   $0x43
+ffffffff802026ac:	e9 b1 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026b1 <isr68>:
+ffffffff802026b1:	fa                   	cli    
+ffffffff802026b2:	6a 00                	push   $0x0
+ffffffff802026b4:	6a 44                	push   $0x44
+ffffffff802026b6:	e9 a7 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026bb <isr69>:
+ffffffff802026bb:	fa                   	cli    
+ffffffff802026bc:	6a 00                	push   $0x0
+ffffffff802026be:	6a 45                	push   $0x45
+ffffffff802026c0:	e9 9d 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026c5 <isr70>:
+ffffffff802026c5:	fa                   	cli    
+ffffffff802026c6:	6a 00                	push   $0x0
+ffffffff802026c8:	6a 46                	push   $0x46
+ffffffff802026ca:	e9 93 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026cf <isr71>:
+ffffffff802026cf:	fa                   	cli    
+ffffffff802026d0:	6a 00                	push   $0x0
+ffffffff802026d2:	6a 47                	push   $0x47
+ffffffff802026d4:	e9 89 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026d9 <isr72>:
+ffffffff802026d9:	fa                   	cli    
+ffffffff802026da:	6a 00                	push   $0x0
+ffffffff802026dc:	6a 48                	push   $0x48
+ffffffff802026de:	e9 7f 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026e3 <isr73>:
+ffffffff802026e3:	fa                   	cli    
+ffffffff802026e4:	6a 00                	push   $0x0
+ffffffff802026e6:	6a 49                	push   $0x49
+ffffffff802026e8:	e9 75 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026ed <isr74>:
+ffffffff802026ed:	fa                   	cli    
+ffffffff802026ee:	6a 00                	push   $0x0
+ffffffff802026f0:	6a 4a                	push   $0x4a
+ffffffff802026f2:	e9 6b 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802026f7 <isr75>:
+ffffffff802026f7:	fa                   	cli    
+ffffffff802026f8:	6a 00                	push   $0x0
+ffffffff802026fa:	6a 4b                	push   $0x4b
+ffffffff802026fc:	e9 61 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202701 <isr76>:
+ffffffff80202701:	fa                   	cli    
+ffffffff80202702:	6a 00                	push   $0x0
+ffffffff80202704:	6a 4c                	push   $0x4c
+ffffffff80202706:	e9 57 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020270b <isr77>:
+ffffffff8020270b:	fa                   	cli    
+ffffffff8020270c:	6a 00                	push   $0x0
+ffffffff8020270e:	6a 4d                	push   $0x4d
+ffffffff80202710:	e9 4d 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202715 <isr78>:
+ffffffff80202715:	fa                   	cli    
+ffffffff80202716:	6a 00                	push   $0x0
+ffffffff80202718:	6a 4e                	push   $0x4e
+ffffffff8020271a:	e9 43 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020271f <isr79>:
+ffffffff8020271f:	fa                   	cli    
+ffffffff80202720:	6a 00                	push   $0x0
+ffffffff80202722:	6a 4f                	push   $0x4f
+ffffffff80202724:	e9 39 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202729 <isr80>:
+ffffffff80202729:	fa                   	cli    
+ffffffff8020272a:	6a 00                	push   $0x0
+ffffffff8020272c:	6a 50                	push   $0x50
+ffffffff8020272e:	e9 2f 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202733 <isr81>:
+ffffffff80202733:	fa                   	cli    
+ffffffff80202734:	6a 00                	push   $0x0
+ffffffff80202736:	6a 51                	push   $0x51
+ffffffff80202738:	e9 25 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020273d <isr82>:
+ffffffff8020273d:	fa                   	cli    
+ffffffff8020273e:	6a 00                	push   $0x0
+ffffffff80202740:	6a 52                	push   $0x52
+ffffffff80202742:	e9 1b 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202747 <isr83>:
+ffffffff80202747:	fa                   	cli    
+ffffffff80202748:	6a 00                	push   $0x0
+ffffffff8020274a:	6a 53                	push   $0x53
+ffffffff8020274c:	e9 11 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202751 <isr84>:
+ffffffff80202751:	fa                   	cli    
+ffffffff80202752:	6a 00                	push   $0x0
+ffffffff80202754:	6a 54                	push   $0x54
+ffffffff80202756:	e9 07 08 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020275b <isr85>:
+ffffffff8020275b:	fa                   	cli    
+ffffffff8020275c:	6a 00                	push   $0x0
+ffffffff8020275e:	6a 55                	push   $0x55
+ffffffff80202760:	e9 fd 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202765 <isr86>:
+ffffffff80202765:	fa                   	cli    
+ffffffff80202766:	6a 00                	push   $0x0
+ffffffff80202768:	6a 56                	push   $0x56
+ffffffff8020276a:	e9 f3 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020276f <isr87>:
+ffffffff8020276f:	fa                   	cli    
+ffffffff80202770:	6a 00                	push   $0x0
+ffffffff80202772:	6a 57                	push   $0x57
+ffffffff80202774:	e9 e9 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202779 <isr88>:
+ffffffff80202779:	fa                   	cli    
+ffffffff8020277a:	6a 00                	push   $0x0
+ffffffff8020277c:	6a 58                	push   $0x58
+ffffffff8020277e:	e9 df 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202783 <isr89>:
+ffffffff80202783:	fa                   	cli    
+ffffffff80202784:	6a 00                	push   $0x0
+ffffffff80202786:	6a 59                	push   $0x59
+ffffffff80202788:	e9 d5 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020278d <isr90>:
+ffffffff8020278d:	fa                   	cli    
+ffffffff8020278e:	6a 00                	push   $0x0
+ffffffff80202790:	6a 5a                	push   $0x5a
+ffffffff80202792:	e9 cb 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202797 <isr91>:
+ffffffff80202797:	fa                   	cli    
+ffffffff80202798:	6a 00                	push   $0x0
+ffffffff8020279a:	6a 5b                	push   $0x5b
+ffffffff8020279c:	e9 c1 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027a1 <isr92>:
+ffffffff802027a1:	fa                   	cli    
+ffffffff802027a2:	6a 00                	push   $0x0
+ffffffff802027a4:	6a 5c                	push   $0x5c
+ffffffff802027a6:	e9 b7 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027ab <isr93>:
+ffffffff802027ab:	fa                   	cli    
+ffffffff802027ac:	6a 00                	push   $0x0
+ffffffff802027ae:	6a 5d                	push   $0x5d
+ffffffff802027b0:	e9 ad 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027b5 <isr94>:
+ffffffff802027b5:	fa                   	cli    
+ffffffff802027b6:	6a 00                	push   $0x0
+ffffffff802027b8:	6a 5e                	push   $0x5e
+ffffffff802027ba:	e9 a3 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027bf <isr95>:
+ffffffff802027bf:	fa                   	cli    
+ffffffff802027c0:	6a 00                	push   $0x0
+ffffffff802027c2:	6a 5f                	push   $0x5f
+ffffffff802027c4:	e9 99 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027c9 <isr96>:
+ffffffff802027c9:	fa                   	cli    
+ffffffff802027ca:	6a 00                	push   $0x0
+ffffffff802027cc:	6a 60                	push   $0x60
+ffffffff802027ce:	e9 8f 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027d3 <isr97>:
+ffffffff802027d3:	fa                   	cli    
+ffffffff802027d4:	6a 00                	push   $0x0
+ffffffff802027d6:	6a 61                	push   $0x61
+ffffffff802027d8:	e9 85 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027dd <isr98>:
+ffffffff802027dd:	fa                   	cli    
+ffffffff802027de:	6a 00                	push   $0x0
+ffffffff802027e0:	6a 62                	push   $0x62
+ffffffff802027e2:	e9 7b 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027e7 <isr99>:
+ffffffff802027e7:	fa                   	cli    
+ffffffff802027e8:	6a 00                	push   $0x0
+ffffffff802027ea:	6a 63                	push   $0x63
+ffffffff802027ec:	e9 71 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027f1 <isr100>:
+ffffffff802027f1:	fa                   	cli    
+ffffffff802027f2:	6a 00                	push   $0x0
+ffffffff802027f4:	6a 64                	push   $0x64
+ffffffff802027f6:	e9 67 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802027fb <isr101>:
+ffffffff802027fb:	fa                   	cli    
+ffffffff802027fc:	6a 00                	push   $0x0
+ffffffff802027fe:	6a 65                	push   $0x65
+ffffffff80202800:	e9 5d 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202805 <isr102>:
+ffffffff80202805:	fa                   	cli    
+ffffffff80202806:	6a 00                	push   $0x0
+ffffffff80202808:	6a 66                	push   $0x66
+ffffffff8020280a:	e9 53 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020280f <isr103>:
+ffffffff8020280f:	fa                   	cli    
+ffffffff80202810:	6a 00                	push   $0x0
+ffffffff80202812:	6a 67                	push   $0x67
+ffffffff80202814:	e9 49 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202819 <isr104>:
+ffffffff80202819:	fa                   	cli    
+ffffffff8020281a:	6a 00                	push   $0x0
+ffffffff8020281c:	6a 68                	push   $0x68
+ffffffff8020281e:	e9 3f 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202823 <isr105>:
+ffffffff80202823:	fa                   	cli    
+ffffffff80202824:	6a 00                	push   $0x0
+ffffffff80202826:	6a 69                	push   $0x69
+ffffffff80202828:	e9 35 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020282d <isr106>:
+ffffffff8020282d:	fa                   	cli    
+ffffffff8020282e:	6a 00                	push   $0x0
+ffffffff80202830:	6a 6a                	push   $0x6a
+ffffffff80202832:	e9 2b 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202837 <isr107>:
+ffffffff80202837:	fa                   	cli    
+ffffffff80202838:	6a 00                	push   $0x0
+ffffffff8020283a:	6a 6b                	push   $0x6b
+ffffffff8020283c:	e9 21 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202841 <isr108>:
+ffffffff80202841:	fa                   	cli    
+ffffffff80202842:	6a 00                	push   $0x0
+ffffffff80202844:	6a 6c                	push   $0x6c
+ffffffff80202846:	e9 17 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020284b <isr109>:
+ffffffff8020284b:	fa                   	cli    
+ffffffff8020284c:	6a 00                	push   $0x0
+ffffffff8020284e:	6a 6d                	push   $0x6d
+ffffffff80202850:	e9 0d 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202855 <isr110>:
+ffffffff80202855:	fa                   	cli    
+ffffffff80202856:	6a 00                	push   $0x0
+ffffffff80202858:	6a 6e                	push   $0x6e
+ffffffff8020285a:	e9 03 07 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020285f <isr111>:
+ffffffff8020285f:	fa                   	cli    
+ffffffff80202860:	6a 00                	push   $0x0
+ffffffff80202862:	6a 6f                	push   $0x6f
+ffffffff80202864:	e9 f9 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202869 <isr112>:
+ffffffff80202869:	fa                   	cli    
+ffffffff8020286a:	6a 00                	push   $0x0
+ffffffff8020286c:	6a 70                	push   $0x70
+ffffffff8020286e:	e9 ef 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202873 <isr113>:
+ffffffff80202873:	fa                   	cli    
+ffffffff80202874:	6a 00                	push   $0x0
+ffffffff80202876:	6a 71                	push   $0x71
+ffffffff80202878:	e9 e5 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020287d <isr114>:
+ffffffff8020287d:	fa                   	cli    
+ffffffff8020287e:	6a 00                	push   $0x0
+ffffffff80202880:	6a 72                	push   $0x72
+ffffffff80202882:	e9 db 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202887 <isr115>:
+ffffffff80202887:	fa                   	cli    
+ffffffff80202888:	6a 00                	push   $0x0
+ffffffff8020288a:	6a 73                	push   $0x73
+ffffffff8020288c:	e9 d1 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202891 <isr116>:
+ffffffff80202891:	fa                   	cli    
+ffffffff80202892:	6a 00                	push   $0x0
+ffffffff80202894:	6a 74                	push   $0x74
+ffffffff80202896:	e9 c7 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020289b <isr117>:
+ffffffff8020289b:	fa                   	cli    
+ffffffff8020289c:	6a 00                	push   $0x0
+ffffffff8020289e:	6a 75                	push   $0x75
+ffffffff802028a0:	e9 bd 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028a5 <isr118>:
+ffffffff802028a5:	fa                   	cli    
+ffffffff802028a6:	6a 00                	push   $0x0
+ffffffff802028a8:	6a 76                	push   $0x76
+ffffffff802028aa:	e9 b3 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028af <isr119>:
+ffffffff802028af:	fa                   	cli    
+ffffffff802028b0:	6a 00                	push   $0x0
+ffffffff802028b2:	6a 77                	push   $0x77
+ffffffff802028b4:	e9 a9 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028b9 <isr120>:
+ffffffff802028b9:	fa                   	cli    
+ffffffff802028ba:	6a 00                	push   $0x0
+ffffffff802028bc:	6a 78                	push   $0x78
+ffffffff802028be:	e9 9f 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028c3 <isr121>:
+ffffffff802028c3:	fa                   	cli    
+ffffffff802028c4:	6a 00                	push   $0x0
+ffffffff802028c6:	6a 79                	push   $0x79
+ffffffff802028c8:	e9 95 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028cd <isr122>:
+ffffffff802028cd:	fa                   	cli    
+ffffffff802028ce:	6a 00                	push   $0x0
+ffffffff802028d0:	6a 7a                	push   $0x7a
+ffffffff802028d2:	e9 8b 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028d7 <isr123>:
+ffffffff802028d7:	fa                   	cli    
+ffffffff802028d8:	6a 00                	push   $0x0
+ffffffff802028da:	6a 7b                	push   $0x7b
+ffffffff802028dc:	e9 81 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028e1 <isr124>:
+ffffffff802028e1:	fa                   	cli    
+ffffffff802028e2:	6a 00                	push   $0x0
+ffffffff802028e4:	6a 7c                	push   $0x7c
+ffffffff802028e6:	e9 77 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028eb <isr125>:
+ffffffff802028eb:	fa                   	cli    
+ffffffff802028ec:	6a 00                	push   $0x0
+ffffffff802028ee:	6a 7d                	push   $0x7d
+ffffffff802028f0:	e9 6d 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028f5 <isr126>:
+ffffffff802028f5:	fa                   	cli    
+ffffffff802028f6:	6a 00                	push   $0x0
+ffffffff802028f8:	6a 7e                	push   $0x7e
+ffffffff802028fa:	e9 63 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802028ff <isr127>:
+ffffffff802028ff:	fa                   	cli    
+ffffffff80202900:	6a 00                	push   $0x0
+ffffffff80202902:	6a 7f                	push   $0x7f
+ffffffff80202904:	e9 59 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202909 <isr128>:
+ffffffff80202909:	fa                   	cli    
+ffffffff8020290a:	6a 00                	push   $0x0
+ffffffff8020290c:	68 80 00 00 00       	push   $0x80
+ffffffff80202911:	e9 4c 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202916 <isr129>:
+ffffffff80202916:	fa                   	cli    
+ffffffff80202917:	6a 00                	push   $0x0
+ffffffff80202919:	68 81 00 00 00       	push   $0x81
+ffffffff8020291e:	e9 3f 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202923 <isr130>:
+ffffffff80202923:	fa                   	cli    
+ffffffff80202924:	6a 00                	push   $0x0
+ffffffff80202926:	68 82 00 00 00       	push   $0x82
+ffffffff8020292b:	e9 32 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202930 <isr131>:
+ffffffff80202930:	fa                   	cli    
+ffffffff80202931:	6a 00                	push   $0x0
+ffffffff80202933:	68 83 00 00 00       	push   $0x83
+ffffffff80202938:	e9 25 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020293d <isr132>:
+ffffffff8020293d:	fa                   	cli    
+ffffffff8020293e:	6a 00                	push   $0x0
+ffffffff80202940:	68 84 00 00 00       	push   $0x84
+ffffffff80202945:	e9 18 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020294a <isr133>:
+ffffffff8020294a:	fa                   	cli    
+ffffffff8020294b:	6a 00                	push   $0x0
+ffffffff8020294d:	68 85 00 00 00       	push   $0x85
+ffffffff80202952:	e9 0b 06 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202957 <isr134>:
+ffffffff80202957:	fa                   	cli    
+ffffffff80202958:	6a 00                	push   $0x0
+ffffffff8020295a:	68 86 00 00 00       	push   $0x86
+ffffffff8020295f:	e9 fe 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202964 <isr135>:
+ffffffff80202964:	fa                   	cli    
+ffffffff80202965:	6a 00                	push   $0x0
+ffffffff80202967:	68 87 00 00 00       	push   $0x87
+ffffffff8020296c:	e9 f1 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202971 <isr136>:
+ffffffff80202971:	fa                   	cli    
+ffffffff80202972:	6a 00                	push   $0x0
+ffffffff80202974:	68 88 00 00 00       	push   $0x88
+ffffffff80202979:	e9 e4 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020297e <isr137>:
+ffffffff8020297e:	fa                   	cli    
+ffffffff8020297f:	6a 00                	push   $0x0
+ffffffff80202981:	68 89 00 00 00       	push   $0x89
+ffffffff80202986:	e9 d7 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff8020298b <isr138>:
+ffffffff8020298b:	fa                   	cli    
+ffffffff8020298c:	6a 00                	push   $0x0
+ffffffff8020298e:	68 8a 00 00 00       	push   $0x8a
+ffffffff80202993:	e9 ca 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202998 <isr139>:
+ffffffff80202998:	fa                   	cli    
+ffffffff80202999:	6a 00                	push   $0x0
+ffffffff8020299b:	68 8b 00 00 00       	push   $0x8b
+ffffffff802029a0:	e9 bd 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029a5 <isr140>:
+ffffffff802029a5:	fa                   	cli    
+ffffffff802029a6:	6a 00                	push   $0x0
+ffffffff802029a8:	68 8c 00 00 00       	push   $0x8c
+ffffffff802029ad:	e9 b0 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029b2 <isr141>:
+ffffffff802029b2:	fa                   	cli    
+ffffffff802029b3:	6a 00                	push   $0x0
+ffffffff802029b5:	68 8d 00 00 00       	push   $0x8d
+ffffffff802029ba:	e9 a3 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029bf <isr142>:
+ffffffff802029bf:	fa                   	cli    
+ffffffff802029c0:	6a 00                	push   $0x0
+ffffffff802029c2:	68 8e 00 00 00       	push   $0x8e
+ffffffff802029c7:	e9 96 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029cc <isr143>:
+ffffffff802029cc:	fa                   	cli    
+ffffffff802029cd:	6a 00                	push   $0x0
+ffffffff802029cf:	68 8f 00 00 00       	push   $0x8f
+ffffffff802029d4:	e9 89 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029d9 <isr144>:
+ffffffff802029d9:	fa                   	cli    
+ffffffff802029da:	6a 00                	push   $0x0
+ffffffff802029dc:	68 90 00 00 00       	push   $0x90
+ffffffff802029e1:	e9 7c 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029e6 <isr145>:
+ffffffff802029e6:	fa                   	cli    
+ffffffff802029e7:	6a 00                	push   $0x0
+ffffffff802029e9:	68 91 00 00 00       	push   $0x91
+ffffffff802029ee:	e9 6f 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff802029f3 <isr146>:
+ffffffff802029f3:	fa                   	cli    
+ffffffff802029f4:	6a 00                	push   $0x0
+ffffffff802029f6:	68 92 00 00 00       	push   $0x92
+ffffffff802029fb:	e9 62 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a00 <isr147>:
+ffffffff80202a00:	fa                   	cli    
+ffffffff80202a01:	6a 00                	push   $0x0
+ffffffff80202a03:	68 93 00 00 00       	push   $0x93
+ffffffff80202a08:	e9 55 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a0d <isr148>:
+ffffffff80202a0d:	fa                   	cli    
+ffffffff80202a0e:	6a 00                	push   $0x0
+ffffffff80202a10:	68 94 00 00 00       	push   $0x94
+ffffffff80202a15:	e9 48 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a1a <isr149>:
+ffffffff80202a1a:	fa                   	cli    
+ffffffff80202a1b:	6a 00                	push   $0x0
+ffffffff80202a1d:	68 95 00 00 00       	push   $0x95
+ffffffff80202a22:	e9 3b 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a27 <isr150>:
+ffffffff80202a27:	fa                   	cli    
+ffffffff80202a28:	6a 00                	push   $0x0
+ffffffff80202a2a:	68 96 00 00 00       	push   $0x96
+ffffffff80202a2f:	e9 2e 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a34 <isr151>:
+ffffffff80202a34:	fa                   	cli    
+ffffffff80202a35:	6a 00                	push   $0x0
+ffffffff80202a37:	68 97 00 00 00       	push   $0x97
+ffffffff80202a3c:	e9 21 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a41 <isr152>:
+ffffffff80202a41:	fa                   	cli    
+ffffffff80202a42:	6a 00                	push   $0x0
+ffffffff80202a44:	68 98 00 00 00       	push   $0x98
+ffffffff80202a49:	e9 14 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a4e <isr153>:
+ffffffff80202a4e:	fa                   	cli    
+ffffffff80202a4f:	6a 00                	push   $0x0
+ffffffff80202a51:	68 99 00 00 00       	push   $0x99
+ffffffff80202a56:	e9 07 05 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a5b <isr154>:
+ffffffff80202a5b:	fa                   	cli    
+ffffffff80202a5c:	6a 00                	push   $0x0
+ffffffff80202a5e:	68 9a 00 00 00       	push   $0x9a
+ffffffff80202a63:	e9 fa 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a68 <isr155>:
+ffffffff80202a68:	fa                   	cli    
+ffffffff80202a69:	6a 00                	push   $0x0
+ffffffff80202a6b:	68 9b 00 00 00       	push   $0x9b
+ffffffff80202a70:	e9 ed 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a75 <isr156>:
+ffffffff80202a75:	fa                   	cli    
+ffffffff80202a76:	6a 00                	push   $0x0
+ffffffff80202a78:	68 9c 00 00 00       	push   $0x9c
+ffffffff80202a7d:	e9 e0 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a82 <isr157>:
+ffffffff80202a82:	fa                   	cli    
+ffffffff80202a83:	6a 00                	push   $0x0
+ffffffff80202a85:	68 9d 00 00 00       	push   $0x9d
+ffffffff80202a8a:	e9 d3 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a8f <isr158>:
+ffffffff80202a8f:	fa                   	cli    
+ffffffff80202a90:	6a 00                	push   $0x0
+ffffffff80202a92:	68 9e 00 00 00       	push   $0x9e
+ffffffff80202a97:	e9 c6 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202a9c <isr159>:
+ffffffff80202a9c:	fa                   	cli    
+ffffffff80202a9d:	6a 00                	push   $0x0
+ffffffff80202a9f:	68 9f 00 00 00       	push   $0x9f
+ffffffff80202aa4:	e9 b9 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202aa9 <isr160>:
+ffffffff80202aa9:	fa                   	cli    
+ffffffff80202aaa:	6a 00                	push   $0x0
+ffffffff80202aac:	68 a0 00 00 00       	push   $0xa0
+ffffffff80202ab1:	e9 ac 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ab6 <isr161>:
+ffffffff80202ab6:	fa                   	cli    
+ffffffff80202ab7:	6a 00                	push   $0x0
+ffffffff80202ab9:	68 a1 00 00 00       	push   $0xa1
+ffffffff80202abe:	e9 9f 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ac3 <isr162>:
+ffffffff80202ac3:	fa                   	cli    
+ffffffff80202ac4:	6a 00                	push   $0x0
+ffffffff80202ac6:	68 a2 00 00 00       	push   $0xa2
+ffffffff80202acb:	e9 92 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ad0 <isr163>:
+ffffffff80202ad0:	fa                   	cli    
+ffffffff80202ad1:	6a 00                	push   $0x0
+ffffffff80202ad3:	68 a3 00 00 00       	push   $0xa3
+ffffffff80202ad8:	e9 85 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202add <isr164>:
+ffffffff80202add:	fa                   	cli    
+ffffffff80202ade:	6a 00                	push   $0x0
+ffffffff80202ae0:	68 a4 00 00 00       	push   $0xa4
+ffffffff80202ae5:	e9 78 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202aea <isr165>:
+ffffffff80202aea:	fa                   	cli    
+ffffffff80202aeb:	6a 00                	push   $0x0
+ffffffff80202aed:	68 a5 00 00 00       	push   $0xa5
+ffffffff80202af2:	e9 6b 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202af7 <isr166>:
+ffffffff80202af7:	fa                   	cli    
+ffffffff80202af8:	6a 00                	push   $0x0
+ffffffff80202afa:	68 a6 00 00 00       	push   $0xa6
+ffffffff80202aff:	e9 5e 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b04 <isr167>:
+ffffffff80202b04:	fa                   	cli    
+ffffffff80202b05:	6a 00                	push   $0x0
+ffffffff80202b07:	68 a7 00 00 00       	push   $0xa7
+ffffffff80202b0c:	e9 51 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b11 <isr168>:
+ffffffff80202b11:	fa                   	cli    
+ffffffff80202b12:	6a 00                	push   $0x0
+ffffffff80202b14:	68 a8 00 00 00       	push   $0xa8
+ffffffff80202b19:	e9 44 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b1e <isr169>:
+ffffffff80202b1e:	fa                   	cli    
+ffffffff80202b1f:	6a 00                	push   $0x0
+ffffffff80202b21:	68 a9 00 00 00       	push   $0xa9
+ffffffff80202b26:	e9 37 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b2b <isr170>:
+ffffffff80202b2b:	fa                   	cli    
+ffffffff80202b2c:	6a 00                	push   $0x0
+ffffffff80202b2e:	68 aa 00 00 00       	push   $0xaa
+ffffffff80202b33:	e9 2a 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b38 <isr171>:
+ffffffff80202b38:	fa                   	cli    
+ffffffff80202b39:	6a 00                	push   $0x0
+ffffffff80202b3b:	68 ab 00 00 00       	push   $0xab
+ffffffff80202b40:	e9 1d 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b45 <isr172>:
+ffffffff80202b45:	fa                   	cli    
+ffffffff80202b46:	6a 00                	push   $0x0
+ffffffff80202b48:	68 ac 00 00 00       	push   $0xac
+ffffffff80202b4d:	e9 10 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b52 <isr173>:
+ffffffff80202b52:	fa                   	cli    
+ffffffff80202b53:	6a 00                	push   $0x0
+ffffffff80202b55:	68 ad 00 00 00       	push   $0xad
+ffffffff80202b5a:	e9 03 04 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b5f <isr174>:
+ffffffff80202b5f:	fa                   	cli    
+ffffffff80202b60:	6a 00                	push   $0x0
+ffffffff80202b62:	68 ae 00 00 00       	push   $0xae
+ffffffff80202b67:	e9 f6 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b6c <isr175>:
+ffffffff80202b6c:	fa                   	cli    
+ffffffff80202b6d:	6a 00                	push   $0x0
+ffffffff80202b6f:	68 af 00 00 00       	push   $0xaf
+ffffffff80202b74:	e9 e9 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b79 <isr176>:
+ffffffff80202b79:	fa                   	cli    
+ffffffff80202b7a:	6a 00                	push   $0x0
+ffffffff80202b7c:	68 b0 00 00 00       	push   $0xb0
+ffffffff80202b81:	e9 dc 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b86 <isr177>:
+ffffffff80202b86:	fa                   	cli    
+ffffffff80202b87:	6a 00                	push   $0x0
+ffffffff80202b89:	68 b1 00 00 00       	push   $0xb1
+ffffffff80202b8e:	e9 cf 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202b93 <isr178>:
+ffffffff80202b93:	fa                   	cli    
+ffffffff80202b94:	6a 00                	push   $0x0
+ffffffff80202b96:	68 b2 00 00 00       	push   $0xb2
+ffffffff80202b9b:	e9 c2 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ba0 <isr179>:
+ffffffff80202ba0:	fa                   	cli    
+ffffffff80202ba1:	6a 00                	push   $0x0
+ffffffff80202ba3:	68 b3 00 00 00       	push   $0xb3
+ffffffff80202ba8:	e9 b5 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bad <isr180>:
+ffffffff80202bad:	fa                   	cli    
+ffffffff80202bae:	6a 00                	push   $0x0
+ffffffff80202bb0:	68 b4 00 00 00       	push   $0xb4
+ffffffff80202bb5:	e9 a8 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bba <isr181>:
+ffffffff80202bba:	fa                   	cli    
+ffffffff80202bbb:	6a 00                	push   $0x0
+ffffffff80202bbd:	68 b5 00 00 00       	push   $0xb5
+ffffffff80202bc2:	e9 9b 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bc7 <isr182>:
+ffffffff80202bc7:	fa                   	cli    
+ffffffff80202bc8:	6a 00                	push   $0x0
+ffffffff80202bca:	68 b6 00 00 00       	push   $0xb6
+ffffffff80202bcf:	e9 8e 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bd4 <isr183>:
+ffffffff80202bd4:	fa                   	cli    
+ffffffff80202bd5:	6a 00                	push   $0x0
+ffffffff80202bd7:	68 b7 00 00 00       	push   $0xb7
+ffffffff80202bdc:	e9 81 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202be1 <isr184>:
+ffffffff80202be1:	fa                   	cli    
+ffffffff80202be2:	6a 00                	push   $0x0
+ffffffff80202be4:	68 b8 00 00 00       	push   $0xb8
+ffffffff80202be9:	e9 74 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bee <isr185>:
+ffffffff80202bee:	fa                   	cli    
+ffffffff80202bef:	6a 00                	push   $0x0
+ffffffff80202bf1:	68 b9 00 00 00       	push   $0xb9
+ffffffff80202bf6:	e9 67 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202bfb <isr186>:
+ffffffff80202bfb:	fa                   	cli    
+ffffffff80202bfc:	6a 00                	push   $0x0
+ffffffff80202bfe:	68 ba 00 00 00       	push   $0xba
+ffffffff80202c03:	e9 5a 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c08 <isr187>:
+ffffffff80202c08:	fa                   	cli    
+ffffffff80202c09:	6a 00                	push   $0x0
+ffffffff80202c0b:	68 bb 00 00 00       	push   $0xbb
+ffffffff80202c10:	e9 4d 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c15 <isr188>:
+ffffffff80202c15:	fa                   	cli    
+ffffffff80202c16:	6a 00                	push   $0x0
+ffffffff80202c18:	68 bc 00 00 00       	push   $0xbc
+ffffffff80202c1d:	e9 40 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c22 <isr189>:
+ffffffff80202c22:	fa                   	cli    
+ffffffff80202c23:	6a 00                	push   $0x0
+ffffffff80202c25:	68 bd 00 00 00       	push   $0xbd
+ffffffff80202c2a:	e9 33 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c2f <isr190>:
+ffffffff80202c2f:	fa                   	cli    
+ffffffff80202c30:	6a 00                	push   $0x0
+ffffffff80202c32:	68 be 00 00 00       	push   $0xbe
+ffffffff80202c37:	e9 26 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c3c <isr191>:
+ffffffff80202c3c:	fa                   	cli    
+ffffffff80202c3d:	6a 00                	push   $0x0
+ffffffff80202c3f:	68 bf 00 00 00       	push   $0xbf
+ffffffff80202c44:	e9 19 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c49 <isr192>:
+ffffffff80202c49:	fa                   	cli    
+ffffffff80202c4a:	6a 00                	push   $0x0
+ffffffff80202c4c:	68 c0 00 00 00       	push   $0xc0
+ffffffff80202c51:	e9 0c 03 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c56 <isr193>:
+ffffffff80202c56:	fa                   	cli    
+ffffffff80202c57:	6a 00                	push   $0x0
+ffffffff80202c59:	68 c1 00 00 00       	push   $0xc1
+ffffffff80202c5e:	e9 ff 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c63 <isr194>:
+ffffffff80202c63:	fa                   	cli    
+ffffffff80202c64:	6a 00                	push   $0x0
+ffffffff80202c66:	68 c2 00 00 00       	push   $0xc2
+ffffffff80202c6b:	e9 f2 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c70 <isr195>:
+ffffffff80202c70:	fa                   	cli    
+ffffffff80202c71:	6a 00                	push   $0x0
+ffffffff80202c73:	68 c3 00 00 00       	push   $0xc3
+ffffffff80202c78:	e9 e5 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c7d <isr196>:
+ffffffff80202c7d:	fa                   	cli    
+ffffffff80202c7e:	6a 00                	push   $0x0
+ffffffff80202c80:	68 c4 00 00 00       	push   $0xc4
+ffffffff80202c85:	e9 d8 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c8a <isr197>:
+ffffffff80202c8a:	fa                   	cli    
+ffffffff80202c8b:	6a 00                	push   $0x0
+ffffffff80202c8d:	68 c5 00 00 00       	push   $0xc5
+ffffffff80202c92:	e9 cb 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202c97 <isr198>:
+ffffffff80202c97:	fa                   	cli    
+ffffffff80202c98:	6a 00                	push   $0x0
+ffffffff80202c9a:	68 c6 00 00 00       	push   $0xc6
+ffffffff80202c9f:	e9 be 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ca4 <isr199>:
+ffffffff80202ca4:	fa                   	cli    
+ffffffff80202ca5:	6a 00                	push   $0x0
+ffffffff80202ca7:	68 c7 00 00 00       	push   $0xc7
+ffffffff80202cac:	e9 b1 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202cb1 <isr200>:
+ffffffff80202cb1:	fa                   	cli    
+ffffffff80202cb2:	6a 00                	push   $0x0
+ffffffff80202cb4:	68 c8 00 00 00       	push   $0xc8
+ffffffff80202cb9:	e9 a4 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202cbe <isr201>:
+ffffffff80202cbe:	fa                   	cli    
+ffffffff80202cbf:	6a 00                	push   $0x0
+ffffffff80202cc1:	68 c9 00 00 00       	push   $0xc9
+ffffffff80202cc6:	e9 97 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ccb <isr202>:
+ffffffff80202ccb:	fa                   	cli    
+ffffffff80202ccc:	6a 00                	push   $0x0
+ffffffff80202cce:	68 ca 00 00 00       	push   $0xca
+ffffffff80202cd3:	e9 8a 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202cd8 <isr203>:
+ffffffff80202cd8:	fa                   	cli    
+ffffffff80202cd9:	6a 00                	push   $0x0
+ffffffff80202cdb:	68 cb 00 00 00       	push   $0xcb
+ffffffff80202ce0:	e9 7d 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ce5 <isr204>:
+ffffffff80202ce5:	fa                   	cli    
+ffffffff80202ce6:	6a 00                	push   $0x0
+ffffffff80202ce8:	68 cc 00 00 00       	push   $0xcc
+ffffffff80202ced:	e9 70 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202cf2 <isr205>:
+ffffffff80202cf2:	fa                   	cli    
+ffffffff80202cf3:	6a 00                	push   $0x0
+ffffffff80202cf5:	68 cd 00 00 00       	push   $0xcd
+ffffffff80202cfa:	e9 63 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202cff <isr206>:
+ffffffff80202cff:	fa                   	cli    
+ffffffff80202d00:	6a 00                	push   $0x0
+ffffffff80202d02:	68 ce 00 00 00       	push   $0xce
+ffffffff80202d07:	e9 56 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d0c <isr207>:
+ffffffff80202d0c:	fa                   	cli    
+ffffffff80202d0d:	6a 00                	push   $0x0
+ffffffff80202d0f:	68 cf 00 00 00       	push   $0xcf
+ffffffff80202d14:	e9 49 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d19 <isr208>:
+ffffffff80202d19:	fa                   	cli    
+ffffffff80202d1a:	6a 00                	push   $0x0
+ffffffff80202d1c:	68 d0 00 00 00       	push   $0xd0
+ffffffff80202d21:	e9 3c 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d26 <isr209>:
+ffffffff80202d26:	fa                   	cli    
+ffffffff80202d27:	6a 00                	push   $0x0
+ffffffff80202d29:	68 d1 00 00 00       	push   $0xd1
+ffffffff80202d2e:	e9 2f 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d33 <isr210>:
+ffffffff80202d33:	fa                   	cli    
+ffffffff80202d34:	6a 00                	push   $0x0
+ffffffff80202d36:	68 d2 00 00 00       	push   $0xd2
+ffffffff80202d3b:	e9 22 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d40 <isr211>:
+ffffffff80202d40:	fa                   	cli    
+ffffffff80202d41:	6a 00                	push   $0x0
+ffffffff80202d43:	68 d3 00 00 00       	push   $0xd3
+ffffffff80202d48:	e9 15 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d4d <isr212>:
+ffffffff80202d4d:	fa                   	cli    
+ffffffff80202d4e:	6a 00                	push   $0x0
+ffffffff80202d50:	68 d4 00 00 00       	push   $0xd4
+ffffffff80202d55:	e9 08 02 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d5a <isr213>:
+ffffffff80202d5a:	fa                   	cli    
+ffffffff80202d5b:	6a 00                	push   $0x0
+ffffffff80202d5d:	68 d5 00 00 00       	push   $0xd5
+ffffffff80202d62:	e9 fb 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d67 <isr214>:
+ffffffff80202d67:	fa                   	cli    
+ffffffff80202d68:	6a 00                	push   $0x0
+ffffffff80202d6a:	68 d6 00 00 00       	push   $0xd6
+ffffffff80202d6f:	e9 ee 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d74 <isr215>:
+ffffffff80202d74:	fa                   	cli    
+ffffffff80202d75:	6a 00                	push   $0x0
+ffffffff80202d77:	68 d7 00 00 00       	push   $0xd7
+ffffffff80202d7c:	e9 e1 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d81 <isr216>:
+ffffffff80202d81:	fa                   	cli    
+ffffffff80202d82:	6a 00                	push   $0x0
+ffffffff80202d84:	68 d8 00 00 00       	push   $0xd8
+ffffffff80202d89:	e9 d4 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d8e <isr217>:
+ffffffff80202d8e:	fa                   	cli    
+ffffffff80202d8f:	6a 00                	push   $0x0
+ffffffff80202d91:	68 d9 00 00 00       	push   $0xd9
+ffffffff80202d96:	e9 c7 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202d9b <isr218>:
+ffffffff80202d9b:	fa                   	cli    
+ffffffff80202d9c:	6a 00                	push   $0x0
+ffffffff80202d9e:	68 da 00 00 00       	push   $0xda
+ffffffff80202da3:	e9 ba 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202da8 <isr219>:
+ffffffff80202da8:	fa                   	cli    
+ffffffff80202da9:	6a 00                	push   $0x0
+ffffffff80202dab:	68 db 00 00 00       	push   $0xdb
+ffffffff80202db0:	e9 ad 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202db5 <isr220>:
+ffffffff80202db5:	fa                   	cli    
+ffffffff80202db6:	6a 00                	push   $0x0
+ffffffff80202db8:	68 dc 00 00 00       	push   $0xdc
+ffffffff80202dbd:	e9 a0 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202dc2 <isr221>:
+ffffffff80202dc2:	fa                   	cli    
+ffffffff80202dc3:	6a 00                	push   $0x0
+ffffffff80202dc5:	68 dd 00 00 00       	push   $0xdd
+ffffffff80202dca:	e9 93 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202dcf <isr222>:
+ffffffff80202dcf:	fa                   	cli    
+ffffffff80202dd0:	6a 00                	push   $0x0
+ffffffff80202dd2:	68 de 00 00 00       	push   $0xde
+ffffffff80202dd7:	e9 86 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ddc <isr223>:
+ffffffff80202ddc:	fa                   	cli    
+ffffffff80202ddd:	6a 00                	push   $0x0
+ffffffff80202ddf:	68 df 00 00 00       	push   $0xdf
+ffffffff80202de4:	e9 79 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202de9 <isr224>:
+ffffffff80202de9:	fa                   	cli    
+ffffffff80202dea:	6a 00                	push   $0x0
+ffffffff80202dec:	68 e0 00 00 00       	push   $0xe0
+ffffffff80202df1:	e9 6c 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202df6 <isr225>:
+ffffffff80202df6:	fa                   	cli    
+ffffffff80202df7:	6a 00                	push   $0x0
+ffffffff80202df9:	68 e1 00 00 00       	push   $0xe1
+ffffffff80202dfe:	e9 5f 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e03 <isr226>:
+ffffffff80202e03:	fa                   	cli    
+ffffffff80202e04:	6a 00                	push   $0x0
+ffffffff80202e06:	68 e2 00 00 00       	push   $0xe2
+ffffffff80202e0b:	e9 52 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e10 <isr227>:
+ffffffff80202e10:	fa                   	cli    
+ffffffff80202e11:	6a 00                	push   $0x0
+ffffffff80202e13:	68 e3 00 00 00       	push   $0xe3
+ffffffff80202e18:	e9 45 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e1d <isr228>:
+ffffffff80202e1d:	fa                   	cli    
+ffffffff80202e1e:	6a 00                	push   $0x0
+ffffffff80202e20:	68 e4 00 00 00       	push   $0xe4
+ffffffff80202e25:	e9 38 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e2a <isr229>:
+ffffffff80202e2a:	fa                   	cli    
+ffffffff80202e2b:	6a 00                	push   $0x0
+ffffffff80202e2d:	68 e5 00 00 00       	push   $0xe5
+ffffffff80202e32:	e9 2b 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e37 <isr230>:
+ffffffff80202e37:	fa                   	cli    
+ffffffff80202e38:	6a 00                	push   $0x0
+ffffffff80202e3a:	68 e6 00 00 00       	push   $0xe6
+ffffffff80202e3f:	e9 1e 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e44 <isr231>:
+ffffffff80202e44:	fa                   	cli    
+ffffffff80202e45:	6a 00                	push   $0x0
+ffffffff80202e47:	68 e7 00 00 00       	push   $0xe7
+ffffffff80202e4c:	e9 11 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e51 <isr232>:
+ffffffff80202e51:	fa                   	cli    
+ffffffff80202e52:	6a 00                	push   $0x0
+ffffffff80202e54:	68 e8 00 00 00       	push   $0xe8
+ffffffff80202e59:	e9 04 01 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e5e <isr233>:
+ffffffff80202e5e:	fa                   	cli    
+ffffffff80202e5f:	6a 00                	push   $0x0
+ffffffff80202e61:	68 e9 00 00 00       	push   $0xe9
+ffffffff80202e66:	e9 f7 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e6b <isr234>:
+ffffffff80202e6b:	fa                   	cli    
+ffffffff80202e6c:	6a 00                	push   $0x0
+ffffffff80202e6e:	68 ea 00 00 00       	push   $0xea
+ffffffff80202e73:	e9 ea 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e78 <isr235>:
+ffffffff80202e78:	fa                   	cli    
+ffffffff80202e79:	6a 00                	push   $0x0
+ffffffff80202e7b:	68 eb 00 00 00       	push   $0xeb
+ffffffff80202e80:	e9 dd 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e85 <isr236>:
+ffffffff80202e85:	fa                   	cli    
+ffffffff80202e86:	6a 00                	push   $0x0
+ffffffff80202e88:	68 ec 00 00 00       	push   $0xec
+ffffffff80202e8d:	e9 d0 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e92 <isr237>:
+ffffffff80202e92:	fa                   	cli    
+ffffffff80202e93:	6a 00                	push   $0x0
+ffffffff80202e95:	68 ed 00 00 00       	push   $0xed
+ffffffff80202e9a:	e9 c3 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202e9f <isr238>:
+ffffffff80202e9f:	fa                   	cli    
+ffffffff80202ea0:	6a 00                	push   $0x0
+ffffffff80202ea2:	68 ee 00 00 00       	push   $0xee
+ffffffff80202ea7:	e9 b6 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202eac <isr239>:
+ffffffff80202eac:	fa                   	cli    
+ffffffff80202ead:	6a 00                	push   $0x0
+ffffffff80202eaf:	68 ef 00 00 00       	push   $0xef
+ffffffff80202eb4:	e9 a9 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202eb9 <isr240>:
+ffffffff80202eb9:	fa                   	cli    
+ffffffff80202eba:	6a 00                	push   $0x0
+ffffffff80202ebc:	68 f0 00 00 00       	push   $0xf0
+ffffffff80202ec1:	e9 9c 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ec6 <isr241>:
+ffffffff80202ec6:	fa                   	cli    
+ffffffff80202ec7:	6a 00                	push   $0x0
+ffffffff80202ec9:	68 f1 00 00 00       	push   $0xf1
+ffffffff80202ece:	e9 8f 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ed3 <isr242>:
+ffffffff80202ed3:	fa                   	cli    
+ffffffff80202ed4:	6a 00                	push   $0x0
+ffffffff80202ed6:	68 f2 00 00 00       	push   $0xf2
+ffffffff80202edb:	e9 82 00 00 00       	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ee0 <isr243>:
+ffffffff80202ee0:	fa                   	cli    
+ffffffff80202ee1:	6a 00                	push   $0x0
+ffffffff80202ee3:	68 f3 00 00 00       	push   $0xf3
+ffffffff80202ee8:	eb 78                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202eea <isr244>:
+ffffffff80202eea:	fa                   	cli    
+ffffffff80202eeb:	6a 00                	push   $0x0
+ffffffff80202eed:	68 f4 00 00 00       	push   $0xf4
+ffffffff80202ef2:	eb 6e                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202ef4 <isr245>:
+ffffffff80202ef4:	fa                   	cli    
+ffffffff80202ef5:	6a 00                	push   $0x0
+ffffffff80202ef7:	68 f5 00 00 00       	push   $0xf5
+ffffffff80202efc:	eb 64                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202efe <isr246>:
+ffffffff80202efe:	fa                   	cli    
+ffffffff80202eff:	6a 00                	push   $0x0
+ffffffff80202f01:	68 f6 00 00 00       	push   $0xf6
+ffffffff80202f06:	eb 5a                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f08 <isr247>:
+ffffffff80202f08:	fa                   	cli    
+ffffffff80202f09:	6a 00                	push   $0x0
+ffffffff80202f0b:	68 f7 00 00 00       	push   $0xf7
+ffffffff80202f10:	eb 50                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f12 <isr248>:
+ffffffff80202f12:	fa                   	cli    
+ffffffff80202f13:	6a 00                	push   $0x0
+ffffffff80202f15:	68 f8 00 00 00       	push   $0xf8
+ffffffff80202f1a:	eb 46                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f1c <isr249>:
+ffffffff80202f1c:	fa                   	cli    
+ffffffff80202f1d:	6a 00                	push   $0x0
+ffffffff80202f1f:	68 f9 00 00 00       	push   $0xf9
+ffffffff80202f24:	eb 3c                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f26 <isr250>:
+ffffffff80202f26:	fa                   	cli    
+ffffffff80202f27:	6a 00                	push   $0x0
+ffffffff80202f29:	68 fa 00 00 00       	push   $0xfa
+ffffffff80202f2e:	eb 32                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f30 <isr251>:
+ffffffff80202f30:	fa                   	cli    
+ffffffff80202f31:	6a 00                	push   $0x0
+ffffffff80202f33:	68 fb 00 00 00       	push   $0xfb
+ffffffff80202f38:	eb 28                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f3a <isr252>:
+ffffffff80202f3a:	fa                   	cli    
+ffffffff80202f3b:	6a 00                	push   $0x0
+ffffffff80202f3d:	68 fc 00 00 00       	push   $0xfc
+ffffffff80202f42:	eb 1e                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f44 <isr253>:
+ffffffff80202f44:	fa                   	cli    
+ffffffff80202f45:	6a 00                	push   $0x0
+ffffffff80202f47:	68 fd 00 00 00       	push   $0xfd
+ffffffff80202f4c:	eb 14                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f4e <isr254>:
+ffffffff80202f4e:	fa                   	cli    
+ffffffff80202f4f:	6a 00                	push   $0x0
+ffffffff80202f51:	68 fe 00 00 00       	push   $0xfe
+ffffffff80202f56:	eb 0a                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f58 <isr255>:
+ffffffff80202f58:	fa                   	cli    
+ffffffff80202f59:	6a 00                	push   $0x0
+ffffffff80202f5b:	68 ff 00 00 00       	push   $0xff
+ffffffff80202f60:	eb 00                	jmp    ffffffff80202f62 <isr_common>
+
+ffffffff80202f62 <isr_common>:
+ffffffff80202f62:	48 89 e7             	mov    %rsp,%rdi
+ffffffff80202f65:	41 57                	push   %r15
+ffffffff80202f67:	41 56                	push   %r14
+ffffffff80202f69:	41 55                	push   %r13
+ffffffff80202f6b:	41 54                	push   %r12
+ffffffff80202f6d:	41 53                	push   %r11
+ffffffff80202f6f:	41 52                	push   %r10
+ffffffff80202f71:	41 51                	push   %r9
+ffffffff80202f73:	41 50                	push   %r8
+ffffffff80202f75:	55                   	push   %rbp
+ffffffff80202f76:	57                   	push   %rdi
+ffffffff80202f77:	56                   	push   %rsi
+ffffffff80202f78:	52                   	push   %rdx
+ffffffff80202f79:	51                   	push   %rcx
+ffffffff80202f7a:	53                   	push   %rbx
+ffffffff80202f7b:	50                   	push   %rax
+ffffffff80202f7c:	fc                   	cld    
+ffffffff80202f7d:	e8 e7 f3 ff ff       	call   ffffffff80202369 <InterruptHandler>
+ffffffff80202f82:	48 89 c7             	mov    %rax,%rdi
+
+ffffffff80202f85 <isr_done>:
+ffffffff80202f85:	48 89 fc             	mov    %rdi,%rsp
+ffffffff80202f88:	58                   	pop    %rax
+ffffffff80202f89:	5b                   	pop    %rbx
+ffffffff80202f8a:	59                   	pop    %rcx
+ffffffff80202f8b:	5a                   	pop    %rdx
+ffffffff80202f8c:	5e                   	pop    %rsi
+ffffffff80202f8d:	5f                   	pop    %rdi
+ffffffff80202f8e:	5d                   	pop    %rbp
+ffffffff80202f8f:	41 58                	pop    %r8
+ffffffff80202f91:	41 59                	pop    %r9
+ffffffff80202f93:	41 5a                	pop    %r10
+ffffffff80202f95:	41 5b                	pop    %r11
+ffffffff80202f97:	41 5c                	pop    %r12
+ffffffff80202f99:	41 5d                	pop    %r13
+ffffffff80202f9b:	41 5e                	pop    %r14
+ffffffff80202f9d:	41 5f                	pop    %r15
+ffffffff80202f9f:	48 cf                	iretq  
+
+ffffffff80202fa1 <_Z7get_tagP15stivale2_structm>:
+ffffffff80202fa1:	f3 0f 1e fa          	endbr64 
+ffffffff80202fa5:	55                   	push   %rbp
+ffffffff80202fa6:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202fa9:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80202fad:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80202fb1:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff80202fb5:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80202fb9:	48 8b 80 80 00 00 00 	mov    0x80(%rax),%rax
+ffffffff80202fc0:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff80202fc4:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+ffffffff80202fc9:	75 07                	jne    ffffffff80202fd2 <_Z7get_tagP15stivale2_structm+0x31>
+ffffffff80202fcb:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff80202fd0:	eb 21                	jmp    ffffffff80202ff3 <_Z7get_tagP15stivale2_structm+0x52>
+ffffffff80202fd2:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202fd6:	48 8b 00             	mov    (%rax),%rax
+ffffffff80202fd9:	48 39 45 e0          	cmp    %rax,-0x20(%rbp)
+ffffffff80202fdd:	75 06                	jne    ffffffff80202fe5 <_Z7get_tagP15stivale2_structm+0x44>
+ffffffff80202fdf:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202fe3:	eb 0e                	jmp    ffffffff80202ff3 <_Z7get_tagP15stivale2_structm+0x52>
+ffffffff80202fe5:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80202fe9:	48 8b 40 08          	mov    0x8(%rax),%rax
+ffffffff80202fed:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff80202ff1:	eb d1                	jmp    ffffffff80202fc4 <_Z7get_tagP15stivale2_structm+0x23>
+ffffffff80202ff3:	c9                   	leave  
+ffffffff80202ff4:	c3                   	ret    
+
+ffffffff80202ff5 <kmain>:
+ffffffff80202ff5:	f3 0f 1e fa          	endbr64 
+ffffffff80202ff9:	55                   	push   %rbp
+ffffffff80202ffa:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80202ffd:	48 83 ec 10          	sub    $0x10,%rsp
+ffffffff80203001:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+ffffffff80203005:	e8 72 07 00 00       	call   ffffffff8020377c <_ZN3VGA4InitEv>
+ffffffff8020300a:	48 c7 c7 28 10 20 80 	mov    $0xffffffff80201028,%rdi
+ffffffff80203011:	e8 f4 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203016:	e8 13 f1 ff ff       	call   ffffffff8020212e <_ZN3GDT4InitEv>
+ffffffff8020301b:	48 c7 c7 61 10 20 80 	mov    $0xffffffff80201061,%rdi
+ffffffff80203022:	e8 e3 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203027:	e8 77 f3 ff ff       	call   ffffffff802023a3 <_ZN3IDT4InitEv>
+ffffffff8020302c:	48 c7 c7 7e 10 20 80 	mov    $0xffffffff8020107e,%rdi
+ffffffff80203033:	e8 d2 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203038:	e8 79 00 00 00       	call   ffffffff802030b6 <_ZN3PIC9RemapIRQsEv>
+ffffffff8020303d:	48 c7 c7 9b 10 20 80 	mov    $0xffffffff8020109b,%rdi
+ffffffff80203044:	e8 c1 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203049:	48 c7 c7 b7 10 20 80 	mov    $0xffffffff802010b7,%rdi
+ffffffff80203050:	e8 b5 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203055:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80203059:	48 ba 07 de 12 86 9e 	movabs $0x2187f79e8612de07,%rdx
+ffffffff80203060:	f7 87 21 
+ffffffff80203063:	48 89 d6             	mov    %rdx,%rsi
+ffffffff80203066:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203069:	e8 33 ff ff ff       	call   ffffffff80202fa1 <_Z7get_tagP15stivale2_structm>
+ffffffff8020306e:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203071:	e8 85 03 00 00       	call   ffffffff802033fb <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap>
+ffffffff80203076:	48 c7 c7 d5 10 20 80 	mov    $0xffffffff802010d5,%rdi
+ffffffff8020307d:	e8 88 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203082:	e8 b8 10 00 00       	call   ffffffff8020413f <_ZN13VirtualMemory10InitializeEv>
+ffffffff80203087:	48 c7 c7 f2 10 20 80 	mov    $0xffffffff802010f2,%rdi
+ffffffff8020308e:	e8 77 0a 00 00       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203093:	eb fe                	jmp    ffffffff80203093 <kmain+0x9e>
+
+ffffffff80203095 <_ZL4outbth>:
+ffffffff80203095:	55                   	push   %rbp
+ffffffff80203096:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203099:	48 83 ec 08          	sub    $0x8,%rsp
+ffffffff8020309d:	89 f8                	mov    %edi,%eax
+ffffffff8020309f:	89 f2                	mov    %esi,%edx
+ffffffff802030a1:	66 89 45 fc          	mov    %ax,-0x4(%rbp)
+ffffffff802030a5:	89 d0                	mov    %edx,%eax
+ffffffff802030a7:	88 45 f8             	mov    %al,-0x8(%rbp)
+ffffffff802030aa:	0f b6 45 f8          	movzbl -0x8(%rbp),%eax
+ffffffff802030ae:	0f b7 55 fc          	movzwl -0x4(%rbp),%edx
+ffffffff802030b2:	ee                   	out    %al,(%dx)
+ffffffff802030b3:	90                   	nop
+ffffffff802030b4:	c9                   	leave  
+ffffffff802030b5:	c3                   	ret    
+
+ffffffff802030b6 <_ZN3PIC9RemapIRQsEv>:
+ffffffff802030b6:	f3 0f 1e fa          	endbr64 
+ffffffff802030ba:	55                   	push   %rbp
+ffffffff802030bb:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802030be:	be 11 00 00 00       	mov    $0x11,%esi
+ffffffff802030c3:	bf 20 00 00 00       	mov    $0x20,%edi
+ffffffff802030c8:	e8 c8 ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff802030cd:	be 11 00 00 00       	mov    $0x11,%esi
+ffffffff802030d2:	bf a0 00 00 00       	mov    $0xa0,%edi
+ffffffff802030d7:	e8 b9 ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff802030dc:	be 20 00 00 00       	mov    $0x20,%esi
+ffffffff802030e1:	bf 21 00 00 00       	mov    $0x21,%edi
+ffffffff802030e6:	e8 aa ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff802030eb:	be 28 00 00 00       	mov    $0x28,%esi
+ffffffff802030f0:	bf a1 00 00 00       	mov    $0xa1,%edi
+ffffffff802030f5:	e8 9b ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff802030fa:	be 04 00 00 00       	mov    $0x4,%esi
+ffffffff802030ff:	bf 21 00 00 00       	mov    $0x21,%edi
+ffffffff80203104:	e8 8c ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203109:	be 02 00 00 00       	mov    $0x2,%esi
+ffffffff8020310e:	bf a1 00 00 00       	mov    $0xa1,%edi
+ffffffff80203113:	e8 7d ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203118:	be 01 00 00 00       	mov    $0x1,%esi
+ffffffff8020311d:	bf 21 00 00 00       	mov    $0x21,%edi
+ffffffff80203122:	e8 6e ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203127:	be 01 00 00 00       	mov    $0x1,%esi
+ffffffff8020312c:	bf a1 00 00 00       	mov    $0xa1,%edi
+ffffffff80203131:	e8 5f ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203136:	be ff 00 00 00       	mov    $0xff,%esi
+ffffffff8020313b:	bf 21 00 00 00       	mov    $0x21,%edi
+ffffffff80203140:	e8 50 ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203145:	be ff 00 00 00       	mov    $0xff,%esi
+ffffffff8020314a:	bf a1 00 00 00       	mov    $0xa1,%edi
+ffffffff8020314f:	e8 41 ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203154:	90                   	nop
+ffffffff80203155:	5d                   	pop    %rbp
+ffffffff80203156:	c3                   	ret    
+
+ffffffff80203157 <_ZN3PIC18AckInterruptMasterEv>:
+ffffffff80203157:	f3 0f 1e fa          	endbr64 
+ffffffff8020315b:	55                   	push   %rbp
+ffffffff8020315c:	48 89 e5             	mov    %rsp,%rbp
+ffffffff8020315f:	be 20 00 00 00       	mov    $0x20,%esi
+ffffffff80203164:	bf 20 00 00 00       	mov    $0x20,%edi
+ffffffff80203169:	e8 27 ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff8020316e:	90                   	nop
+ffffffff8020316f:	5d                   	pop    %rbp
+ffffffff80203170:	c3                   	ret    
+
+ffffffff80203171 <_ZN3PIC17AckInterruptSlaveEv>:
+ffffffff80203171:	f3 0f 1e fa          	endbr64 
+ffffffff80203175:	55                   	push   %rbp
+ffffffff80203176:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203179:	be 20 00 00 00       	mov    $0x20,%esi
+ffffffff8020317e:	bf a0 00 00 00       	mov    $0xa0,%edi
+ffffffff80203183:	e8 0d ff ff ff       	call   ffffffff80203095 <_ZL4outbth>
+ffffffff80203188:	90                   	nop
+ffffffff80203189:	5d                   	pop    %rbp
+ffffffff8020318a:	c3                   	ret    
+
+ffffffff8020318b <_ZL10InnerAllocmm>:
+ffffffff8020318b:	f3 0f 1e fa          	endbr64 
+ffffffff8020318f:	55                   	push   %rbp
+ffffffff80203190:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203193:	48 83 ec 30          	sub    $0x30,%rsp
+ffffffff80203197:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+ffffffff8020319b:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+ffffffff8020319f:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)
+ffffffff802031a6:	00 
+ffffffff802031a7:	e9 91 00 00 00       	jmp    ffffffff8020323d <_ZL10InnerAllocmm+0xb2>
+ffffffff802031ac:	48 8b 05 dd 7e 00 00 	mov    0x7edd(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff802031b3:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ffffffff802031b7:	48 89 15 d2 7e 00 00 	mov    %rdx,0x7ed2(%rip)        # ffffffff8020b090 <_ZL5lastI>
+ffffffff802031be:	48 89 c6             	mov    %rax,%rsi
+ffffffff802031c1:	48 c7 c7 80 b0 20 80 	mov    $0xffffffff8020b080,%rdi
+ffffffff802031c8:	e8 33 ee ff ff       	call   ffffffff80202000 <_ZN6BitmapixEm>
+ffffffff802031cd:	83 f0 01             	xor    $0x1,%eax
+ffffffff802031d0:	84 c0                	test   %al,%al
+ffffffff802031d2:	74 61                	je     ffffffff80203235 <_ZL10InnerAllocmm+0xaa>
+ffffffff802031d4:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
+ffffffff802031d9:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff802031dd:	48 3b 45 d8          	cmp    -0x28(%rbp),%rax
+ffffffff802031e1:	0f 94 c0             	sete   %al
+ffffffff802031e4:	84 c0                	test   %al,%al
+ffffffff802031e6:	74 55                	je     ffffffff8020323d <_ZL10InnerAllocmm+0xb2>
+ffffffff802031e8:	48 8b 05 a1 7e 00 00 	mov    0x7ea1(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff802031ef:	48 2b 45 d8          	sub    -0x28(%rbp),%rax
+ffffffff802031f3:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff802031f7:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802031fb:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+ffffffff802031ff:	eb 1d                	jmp    ffffffff8020321e <_ZL10InnerAllocmm+0x93>
+ffffffff80203201:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff80203205:	ba 01 00 00 00       	mov    $0x1,%edx
+ffffffff8020320a:	48 89 c6             	mov    %rax,%rsi
+ffffffff8020320d:	48 c7 c7 80 b0 20 80 	mov    $0xffffffff8020b080,%rdi
+ffffffff80203214:	e8 11 ee ff ff       	call   ffffffff8020202a <_ZN6Bitmap3SetEmb>
+ffffffff80203219:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+ffffffff8020321e:	48 8b 05 6b 7e 00 00 	mov    0x7e6b(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff80203225:	48 39 45 f0          	cmp    %rax,-0x10(%rbp)
+ffffffff80203229:	72 d6                	jb     ffffffff80203201 <_ZL10InnerAllocmm+0x76>
+ffffffff8020322b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020322f:	48 c1 e0 0c          	shl    $0xc,%rax
+ffffffff80203233:	eb 1e                	jmp    ffffffff80203253 <_ZL10InnerAllocmm+0xc8>
+ffffffff80203235:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)
+ffffffff8020323c:	00 
+ffffffff8020323d:	48 8b 05 4c 7e 00 00 	mov    0x7e4c(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff80203244:	48 39 45 d0          	cmp    %rax,-0x30(%rbp)
+ffffffff80203248:	0f 87 5e ff ff ff    	ja     ffffffff802031ac <_ZL10InnerAllocmm+0x21>
+ffffffff8020324e:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff80203253:	c9                   	leave  
+ffffffff80203254:	c3                   	ret    
+
+ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>:
+ffffffff80203255:	f3 0f 1e fa          	endbr64 
+ffffffff80203259:	55                   	push   %rbp
+ffffffff8020325a:	48 89 e5             	mov    %rsp,%rbp
+ffffffff8020325d:	48 83 ec 30          	sub    $0x30,%rsp
+ffffffff80203261:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+ffffffff80203265:	48 8b 05 24 7e 00 00 	mov    0x7e24(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff8020326c:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff80203270:	48 8b 05 11 7e 00 00 	mov    0x7e11(%rip),%rax        # ffffffff8020b088 <_ZL12highest_addr>
+ffffffff80203277:	48 c1 e8 0c          	shr    $0xc,%rax
+ffffffff8020327b:	48 89 c2             	mov    %rax,%rdx
+ffffffff8020327e:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80203282:	48 89 d6             	mov    %rdx,%rsi
+ffffffff80203285:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203288:	e8 fe fe ff ff       	call   ffffffff8020318b <_ZL10InnerAllocmm>
+ffffffff8020328d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff80203291:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+ffffffff80203296:	75 4d                	jne    ffffffff802032e5 <_ZN14PhysicalMemory10AllocPagesEm+0x90>
+ffffffff80203298:	48 c7 05 ed 7d 00 00 	movq   $0x0,0x7ded(%rip)        # ffffffff8020b090 <_ZL5lastI>
+ffffffff8020329f:	00 00 00 00 
+ffffffff802032a3:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ffffffff802032a7:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff802032ab:	48 89 d6             	mov    %rdx,%rsi
+ffffffff802032ae:	48 89 c7             	mov    %rax,%rdi
+ffffffff802032b1:	e8 d5 fe ff ff       	call   ffffffff8020318b <_ZL10InnerAllocmm>
+ffffffff802032b6:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff802032ba:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+ffffffff802032bf:	75 24                	jne    ffffffff802032e5 <_ZN14PhysicalMemory10AllocPagesEm+0x90>
+ffffffff802032c1:	48 c7 c7 10 11 20 80 	mov    $0xffffffff80201110,%rdi
+ffffffff802032c8:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff802032cd:	e8 02 0c 00 00       	call   ffffffff80203ed4 <_ZN3VGA12print_formatEPKcz>
+ffffffff802032d2:	48 c7 c7 27 11 20 80 	mov    $0xffffffff80201127,%rdi
+ffffffff802032d9:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff802032de:	e8 f1 0b 00 00       	call   ffffffff80203ed4 <_ZN3VGA12print_formatEPKcz>
+ffffffff802032e3:	eb ed                	jmp    ffffffff802032d2 <_ZN14PhysicalMemory10AllocPagesEm+0x7d>
+ffffffff802032e5:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+ffffffff802032ec:	eb 0b                	jmp    ffffffff802032f9 <_ZN14PhysicalMemory10AllocPagesEm+0xa4>
+ffffffff802032ee:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff802032f2:	c6 00 00             	movb   $0x0,(%rax)
+ffffffff802032f5:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+ffffffff802032f9:	8b 45 f4             	mov    -0xc(%rbp),%eax
+ffffffff802032fc:	48 98                	cltq   
+ffffffff802032fe:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+ffffffff80203302:	48 c1 e2 0c          	shl    $0xc,%rdx
+ffffffff80203306:	48 39 d0             	cmp    %rdx,%rax
+ffffffff80203309:	72 e3                	jb     ffffffff802032ee <_ZN14PhysicalMemory10AllocPagesEm+0x99>
+ffffffff8020330b:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff8020330f:	48 c1 e0 0c          	shl    $0xc,%rax
+ffffffff80203313:	48 89 c2             	mov    %rax,%rdx
+ffffffff80203316:	48 8b 05 7b 7d 00 00 	mov    0x7d7b(%rip),%rax        # ffffffff8020b098 <_ZL7usedRam>
+ffffffff8020331d:	48 01 d0             	add    %rdx,%rax
+ffffffff80203320:	48 89 05 71 7d 00 00 	mov    %rax,0x7d71(%rip)        # ffffffff8020b098 <_ZL7usedRam>
+ffffffff80203327:	48 8b 05 72 7d 00 00 	mov    0x7d72(%rip),%rax        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff8020332e:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+ffffffff80203332:	48 c1 e2 0c          	shl    $0xc,%rdx
+ffffffff80203336:	48 29 d0             	sub    %rdx,%rax
+ffffffff80203339:	48 89 05 60 7d 00 00 	mov    %rax,0x7d60(%rip)        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff80203340:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80203344:	c9                   	leave  
+ffffffff80203345:	c3                   	ret    
+
+ffffffff80203346 <_ZN14PhysicalMemory9FreePagesEPvm>:
+ffffffff80203346:	f3 0f 1e fa          	endbr64 
+ffffffff8020334a:	55                   	push   %rbp
+ffffffff8020334b:	48 89 e5             	mov    %rsp,%rbp
+ffffffff8020334e:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80203352:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80203356:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff8020335a:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+ffffffff8020335f:	0f 84 93 00 00 00    	je     ffffffff802033f8 <_ZN14PhysicalMemory9FreePagesEPvm+0xb2>
+ffffffff80203365:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203369:	48 c1 e8 0c          	shr    $0xc,%rax
+ffffffff8020336d:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+ffffffff80203371:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff80203375:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff80203379:	eb 1d                	jmp    ffffffff80203398 <_ZN14PhysicalMemory9FreePagesEPvm+0x52>
+ffffffff8020337b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff8020337f:	ba 00 00 00 00       	mov    $0x0,%edx
+ffffffff80203384:	48 89 c6             	mov    %rax,%rsi
+ffffffff80203387:	48 c7 c7 80 b0 20 80 	mov    $0xffffffff8020b080,%rdi
+ffffffff8020338e:	e8 97 ec ff ff       	call   ffffffff8020202a <_ZN6Bitmap3SetEmb>
+ffffffff80203393:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
+ffffffff80203398:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff8020339c:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff802033a0:	48 01 d0             	add    %rdx,%rax
+ffffffff802033a3:	48 39 45 f8          	cmp    %rax,-0x8(%rbp)
+ffffffff802033a7:	72 d2                	jb     ffffffff8020337b <_ZN14PhysicalMemory9FreePagesEPvm+0x35>
+ffffffff802033a9:	48 8b 05 e0 7c 00 00 	mov    0x7ce0(%rip),%rax        # ffffffff8020b090 <_ZL5lastI>
+ffffffff802033b0:	48 39 45 f0          	cmp    %rax,-0x10(%rbp)
+ffffffff802033b4:	73 0b                	jae    ffffffff802033c1 <_ZN14PhysicalMemory9FreePagesEPvm+0x7b>
+ffffffff802033b6:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff802033ba:	48 89 05 cf 7c 00 00 	mov    %rax,0x7ccf(%rip)        # ffffffff8020b090 <_ZL5lastI>
+ffffffff802033c1:	48 8b 05 d0 7c 00 00 	mov    0x7cd0(%rip),%rax        # ffffffff8020b098 <_ZL7usedRam>
+ffffffff802033c8:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+ffffffff802033cc:	48 c1 e2 0c          	shl    $0xc,%rdx
+ffffffff802033d0:	48 29 d0             	sub    %rdx,%rax
+ffffffff802033d3:	48 89 05 be 7c 00 00 	mov    %rax,0x7cbe(%rip)        # ffffffff8020b098 <_ZL7usedRam>
+ffffffff802033da:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff802033de:	48 c1 e0 0c          	shl    $0xc,%rax
+ffffffff802033e2:	48 89 c2             	mov    %rax,%rdx
+ffffffff802033e5:	48 8b 05 b4 7c 00 00 	mov    0x7cb4(%rip),%rax        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff802033ec:	48 01 d0             	add    %rdx,%rax
+ffffffff802033ef:	48 89 05 aa 7c 00 00 	mov    %rax,0x7caa(%rip)        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff802033f6:	eb 01                	jmp    ffffffff802033f9 <_ZN14PhysicalMemory9FreePagesEPvm+0xb3>
+ffffffff802033f8:	90                   	nop
+ffffffff802033f9:	c9                   	leave  
+ffffffff802033fa:	c3                   	ret    
+
+ffffffff802033fb <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap>:
+ffffffff802033fb:	f3 0f 1e fa          	endbr64 
+ffffffff802033ff:	55                   	push   %rbp
+ffffffff80203400:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203403:	48 83 ec 50          	sub    $0x50,%rsp
+ffffffff80203407:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+ffffffff8020340b:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)
+ffffffff80203412:	00 
+ffffffff80203413:	e9 c0 00 00 00       	jmp    ffffffff802034d8 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0xdd>
+ffffffff80203418:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff8020341c:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff80203420:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203423:	48 01 c0             	add    %rax,%rax
+ffffffff80203426:	48 01 d0             	add    %rdx,%rax
+ffffffff80203429:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff8020342d:	48 01 c8             	add    %rcx,%rax
+ffffffff80203430:	48 83 c0 20          	add    $0x20,%rax
+ffffffff80203434:	8b 40 08             	mov    0x8(%rax),%eax
+ffffffff80203437:	83 f8 01             	cmp    $0x1,%eax
+ffffffff8020343a:	0f 85 92 00 00 00    	jne    ffffffff802034d2 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0xd7>
+ffffffff80203440:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff80203444:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff80203448:	48 89 d0             	mov    %rdx,%rax
+ffffffff8020344b:	48 01 c0             	add    %rax,%rax
+ffffffff8020344e:	48 01 d0             	add    %rdx,%rax
+ffffffff80203451:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203455:	48 01 c8             	add    %rcx,%rax
+ffffffff80203458:	48 83 c0 10          	add    $0x10,%rax
+ffffffff8020345c:	48 8b 48 08          	mov    0x8(%rax),%rcx
+ffffffff80203460:	48 8b 75 b8          	mov    -0x48(%rbp),%rsi
+ffffffff80203464:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff80203468:	48 89 d0             	mov    %rdx,%rax
+ffffffff8020346b:	48 01 c0             	add    %rax,%rax
+ffffffff8020346e:	48 01 d0             	add    %rdx,%rax
+ffffffff80203471:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203475:	48 01 f0             	add    %rsi,%rax
+ffffffff80203478:	48 83 c0 10          	add    $0x10,%rax
+ffffffff8020347c:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff80203480:	48 01 c8             	add    %rcx,%rax
+ffffffff80203483:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+ffffffff80203487:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff8020348b:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff8020348f:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203492:	48 01 c0             	add    %rax,%rax
+ffffffff80203495:	48 01 d0             	add    %rdx,%rax
+ffffffff80203498:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff8020349c:	48 01 c8             	add    %rcx,%rax
+ffffffff8020349f:	48 83 c0 10          	add    $0x10,%rax
+ffffffff802034a3:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ffffffff802034a7:	48 8b 05 f2 7b 00 00 	mov    0x7bf2(%rip),%rax        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff802034ae:	48 01 d0             	add    %rdx,%rax
+ffffffff802034b1:	48 89 05 e8 7b 00 00 	mov    %rax,0x7be8(%rip)        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff802034b8:	48 8b 05 c9 7b 00 00 	mov    0x7bc9(%rip),%rax        # ffffffff8020b088 <_ZL12highest_addr>
+ffffffff802034bf:	48 39 45 c8          	cmp    %rax,-0x38(%rbp)
+ffffffff802034c3:	76 0e                	jbe    ffffffff802034d3 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0xd8>
+ffffffff802034c5:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ffffffff802034c9:	48 89 05 b8 7b 00 00 	mov    %rax,0x7bb8(%rip)        # ffffffff8020b088 <_ZL12highest_addr>
+ffffffff802034d0:	eb 01                	jmp    ffffffff802034d3 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0xd8>
+ffffffff802034d2:	90                   	nop
+ffffffff802034d3:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
+ffffffff802034d8:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+ffffffff802034dc:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff802034e0:	48 39 45 f8          	cmp    %rax,-0x8(%rbp)
+ffffffff802034e4:	0f 82 2e ff ff ff    	jb     ffffffff80203418 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x1d>
+ffffffff802034ea:	48 8b 05 97 7b 00 00 	mov    0x7b97(%rip),%rax        # ffffffff8020b088 <_ZL12highest_addr>
+ffffffff802034f1:	48 c1 e8 0f          	shr    $0xf,%rax
+ffffffff802034f5:	48 05 ff 0f 00 00    	add    $0xfff,%rax
+ffffffff802034fb:	48 25 00 f0 ff ff    	and    $0xfffffffffffff000,%rax
+ffffffff80203501:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+ffffffff80203505:	48 c7 45 f0 00 00 00 	movq   $0x0,-0x10(%rbp)
+ffffffff8020350c:	00 
+ffffffff8020350d:	e9 4c 01 00 00       	jmp    ffffffff8020365e <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x263>
+ffffffff80203512:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff80203516:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff8020351a:	48 89 d0             	mov    %rdx,%rax
+ffffffff8020351d:	48 01 c0             	add    %rax,%rax
+ffffffff80203520:	48 01 d0             	add    %rdx,%rax
+ffffffff80203523:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203527:	48 01 c8             	add    %rcx,%rax
+ffffffff8020352a:	48 83 c0 20          	add    $0x20,%rax
+ffffffff8020352e:	8b 40 08             	mov    0x8(%rax),%eax
+ffffffff80203531:	83 f8 01             	cmp    $0x1,%eax
+ffffffff80203534:	0f 85 1e 01 00 00    	jne    ffffffff80203658 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x25d>
+ffffffff8020353a:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff8020353e:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80203542:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203545:	48 01 c0             	add    %rax,%rax
+ffffffff80203548:	48 01 d0             	add    %rdx,%rax
+ffffffff8020354b:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff8020354f:	48 01 c8             	add    %rcx,%rax
+ffffffff80203552:	48 83 c0 10          	add    $0x10,%rax
+ffffffff80203556:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff8020355a:	48 39 45 d0          	cmp    %rax,-0x30(%rbp)
+ffffffff8020355e:	0f 87 f5 00 00 00    	ja     ffffffff80203659 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x25e>
+ffffffff80203564:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff80203568:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff8020356c:	48 89 d0             	mov    %rdx,%rax
+ffffffff8020356f:	48 01 c0             	add    %rax,%rax
+ffffffff80203572:	48 01 d0             	add    %rdx,%rax
+ffffffff80203575:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203579:	48 01 c8             	add    %rcx,%rax
+ffffffff8020357c:	48 83 c0 10          	add    $0x10,%rax
+ffffffff80203580:	48 8b 40 08          	mov    0x8(%rax),%rax
+ffffffff80203584:	48 89 05 f5 7a 00 00 	mov    %rax,0x7af5(%rip)        # ffffffff8020b080 <bitmap>
+ffffffff8020358b:	48 c7 45 e8 00 00 00 	movq   $0x0,-0x18(%rbp)
+ffffffff80203592:	00 
+ffffffff80203593:	eb 16                	jmp    ffffffff802035ab <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x1b0>
+ffffffff80203595:	48 8b 15 e4 7a 00 00 	mov    0x7ae4(%rip),%rdx        # ffffffff8020b080 <bitmap>
+ffffffff8020359c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802035a0:	48 01 d0             	add    %rdx,%rax
+ffffffff802035a3:	c6 00 ff             	movb   $0xff,(%rax)
+ffffffff802035a6:	48 83 45 e8 01       	addq   $0x1,-0x18(%rbp)
+ffffffff802035ab:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802035af:	48 3b 45 d0          	cmp    -0x30(%rbp),%rax
+ffffffff802035b3:	72 e0                	jb     ffffffff80203595 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x19a>
+ffffffff802035b5:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff802035b9:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff802035bd:	48 89 d0             	mov    %rdx,%rax
+ffffffff802035c0:	48 01 c0             	add    %rax,%rax
+ffffffff802035c3:	48 01 d0             	add    %rdx,%rax
+ffffffff802035c6:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff802035ca:	48 01 c8             	add    %rcx,%rax
+ffffffff802035cd:	48 83 c0 10          	add    $0x10,%rax
+ffffffff802035d1:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff802035d5:	48 2b 45 d0          	sub    -0x30(%rbp),%rax
+ffffffff802035d9:	48 89 c2             	mov    %rax,%rdx
+ffffffff802035dc:	48 8b 75 b8          	mov    -0x48(%rbp),%rsi
+ffffffff802035e0:	48 8b 4d f0          	mov    -0x10(%rbp),%rcx
+ffffffff802035e4:	48 89 c8             	mov    %rcx,%rax
+ffffffff802035e7:	48 01 c0             	add    %rax,%rax
+ffffffff802035ea:	48 01 c8             	add    %rcx,%rax
+ffffffff802035ed:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff802035f1:	48 01 f0             	add    %rsi,%rax
+ffffffff802035f4:	48 83 c0 10          	add    $0x10,%rax
+ffffffff802035f8:	48 89 50 10          	mov    %rdx,0x10(%rax)
+ffffffff802035fc:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff80203600:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80203604:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203607:	48 01 c0             	add    %rax,%rax
+ffffffff8020360a:	48 01 d0             	add    %rdx,%rax
+ffffffff8020360d:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203611:	48 01 c8             	add    %rcx,%rax
+ffffffff80203614:	48 83 c0 10          	add    $0x10,%rax
+ffffffff80203618:	48 8b 50 08          	mov    0x8(%rax),%rdx
+ffffffff8020361c:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203620:	48 8d 0c 02          	lea    (%rdx,%rax,1),%rcx
+ffffffff80203624:	48 8b 75 b8          	mov    -0x48(%rbp),%rsi
+ffffffff80203628:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff8020362c:	48 89 d0             	mov    %rdx,%rax
+ffffffff8020362f:	48 01 c0             	add    %rax,%rax
+ffffffff80203632:	48 01 d0             	add    %rdx,%rax
+ffffffff80203635:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff80203639:	48 01 f0             	add    %rsi,%rax
+ffffffff8020363c:	48 83 c0 10          	add    $0x10,%rax
+ffffffff80203640:	48 89 48 08          	mov    %rcx,0x8(%rax)
+ffffffff80203644:	48 8b 05 55 7a 00 00 	mov    0x7a55(%rip),%rax        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff8020364b:	48 2b 45 d0          	sub    -0x30(%rbp),%rax
+ffffffff8020364f:	48 89 05 4a 7a 00 00 	mov    %rax,0x7a4a(%rip)        # ffffffff8020b0a0 <_ZL7freeRam>
+ffffffff80203656:	eb 18                	jmp    ffffffff80203670 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x275>
+ffffffff80203658:	90                   	nop
+ffffffff80203659:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+ffffffff8020365e:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+ffffffff80203662:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff80203666:	48 39 45 f0          	cmp    %rax,-0x10(%rbp)
+ffffffff8020366a:	0f 82 a2 fe ff ff    	jb     ffffffff80203512 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x117>
+ffffffff80203670:	48 8b 05 09 7a 00 00 	mov    0x7a09(%rip),%rax        # ffffffff8020b080 <bitmap>
+ffffffff80203677:	48 89 c1             	mov    %rax,%rcx
+ffffffff8020367a:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff8020367e:	48 89 c2             	mov    %rax,%rdx
+ffffffff80203681:	48 89 ce             	mov    %rcx,%rsi
+ffffffff80203684:	48 c7 c7 28 11 20 80 	mov    $0xffffffff80201128,%rdi
+ffffffff8020368b:	b8 00 00 00 00       	mov    $0x0,%eax
+ffffffff80203690:	e8 3f 08 00 00       	call   ffffffff80203ed4 <_ZN3VGA12print_formatEPKcz>
+ffffffff80203695:	48 c7 45 e0 00 00 00 	movq   $0x0,-0x20(%rbp)
+ffffffff8020369c:	00 
+ffffffff8020369d:	e9 a3 00 00 00       	jmp    ffffffff80203745 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x34a>
+ffffffff802036a2:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff802036a6:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+ffffffff802036aa:	48 89 d0             	mov    %rdx,%rax
+ffffffff802036ad:	48 01 c0             	add    %rax,%rax
+ffffffff802036b0:	48 01 d0             	add    %rdx,%rax
+ffffffff802036b3:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff802036b7:	48 01 c8             	add    %rcx,%rax
+ffffffff802036ba:	48 83 c0 20          	add    $0x20,%rax
+ffffffff802036be:	8b 40 08             	mov    0x8(%rax),%eax
+ffffffff802036c1:	83 f8 01             	cmp    $0x1,%eax
+ffffffff802036c4:	75 79                	jne    ffffffff8020373f <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x344>
+ffffffff802036c6:	48 c7 45 d8 00 00 00 	movq   $0x0,-0x28(%rbp)
+ffffffff802036cd:	00 
+ffffffff802036ce:	eb 47                	jmp    ffffffff80203717 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x31c>
+ffffffff802036d0:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff802036d4:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+ffffffff802036d8:	48 89 d0             	mov    %rdx,%rax
+ffffffff802036db:	48 01 c0             	add    %rax,%rax
+ffffffff802036de:	48 01 d0             	add    %rdx,%rax
+ffffffff802036e1:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff802036e5:	48 01 c8             	add    %rcx,%rax
+ffffffff802036e8:	48 83 c0 10          	add    $0x10,%rax
+ffffffff802036ec:	48 8b 50 08          	mov    0x8(%rax),%rdx
+ffffffff802036f0:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff802036f4:	48 01 d0             	add    %rdx,%rax
+ffffffff802036f7:	48 c1 e8 0c          	shr    $0xc,%rax
+ffffffff802036fb:	ba 00 00 00 00       	mov    $0x0,%edx
+ffffffff80203700:	48 89 c6             	mov    %rax,%rsi
+ffffffff80203703:	48 c7 c7 80 b0 20 80 	mov    $0xffffffff8020b080,%rdi
+ffffffff8020370a:	e8 1b e9 ff ff       	call   ffffffff8020202a <_ZN6Bitmap3SetEmb>
+ffffffff8020370f:	48 81 45 d8 00 10 00 	addq   $0x1000,-0x28(%rbp)
+ffffffff80203716:	00 
+ffffffff80203717:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+ffffffff8020371b:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+ffffffff8020371f:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203722:	48 01 c0             	add    %rax,%rax
+ffffffff80203725:	48 01 d0             	add    %rdx,%rax
+ffffffff80203728:	48 c1 e0 03          	shl    $0x3,%rax
+ffffffff8020372c:	48 01 c8             	add    %rcx,%rax
+ffffffff8020372f:	48 83 c0 10          	add    $0x10,%rax
+ffffffff80203733:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff80203737:	48 39 45 d8          	cmp    %rax,-0x28(%rbp)
+ffffffff8020373b:	72 93                	jb     ffffffff802036d0 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x2d5>
+ffffffff8020373d:	eb 01                	jmp    ffffffff80203740 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x345>
+ffffffff8020373f:	90                   	nop
+ffffffff80203740:	48 83 45 e0 01       	addq   $0x1,-0x20(%rbp)
+ffffffff80203745:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+ffffffff80203749:	48 8b 40 10          	mov    0x10(%rax),%rax
+ffffffff8020374d:	48 39 45 e0          	cmp    %rax,-0x20(%rbp)
+ffffffff80203751:	0f 82 4b ff ff ff    	jb     ffffffff802036a2 <_ZN14PhysicalMemory10InitializeEP26stivale2_struct_tag_memmap+0x2a7>
+ffffffff80203757:	90                   	nop
+ffffffff80203758:	90                   	nop
+ffffffff80203759:	c9                   	leave  
+ffffffff8020375a:	c3                   	ret    
+
+ffffffff8020375b <_ZL4outbth>:
+ffffffff8020375b:	55                   	push   %rbp
+ffffffff8020375c:	48 89 e5             	mov    %rsp,%rbp
+ffffffff8020375f:	48 83 ec 08          	sub    $0x8,%rsp
+ffffffff80203763:	89 f8                	mov    %edi,%eax
+ffffffff80203765:	89 f2                	mov    %esi,%edx
+ffffffff80203767:	66 89 45 fc          	mov    %ax,-0x4(%rbp)
+ffffffff8020376b:	89 d0                	mov    %edx,%eax
+ffffffff8020376d:	88 45 f8             	mov    %al,-0x8(%rbp)
+ffffffff80203770:	0f b6 45 f8          	movzbl -0x8(%rbp),%eax
+ffffffff80203774:	0f b7 55 fc          	movzwl -0x4(%rbp),%edx
+ffffffff80203778:	ee                   	out    %al,(%dx)
+ffffffff80203779:	90                   	nop
+ffffffff8020377a:	c9                   	leave  
+ffffffff8020377b:	c3                   	ret    
+
+ffffffff8020377c <_ZN3VGA4InitEv>:
+ffffffff8020377c:	f3 0f 1e fa          	endbr64 
+ffffffff80203780:	55                   	push   %rbp
+ffffffff80203781:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203784:	48 c7 05 31 79 00 00 	movq   $0xb8000,0x7931(%rip)        # ffffffff8020b0c0 <fb_ptr>
+ffffffff8020378b:	00 80 0b 00 
+ffffffff8020378f:	66 c7 05 32 79 00 00 	movw   $0x0,0x7932(%rip)        # ffffffff8020b0ca <y>
+ffffffff80203796:	00 00 
+ffffffff80203798:	0f b7 05 2b 79 00 00 	movzwl 0x792b(%rip),%eax        # ffffffff8020b0ca <y>
+ffffffff8020379f:	66 89 05 22 79 00 00 	mov    %ax,0x7922(%rip)        # ffffffff8020b0c8 <x>
+ffffffff802037a6:	90                   	nop
+ffffffff802037a7:	5d                   	pop    %rbp
+ffffffff802037a8:	c3                   	ret    
+
+ffffffff802037a9 <_Z12SetCursorPosv>:
+ffffffff802037a9:	f3 0f 1e fa          	endbr64 
+ffffffff802037ad:	55                   	push   %rbp
+ffffffff802037ae:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802037b1:	48 83 ec 10          	sub    $0x10,%rsp
+ffffffff802037b5:	0f b7 15 0e 79 00 00 	movzwl 0x790e(%rip),%edx        # ffffffff8020b0ca <y>
+ffffffff802037bc:	89 d0                	mov    %edx,%eax
+ffffffff802037be:	c1 e0 02             	shl    $0x2,%eax
+ffffffff802037c1:	01 d0                	add    %edx,%eax
+ffffffff802037c3:	c1 e0 04             	shl    $0x4,%eax
+ffffffff802037c6:	89 c2                	mov    %eax,%edx
+ffffffff802037c8:	0f b7 05 f9 78 00 00 	movzwl 0x78f9(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff802037cf:	01 d0                	add    %edx,%eax
+ffffffff802037d1:	66 89 45 fe          	mov    %ax,-0x2(%rbp)
+ffffffff802037d5:	be 0f 00 00 00       	mov    $0xf,%esi
+ffffffff802037da:	bf d4 03 00 00       	mov    $0x3d4,%edi
+ffffffff802037df:	e8 77 ff ff ff       	call   ffffffff8020375b <_ZL4outbth>
+ffffffff802037e4:	0f b7 45 fe          	movzwl -0x2(%rbp),%eax
+ffffffff802037e8:	0f b6 c0             	movzbl %al,%eax
+ffffffff802037eb:	89 c6                	mov    %eax,%esi
+ffffffff802037ed:	bf d5 03 00 00       	mov    $0x3d5,%edi
+ffffffff802037f2:	e8 64 ff ff ff       	call   ffffffff8020375b <_ZL4outbth>
+ffffffff802037f7:	be 0e 00 00 00       	mov    $0xe,%esi
+ffffffff802037fc:	bf d4 03 00 00       	mov    $0x3d4,%edi
+ffffffff80203801:	e8 55 ff ff ff       	call   ffffffff8020375b <_ZL4outbth>
+ffffffff80203806:	0f b7 45 fe          	movzwl -0x2(%rbp),%eax
+ffffffff8020380a:	66 c1 e8 08          	shr    $0x8,%ax
+ffffffff8020380e:	0f b6 c0             	movzbl %al,%eax
+ffffffff80203811:	89 c6                	mov    %eax,%esi
+ffffffff80203813:	bf d5 03 00 00       	mov    $0x3d5,%edi
+ffffffff80203818:	e8 3e ff ff ff       	call   ffffffff8020375b <_ZL4outbth>
+ffffffff8020381d:	90                   	nop
+ffffffff8020381e:	c9                   	leave  
+ffffffff8020381f:	c3                   	ret    
+
+ffffffff80203820 <_Z6memcpyPvS_m>:
+ffffffff80203820:	f3 0f 1e fa          	endbr64 
+ffffffff80203824:	55                   	push   %rbp
+ffffffff80203825:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203828:	48 83 ec 38          	sub    $0x38,%rsp
+ffffffff8020382c:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+ffffffff80203830:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+ffffffff80203834:	48 89 55 c8          	mov    %rdx,-0x38(%rbp)
+ffffffff80203838:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff8020383c:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+ffffffff80203840:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203844:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff80203848:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff8020384f:	eb 23                	jmp    ffffffff80203874 <_Z6memcpyPvS_m+0x54>
+ffffffff80203851:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203854:	48 63 d0             	movslq %eax,%rdx
+ffffffff80203857:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020385b:	48 01 d0             	add    %rdx,%rax
+ffffffff8020385e:	8b 55 fc             	mov    -0x4(%rbp),%edx
+ffffffff80203861:	48 63 ca             	movslq %edx,%rcx
+ffffffff80203864:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80203868:	48 01 ca             	add    %rcx,%rdx
+ffffffff8020386b:	0f b6 00             	movzbl (%rax),%eax
+ffffffff8020386e:	88 02                	mov    %al,(%rdx)
+ffffffff80203870:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff80203874:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203877:	48 98                	cltq   
+ffffffff80203879:	48 39 45 c8          	cmp    %rax,-0x38(%rbp)
+ffffffff8020387d:	77 d2                	ja     ffffffff80203851 <_Z6memcpyPvS_m+0x31>
+ffffffff8020387f:	90                   	nop
+ffffffff80203880:	90                   	nop
+ffffffff80203881:	c9                   	leave  
+ffffffff80203882:	c3                   	ret    
+
+ffffffff80203883 <_Z6memsetPcci>:
+ffffffff80203883:	f3 0f 1e fa          	endbr64 
+ffffffff80203887:	55                   	push   %rbp
+ffffffff80203888:	48 89 e5             	mov    %rsp,%rbp
+ffffffff8020388b:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff8020388f:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80203893:	89 f0                	mov    %esi,%eax
+ffffffff80203895:	89 55 e0             	mov    %edx,-0x20(%rbp)
+ffffffff80203898:	88 45 e4             	mov    %al,-0x1c(%rbp)
+ffffffff8020389b:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff802038a2:	eb 17                	jmp    ffffffff802038bb <_Z6memsetPcci+0x38>
+ffffffff802038a4:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802038a7:	48 63 d0             	movslq %eax,%rdx
+ffffffff802038aa:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802038ae:	48 01 c2             	add    %rax,%rdx
+ffffffff802038b1:	0f b6 45 e4          	movzbl -0x1c(%rbp),%eax
+ffffffff802038b5:	88 02                	mov    %al,(%rdx)
+ffffffff802038b7:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff802038bb:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802038be:	3b 45 e0             	cmp    -0x20(%rbp),%eax
+ffffffff802038c1:	7c e1                	jl     ffffffff802038a4 <_Z6memsetPcci+0x21>
+ffffffff802038c3:	90                   	nop
+ffffffff802038c4:	90                   	nop
+ffffffff802038c5:	c9                   	leave  
+ffffffff802038c6:	c3                   	ret    
+
+ffffffff802038c7 <_Z7memsetwPcti>:
+ffffffff802038c7:	f3 0f 1e fa          	endbr64 
+ffffffff802038cb:	55                   	push   %rbp
+ffffffff802038cc:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802038cf:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff802038d3:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff802038d7:	89 f0                	mov    %esi,%eax
+ffffffff802038d9:	89 55 e0             	mov    %edx,-0x20(%rbp)
+ffffffff802038dc:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+ffffffff802038e0:	8b 45 e0             	mov    -0x20(%rbp),%eax
+ffffffff802038e3:	89 c2                	mov    %eax,%edx
+ffffffff802038e5:	c1 ea 1f             	shr    $0x1f,%edx
+ffffffff802038e8:	01 d0                	add    %edx,%eax
+ffffffff802038ea:	d1 f8                	sar    %eax
+ffffffff802038ec:	89 45 e0             	mov    %eax,-0x20(%rbp)
+ffffffff802038ef:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff802038f6:	eb 17                	jmp    ffffffff8020390f <_Z7memsetwPcti+0x48>
+ffffffff802038f8:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff802038fb:	48 63 d0             	movslq %eax,%rdx
+ffffffff802038fe:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203902:	48 01 d0             	add    %rdx,%rax
+ffffffff80203905:	0f b7 55 e4          	movzwl -0x1c(%rbp),%edx
+ffffffff80203909:	88 10                	mov    %dl,(%rax)
+ffffffff8020390b:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff8020390f:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203912:	3b 45 e0             	cmp    -0x20(%rbp),%eax
+ffffffff80203915:	7c e1                	jl     ffffffff802038f8 <_Z7memsetwPcti+0x31>
+ffffffff80203917:	90                   	nop
+ffffffff80203918:	90                   	nop
+ffffffff80203919:	c9                   	leave  
+ffffffff8020391a:	c3                   	ret    
+
+ffffffff8020391b <_Z6Scrollv>:
+ffffffff8020391b:	f3 0f 1e fa          	endbr64 
+ffffffff8020391f:	55                   	push   %rbp
+ffffffff80203920:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203923:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80203927:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff8020392e:	eb 67                	jmp    ffffffff80203997 <_Z6Scrollv+0x7c>
+ffffffff80203930:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%rbp)
+ffffffff80203937:	eb 54                	jmp    ffffffff8020398d <_Z6Scrollv+0x72>
+ffffffff80203939:	48 8b 0d 80 77 00 00 	mov    0x7780(%rip),%rcx        # ffffffff8020b0c0 <fb_ptr>
+ffffffff80203940:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203943:	8d 50 01             	lea    0x1(%rax),%edx
+ffffffff80203946:	89 d0                	mov    %edx,%eax
+ffffffff80203948:	c1 e0 02             	shl    $0x2,%eax
+ffffffff8020394b:	01 d0                	add    %edx,%eax
+ffffffff8020394d:	c1 e0 04             	shl    $0x4,%eax
+ffffffff80203950:	89 c2                	mov    %eax,%edx
+ffffffff80203952:	8b 45 f8             	mov    -0x8(%rbp),%eax
+ffffffff80203955:	01 d0                	add    %edx,%eax
+ffffffff80203957:	48 98                	cltq   
+ffffffff80203959:	48 01 c0             	add    %rax,%rax
+ffffffff8020395c:	48 01 c1             	add    %rax,%rcx
+ffffffff8020395f:	48 8b 35 5a 77 00 00 	mov    0x775a(%rip),%rsi        # ffffffff8020b0c0 <fb_ptr>
+ffffffff80203966:	8b 55 fc             	mov    -0x4(%rbp),%edx
+ffffffff80203969:	89 d0                	mov    %edx,%eax
+ffffffff8020396b:	c1 e0 02             	shl    $0x2,%eax
+ffffffff8020396e:	01 d0                	add    %edx,%eax
+ffffffff80203970:	c1 e0 04             	shl    $0x4,%eax
+ffffffff80203973:	89 c2                	mov    %eax,%edx
+ffffffff80203975:	8b 45 f8             	mov    -0x8(%rbp),%eax
+ffffffff80203978:	01 d0                	add    %edx,%eax
+ffffffff8020397a:	48 98                	cltq   
+ffffffff8020397c:	48 01 c0             	add    %rax,%rax
+ffffffff8020397f:	48 8d 14 06          	lea    (%rsi,%rax,1),%rdx
+ffffffff80203983:	0f b7 01             	movzwl (%rcx),%eax
+ffffffff80203986:	66 89 02             	mov    %ax,(%rdx)
+ffffffff80203989:	83 45 f8 01          	addl   $0x1,-0x8(%rbp)
+ffffffff8020398d:	83 7d f8 4f          	cmpl   $0x4f,-0x8(%rbp)
+ffffffff80203991:	7e a6                	jle    ffffffff80203939 <_Z6Scrollv+0x1e>
+ffffffff80203993:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff80203997:	83 7d fc 17          	cmpl   $0x17,-0x4(%rbp)
+ffffffff8020399b:	7e 93                	jle    ffffffff80203930 <_Z6Scrollv+0x15>
+ffffffff8020399d:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+ffffffff802039a4:	eb 38                	jmp    ffffffff802039de <_Z6Scrollv+0xc3>
+ffffffff802039a6:	66 c7 45 f2 0f 00    	movw   $0xf,-0xe(%rbp)
+ffffffff802039ac:	48 8b 15 0d 77 00 00 	mov    0x770d(%rip),%rdx        # ffffffff8020b0c0 <fb_ptr>
+ffffffff802039b3:	8b 45 f4             	mov    -0xc(%rbp),%eax
+ffffffff802039b6:	05 80 07 00 00       	add    $0x780,%eax
+ffffffff802039bb:	48 98                	cltq   
+ffffffff802039bd:	48 01 c0             	add    %rax,%rax
+ffffffff802039c0:	48 01 d0             	add    %rdx,%rax
+ffffffff802039c3:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff802039c7:	0f b7 45 f2          	movzwl -0xe(%rbp),%eax
+ffffffff802039cb:	c1 e0 08             	shl    $0x8,%eax
+ffffffff802039ce:	83 c8 20             	or     $0x20,%eax
+ffffffff802039d1:	89 c2                	mov    %eax,%edx
+ffffffff802039d3:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff802039d7:	66 89 10             	mov    %dx,(%rax)
+ffffffff802039da:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+ffffffff802039de:	83 7d f4 4f          	cmpl   $0x4f,-0xc(%rbp)
+ffffffff802039e2:	7e c2                	jle    ffffffff802039a6 <_Z6Scrollv+0x8b>
+ffffffff802039e4:	66 c7 05 db 76 00 00 	movw   $0x0,0x76db(%rip)        # ffffffff8020b0c8 <x>
+ffffffff802039eb:	00 00 
+ffffffff802039ed:	66 c7 05 d4 76 00 00 	movw   $0x18,0x76d4(%rip)        # ffffffff8020b0ca <y>
+ffffffff802039f4:	18 00 
+ffffffff802039f6:	90                   	nop
+ffffffff802039f7:	c9                   	leave  
+ffffffff802039f8:	c3                   	ret    
+
+ffffffff802039f9 <_ZN3VGA4putcEc>:
+ffffffff802039f9:	f3 0f 1e fa          	endbr64 
+ffffffff802039fd:	55                   	push   %rbp
+ffffffff802039fe:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203a01:	48 83 ec 08          	sub    $0x8,%rsp
+ffffffff80203a05:	89 f8                	mov    %edi,%eax
+ffffffff80203a07:	88 45 fc             	mov    %al,-0x4(%rbp)
+ffffffff80203a0a:	80 7d fc 0a          	cmpb   $0xa,-0x4(%rbp)
+ffffffff80203a0e:	75 24                	jne    ffffffff80203a34 <_ZN3VGA4putcEc+0x3b>
+ffffffff80203a10:	0f b7 05 b3 76 00 00 	movzwl 0x76b3(%rip),%eax        # ffffffff8020b0ca <y>
+ffffffff80203a17:	83 c0 01             	add    $0x1,%eax
+ffffffff80203a1a:	66 89 05 a9 76 00 00 	mov    %ax,0x76a9(%rip)        # ffffffff8020b0ca <y>
+ffffffff80203a21:	66 c7 05 9e 76 00 00 	movw   $0x0,0x769e(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203a28:	00 00 
+ffffffff80203a2a:	e8 7a fd ff ff       	call   ffffffff802037a9 <_Z12SetCursorPosv>
+ffffffff80203a2f:	e9 d4 00 00 00       	jmp    ffffffff80203b08 <_ZN3VGA4putcEc+0x10f>
+ffffffff80203a34:	80 7d fc 09          	cmpb   $0x9,-0x4(%rbp)
+ffffffff80203a38:	75 3f                	jne    ffffffff80203a79 <_ZN3VGA4putcEc+0x80>
+ffffffff80203a3a:	0f b7 05 87 76 00 00 	movzwl 0x7687(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203a41:	83 c0 01             	add    $0x1,%eax
+ffffffff80203a44:	66 89 05 7d 76 00 00 	mov    %ax,0x767d(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203a4b:	eb 11                	jmp    ffffffff80203a5e <_ZN3VGA4putcEc+0x65>
+ffffffff80203a4d:	0f b7 05 74 76 00 00 	movzwl 0x7674(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203a54:	83 c0 01             	add    $0x1,%eax
+ffffffff80203a57:	66 89 05 6a 76 00 00 	mov    %ax,0x766a(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203a5e:	0f b7 05 63 76 00 00 	movzwl 0x7663(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203a65:	0f b7 c0             	movzwl %ax,%eax
+ffffffff80203a68:	83 e0 03             	and    $0x3,%eax
+ffffffff80203a6b:	85 c0                	test   %eax,%eax
+ffffffff80203a6d:	75 de                	jne    ffffffff80203a4d <_ZN3VGA4putcEc+0x54>
+ffffffff80203a6f:	e8 35 fd ff ff       	call   ffffffff802037a9 <_Z12SetCursorPosv>
+ffffffff80203a74:	e9 8f 00 00 00       	jmp    ffffffff80203b08 <_ZN3VGA4putcEc+0x10f>
+ffffffff80203a79:	66 0f be 45 fc       	movsbw -0x4(%rbp),%ax
+ffffffff80203a7e:	80 cc 0f             	or     $0xf,%ah
+ffffffff80203a81:	89 c1                	mov    %eax,%ecx
+ffffffff80203a83:	48 8b 35 36 76 00 00 	mov    0x7636(%rip),%rsi        # ffffffff8020b0c0 <fb_ptr>
+ffffffff80203a8a:	0f b7 05 39 76 00 00 	movzwl 0x7639(%rip),%eax        # ffffffff8020b0ca <y>
+ffffffff80203a91:	0f b7 d0             	movzwl %ax,%edx
+ffffffff80203a94:	89 d0                	mov    %edx,%eax
+ffffffff80203a96:	c1 e0 02             	shl    $0x2,%eax
+ffffffff80203a99:	01 d0                	add    %edx,%eax
+ffffffff80203a9b:	c1 e0 04             	shl    $0x4,%eax
+ffffffff80203a9e:	89 c2                	mov    %eax,%edx
+ffffffff80203aa0:	0f b7 05 21 76 00 00 	movzwl 0x7621(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203aa7:	0f b7 c0             	movzwl %ax,%eax
+ffffffff80203aaa:	01 d0                	add    %edx,%eax
+ffffffff80203aac:	48 98                	cltq   
+ffffffff80203aae:	48 01 c0             	add    %rax,%rax
+ffffffff80203ab1:	48 01 f0             	add    %rsi,%rax
+ffffffff80203ab4:	89 ca                	mov    %ecx,%edx
+ffffffff80203ab6:	66 89 10             	mov    %dx,(%rax)
+ffffffff80203ab9:	0f b7 05 08 76 00 00 	movzwl 0x7608(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203ac0:	83 c0 01             	add    $0x1,%eax
+ffffffff80203ac3:	66 89 05 fe 75 00 00 	mov    %ax,0x75fe(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203aca:	0f b7 05 f7 75 00 00 	movzwl 0x75f7(%rip),%eax        # ffffffff8020b0c8 <x>
+ffffffff80203ad1:	66 83 f8 4f          	cmp    $0x4f,%ax
+ffffffff80203ad5:	76 1a                	jbe    ffffffff80203af1 <_ZN3VGA4putcEc+0xf8>
+ffffffff80203ad7:	66 c7 05 e8 75 00 00 	movw   $0x0,0x75e8(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203ade:	00 00 
+ffffffff80203ae0:	0f b7 05 e3 75 00 00 	movzwl 0x75e3(%rip),%eax        # ffffffff8020b0ca <y>
+ffffffff80203ae7:	83 c0 01             	add    $0x1,%eax
+ffffffff80203aea:	66 89 05 d9 75 00 00 	mov    %ax,0x75d9(%rip)        # ffffffff8020b0ca <y>
+ffffffff80203af1:	0f b7 05 d2 75 00 00 	movzwl 0x75d2(%rip),%eax        # ffffffff8020b0ca <y>
+ffffffff80203af8:	66 83 f8 18          	cmp    $0x18,%ax
+ffffffff80203afc:	76 05                	jbe    ffffffff80203b03 <_ZN3VGA4putcEc+0x10a>
+ffffffff80203afe:	e8 18 fe ff ff       	call   ffffffff8020391b <_Z6Scrollv>
+ffffffff80203b03:	e8 a1 fc ff ff       	call   ffffffff802037a9 <_Z12SetCursorPosv>
+ffffffff80203b08:	c9                   	leave  
+ffffffff80203b09:	c3                   	ret    
+
+ffffffff80203b0a <_ZN3VGA4putsEPKc>:
+ffffffff80203b0a:	f3 0f 1e fa          	endbr64 
+ffffffff80203b0e:	55                   	push   %rbp
+ffffffff80203b0f:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203b12:	48 83 ec 08          	sub    $0x8,%rsp
+ffffffff80203b16:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+ffffffff80203b1a:	eb 19                	jmp    ffffffff80203b35 <_ZN3VGA4putsEPKc+0x2b>
+ffffffff80203b1c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80203b20:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ffffffff80203b24:	48 89 55 f8          	mov    %rdx,-0x8(%rbp)
+ffffffff80203b28:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203b2b:	0f be c0             	movsbl %al,%eax
+ffffffff80203b2e:	89 c7                	mov    %eax,%edi
+ffffffff80203b30:	e8 c4 fe ff ff       	call   ffffffff802039f9 <_ZN3VGA4putcEc>
+ffffffff80203b35:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80203b39:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203b3c:	84 c0                	test   %al,%al
+ffffffff80203b3e:	75 dc                	jne    ffffffff80203b1c <_ZN3VGA4putsEPKc+0x12>
+ffffffff80203b40:	90                   	nop
+ffffffff80203b41:	90                   	nop
+ffffffff80203b42:	c9                   	leave  
+ffffffff80203b43:	c3                   	ret    
+
+ffffffff80203b44 <_ZN3VGA7seek_toEii>:
+ffffffff80203b44:	f3 0f 1e fa          	endbr64 
+ffffffff80203b48:	55                   	push   %rbp
+ffffffff80203b49:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203b4c:	48 83 ec 08          	sub    $0x8,%rsp
+ffffffff80203b50:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ffffffff80203b53:	89 75 f8             	mov    %esi,-0x8(%rbp)
+ffffffff80203b56:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203b59:	66 89 05 68 75 00 00 	mov    %ax,0x7568(%rip)        # ffffffff8020b0c8 <x>
+ffffffff80203b60:	8b 45 f8             	mov    -0x8(%rbp),%eax
+ffffffff80203b63:	66 89 05 60 75 00 00 	mov    %ax,0x7560(%rip)        # ffffffff8020b0ca <y>
+ffffffff80203b6a:	e8 3a fc ff ff       	call   ffffffff802037a9 <_Z12SetCursorPosv>
+ffffffff80203b6f:	90                   	nop
+ffffffff80203b70:	c9                   	leave  
+ffffffff80203b71:	c3                   	ret    
+
+ffffffff80203b72 <_Z4swapRcS_>:
+ffffffff80203b72:	f3 0f 1e fa          	endbr64 
+ffffffff80203b76:	55                   	push   %rbp
+ffffffff80203b77:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203b7a:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80203b7e:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80203b82:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff80203b86:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203b8a:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203b8d:	88 45 ff             	mov    %al,-0x1(%rbp)
+ffffffff80203b90:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff80203b94:	0f b6 10             	movzbl (%rax),%edx
+ffffffff80203b97:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203b9b:	88 10                	mov    %dl,(%rax)
+ffffffff80203b9d:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff80203ba1:	0f b6 55 ff          	movzbl -0x1(%rbp),%edx
+ffffffff80203ba5:	88 10                	mov    %dl,(%rax)
+ffffffff80203ba7:	90                   	nop
+ffffffff80203ba8:	c9                   	leave  
+ffffffff80203ba9:	c3                   	ret    
+
+ffffffff80203baa <_Z7reversePci>:
+ffffffff80203baa:	f3 0f 1e fa          	endbr64 
+ffffffff80203bae:	55                   	push   %rbp
+ffffffff80203baf:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203bb2:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80203bb6:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80203bba:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+ffffffff80203bbd:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+ffffffff80203bc4:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+ffffffff80203bc7:	83 e8 01             	sub    $0x1,%eax
+ffffffff80203bca:	89 45 f8             	mov    %eax,-0x8(%rbp)
+ffffffff80203bcd:	eb 2d                	jmp    ffffffff80203bfc <_Z7reversePci+0x52>
+ffffffff80203bcf:	8b 45 f8             	mov    -0x8(%rbp),%eax
+ffffffff80203bd2:	48 63 d0             	movslq %eax,%rdx
+ffffffff80203bd5:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203bd9:	48 01 c2             	add    %rax,%rdx
+ffffffff80203bdc:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203bdf:	48 63 c8             	movslq %eax,%rcx
+ffffffff80203be2:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203be6:	48 01 c8             	add    %rcx,%rax
+ffffffff80203be9:	48 89 d6             	mov    %rdx,%rsi
+ffffffff80203bec:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203bef:	e8 7e ff ff ff       	call   ffffffff80203b72 <_Z4swapRcS_>
+ffffffff80203bf4:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+ffffffff80203bf8:	83 45 f8 01          	addl   $0x1,-0x8(%rbp)
+ffffffff80203bfc:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203bff:	3b 45 f8             	cmp    -0x8(%rbp),%eax
+ffffffff80203c02:	7c cb                	jl     ffffffff80203bcf <_Z7reversePci+0x25>
+ffffffff80203c04:	90                   	nop
+ffffffff80203c05:	90                   	nop
+ffffffff80203c06:	c9                   	leave  
+ffffffff80203c07:	c3                   	ret    
+
+ffffffff80203c08 <_Z4itoaii>:
+ffffffff80203c08:	f3 0f 1e fa          	endbr64 
+ffffffff80203c0c:	55                   	push   %rbp
+ffffffff80203c0d:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203c10:	48 83 ec 18          	sub    $0x18,%rsp
+ffffffff80203c14:	89 7d ec             	mov    %edi,-0x14(%rbp)
+ffffffff80203c17:	89 75 e8             	mov    %esi,-0x18(%rbp)
+ffffffff80203c1a:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+ffffffff80203c1e:	75 17                	jne    ffffffff80203c37 <_Z4itoaii+0x2f>
+ffffffff80203c20:	c6 05 b9 74 00 00 30 	movb   $0x30,0x74b9(%rip)        # ffffffff8020b0e0 <_ZZ4itoaiiE3buf>
+ffffffff80203c27:	c6 05 b3 74 00 00 00 	movb   $0x0,0x74b3(%rip)        # ffffffff8020b0e1 <_ZZ4itoaiiE3buf+0x1>
+ffffffff80203c2e:	48 c7 c0 e0 b0 20 80 	mov    $0xffffffff8020b0e0,%rax
+ffffffff80203c35:	eb 4e                	jmp    ffffffff80203c85 <_Z4itoaii+0x7d>
+ffffffff80203c37:	c7 45 fc 1e 00 00 00 	movl   $0x1e,-0x4(%rbp)
+ffffffff80203c3e:	eb 2b                	jmp    ffffffff80203c6b <_Z4itoaii+0x63>
+ffffffff80203c40:	8b 45 ec             	mov    -0x14(%rbp),%eax
+ffffffff80203c43:	99                   	cltd   
+ffffffff80203c44:	f7 7d e8             	idivl  -0x18(%rbp)
+ffffffff80203c47:	89 d0                	mov    %edx,%eax
+ffffffff80203c49:	48 98                	cltq   
+ffffffff80203c4b:	0f b6 90 45 11 20 80 	movzbl -0x7fdfeebb(%rax),%edx
+ffffffff80203c52:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203c55:	48 98                	cltq   
+ffffffff80203c57:	88 90 e0 b0 20 80    	mov    %dl,-0x7fdf4f20(%rax)
+ffffffff80203c5d:	83 6d fc 01          	subl   $0x1,-0x4(%rbp)
+ffffffff80203c61:	8b 45 ec             	mov    -0x14(%rbp),%eax
+ffffffff80203c64:	99                   	cltd   
+ffffffff80203c65:	f7 7d e8             	idivl  -0x18(%rbp)
+ffffffff80203c68:	89 45 ec             	mov    %eax,-0x14(%rbp)
+ffffffff80203c6b:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+ffffffff80203c6f:	74 06                	je     ffffffff80203c77 <_Z4itoaii+0x6f>
+ffffffff80203c71:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ffffffff80203c75:	75 c9                	jne    ffffffff80203c40 <_Z4itoaii+0x38>
+ffffffff80203c77:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203c7a:	83 c0 01             	add    $0x1,%eax
+ffffffff80203c7d:	48 98                	cltq   
+ffffffff80203c7f:	48 05 e0 b0 20 80    	add    $0xffffffff8020b0e0,%rax
+ffffffff80203c85:	c9                   	leave  
+ffffffff80203c86:	c3                   	ret    
+
+ffffffff80203c87 <_Z4ltoali>:
+ffffffff80203c87:	f3 0f 1e fa          	endbr64 
+ffffffff80203c8b:	55                   	push   %rbp
+ffffffff80203c8c:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203c8f:	48 83 ec 20          	sub    $0x20,%rsp
+ffffffff80203c93:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff80203c97:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+ffffffff80203c9a:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+ffffffff80203c9f:	75 17                	jne    ffffffff80203cb8 <_Z4ltoali+0x31>
+ffffffff80203ca1:	c6 05 58 74 00 00 30 	movb   $0x30,0x7458(%rip)        # ffffffff8020b100 <_ZZ4ltoaliE3buf>
+ffffffff80203ca8:	c6 05 52 74 00 00 00 	movb   $0x0,0x7452(%rip)        # ffffffff8020b101 <_ZZ4ltoaliE3buf+0x1>
+ffffffff80203caf:	48 c7 c0 00 b1 20 80 	mov    $0xffffffff8020b100,%rax
+ffffffff80203cb6:	eb 5f                	jmp    ffffffff80203d17 <_Z4ltoali+0x90>
+ffffffff80203cb8:	c7 45 fc 3c 00 00 00 	movl   $0x3c,-0x4(%rbp)
+ffffffff80203cbf:	eb 3b                	jmp    ffffffff80203cfc <_Z4ltoali+0x75>
+ffffffff80203cc1:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+ffffffff80203cc4:	48 63 c8             	movslq %eax,%rcx
+ffffffff80203cc7:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203ccb:	48 99                	cqto   
+ffffffff80203ccd:	48 f7 f9             	idiv   %rcx
+ffffffff80203cd0:	48 89 d0             	mov    %rdx,%rax
+ffffffff80203cd3:	0f b6 90 45 11 20 80 	movzbl -0x7fdfeebb(%rax),%edx
+ffffffff80203cda:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203cdd:	48 98                	cltq   
+ffffffff80203cdf:	88 90 00 b1 20 80    	mov    %dl,-0x7fdf4f00(%rax)
+ffffffff80203ce5:	83 6d fc 01          	subl   $0x1,-0x4(%rbp)
+ffffffff80203ce9:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+ffffffff80203cec:	48 63 f0             	movslq %eax,%rsi
+ffffffff80203cef:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff80203cf3:	48 99                	cqto   
+ffffffff80203cf5:	48 f7 fe             	idiv   %rsi
+ffffffff80203cf8:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff80203cfc:	48 83 7d e8 00       	cmpq   $0x0,-0x18(%rbp)
+ffffffff80203d01:	74 06                	je     ffffffff80203d09 <_Z4ltoali+0x82>
+ffffffff80203d03:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ffffffff80203d07:	75 b8                	jne    ffffffff80203cc1 <_Z4ltoali+0x3a>
+ffffffff80203d09:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203d0c:	83 c0 01             	add    $0x1,%eax
+ffffffff80203d0f:	48 98                	cltq   
+ffffffff80203d11:	48 05 00 b1 20 80    	add    $0xffffffff8020b100,%rax
+ffffffff80203d17:	c9                   	leave  
+ffffffff80203d18:	c3                   	ret    
+
+ffffffff80203d19 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag>:
+ffffffff80203d19:	f3 0f 1e fa          	endbr64 
+ffffffff80203d1d:	55                   	push   %rbp
+ffffffff80203d1e:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203d21:	48 83 ec 30          	sub    $0x30,%rsp
+ffffffff80203d25:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+ffffffff80203d29:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+ffffffff80203d2d:	e9 8f 01 00 00       	jmp    ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203d32:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80203d36:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203d39:	3c 25                	cmp    $0x25,%al
+ffffffff80203d3b:	0f 85 67 01 00 00    	jne    ffffffff80203ea8 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x18f>
+ffffffff80203d41:	48 83 45 d8 01       	addq   $0x1,-0x28(%rbp)
+ffffffff80203d46:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80203d4a:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ffffffff80203d4e:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+ffffffff80203d52:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203d55:	0f be c0             	movsbl %al,%eax
+ffffffff80203d58:	83 f8 78             	cmp    $0x78,%eax
+ffffffff80203d5b:	0f 84 80 00 00 00    	je     ffffffff80203de1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0xc8>
+ffffffff80203d61:	83 f8 78             	cmp    $0x78,%eax
+ffffffff80203d64:	0f 8f 57 01 00 00    	jg     ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203d6a:	83 f8 64             	cmp    $0x64,%eax
+ffffffff80203d6d:	74 0e                	je     ffffffff80203d7d <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x64>
+ffffffff80203d6f:	83 f8 6c             	cmp    $0x6c,%eax
+ffffffff80203d72:	0f 84 ca 00 00 00    	je     ffffffff80203e42 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x129>
+ffffffff80203d78:	e9 44 01 00 00       	jmp    ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203d7d:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203d81:	8b 00                	mov    (%rax),%eax
+ffffffff80203d83:	83 f8 2f             	cmp    $0x2f,%eax
+ffffffff80203d86:	77 24                	ja     ffffffff80203dac <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x93>
+ffffffff80203d88:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203d8c:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ffffffff80203d90:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203d94:	8b 00                	mov    (%rax),%eax
+ffffffff80203d96:	89 c0                	mov    %eax,%eax
+ffffffff80203d98:	48 01 d0             	add    %rdx,%rax
+ffffffff80203d9b:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203d9f:	8b 12                	mov    (%rdx),%edx
+ffffffff80203da1:	8d 4a 08             	lea    0x8(%rdx),%ecx
+ffffffff80203da4:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203da8:	89 0a                	mov    %ecx,(%rdx)
+ffffffff80203daa:	eb 14                	jmp    ffffffff80203dc0 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0xa7>
+ffffffff80203dac:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203db0:	48 8b 40 08          	mov    0x8(%rax),%rax
+ffffffff80203db4:	48 8d 48 08          	lea    0x8(%rax),%rcx
+ffffffff80203db8:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203dbc:	48 89 4a 08          	mov    %rcx,0x8(%rdx)
+ffffffff80203dc0:	8b 00                	mov    (%rax),%eax
+ffffffff80203dc2:	89 45 ec             	mov    %eax,-0x14(%rbp)
+ffffffff80203dc5:	8b 45 ec             	mov    -0x14(%rbp),%eax
+ffffffff80203dc8:	be 0a 00 00 00       	mov    $0xa,%esi
+ffffffff80203dcd:	89 c7                	mov    %eax,%edi
+ffffffff80203dcf:	e8 34 fe ff ff       	call   ffffffff80203c08 <_Z4itoaii>
+ffffffff80203dd4:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203dd7:	e8 2e fd ff ff       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203ddc:	e9 e0 00 00 00       	jmp    ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203de1:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203de5:	8b 00                	mov    (%rax),%eax
+ffffffff80203de7:	83 f8 2f             	cmp    $0x2f,%eax
+ffffffff80203dea:	77 24                	ja     ffffffff80203e10 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0xf7>
+ffffffff80203dec:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203df0:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ffffffff80203df4:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203df8:	8b 00                	mov    (%rax),%eax
+ffffffff80203dfa:	89 c0                	mov    %eax,%eax
+ffffffff80203dfc:	48 01 d0             	add    %rdx,%rax
+ffffffff80203dff:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e03:	8b 12                	mov    (%rdx),%edx
+ffffffff80203e05:	8d 4a 08             	lea    0x8(%rdx),%ecx
+ffffffff80203e08:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e0c:	89 0a                	mov    %ecx,(%rdx)
+ffffffff80203e0e:	eb 14                	jmp    ffffffff80203e24 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x10b>
+ffffffff80203e10:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203e14:	48 8b 40 08          	mov    0x8(%rax),%rax
+ffffffff80203e18:	48 8d 48 08          	lea    0x8(%rax),%rcx
+ffffffff80203e1c:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e20:	48 89 4a 08          	mov    %rcx,0x8(%rdx)
+ffffffff80203e24:	8b 00                	mov    (%rax),%eax
+ffffffff80203e26:	89 45 fc             	mov    %eax,-0x4(%rbp)
+ffffffff80203e29:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ffffffff80203e2c:	be 10 00 00 00       	mov    $0x10,%esi
+ffffffff80203e31:	89 c7                	mov    %eax,%edi
+ffffffff80203e33:	e8 d0 fd ff ff       	call   ffffffff80203c08 <_Z4itoaii>
+ffffffff80203e38:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203e3b:	e8 ca fc ff ff       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203e40:	eb 7f                	jmp    ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203e42:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203e46:	8b 00                	mov    (%rax),%eax
+ffffffff80203e48:	83 f8 2f             	cmp    $0x2f,%eax
+ffffffff80203e4b:	77 24                	ja     ffffffff80203e71 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x158>
+ffffffff80203e4d:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203e51:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ffffffff80203e55:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203e59:	8b 00                	mov    (%rax),%eax
+ffffffff80203e5b:	89 c0                	mov    %eax,%eax
+ffffffff80203e5d:	48 01 d0             	add    %rdx,%rax
+ffffffff80203e60:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e64:	8b 12                	mov    (%rdx),%edx
+ffffffff80203e66:	8d 4a 08             	lea    0x8(%rdx),%ecx
+ffffffff80203e69:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e6d:	89 0a                	mov    %ecx,(%rdx)
+ffffffff80203e6f:	eb 14                	jmp    ffffffff80203e85 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x16c>
+ffffffff80203e71:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80203e75:	48 8b 40 08          	mov    0x8(%rax),%rax
+ffffffff80203e79:	48 8d 48 08          	lea    0x8(%rax),%rcx
+ffffffff80203e7d:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+ffffffff80203e81:	48 89 4a 08          	mov    %rcx,0x8(%rdx)
+ffffffff80203e85:	48 8b 00             	mov    (%rax),%rax
+ffffffff80203e88:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+ffffffff80203e8c:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ffffffff80203e90:	be 10 00 00 00       	mov    $0x10,%esi
+ffffffff80203e95:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203e98:	e8 ea fd ff ff       	call   ffffffff80203c87 <_Z4ltoali>
+ffffffff80203e9d:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203ea0:	e8 65 fc ff ff       	call   ffffffff80203b0a <_ZN3VGA4putsEPKc>
+ffffffff80203ea5:	90                   	nop
+ffffffff80203ea6:	eb 19                	jmp    ffffffff80203ec1 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x1a8>
+ffffffff80203ea8:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80203eac:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ffffffff80203eb0:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+ffffffff80203eb4:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203eb7:	0f be c0             	movsbl %al,%eax
+ffffffff80203eba:	89 c7                	mov    %eax,%edi
+ffffffff80203ebc:	e8 38 fb ff ff       	call   ffffffff802039f9 <_ZN3VGA4putcEc>
+ffffffff80203ec1:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80203ec5:	0f b6 00             	movzbl (%rax),%eax
+ffffffff80203ec8:	84 c0                	test   %al,%al
+ffffffff80203eca:	0f 85 62 fe ff ff    	jne    ffffffff80203d32 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag+0x19>
+ffffffff80203ed0:	90                   	nop
+ffffffff80203ed1:	90                   	nop
+ffffffff80203ed2:	c9                   	leave  
+ffffffff80203ed3:	c3                   	ret    
+
+ffffffff80203ed4 <_ZN3VGA12print_formatEPKcz>:
+ffffffff80203ed4:	f3 0f 1e fa          	endbr64 
+ffffffff80203ed8:	55                   	push   %rbp
+ffffffff80203ed9:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203edc:	48 81 ec e0 00 00 00 	sub    $0xe0,%rsp
+ffffffff80203ee3:	48 89 bd 28 ff ff ff 	mov    %rdi,-0xd8(%rbp)
+ffffffff80203eea:	48 89 b5 58 ff ff ff 	mov    %rsi,-0xa8(%rbp)
+ffffffff80203ef1:	48 89 95 60 ff ff ff 	mov    %rdx,-0xa0(%rbp)
+ffffffff80203ef8:	48 89 8d 68 ff ff ff 	mov    %rcx,-0x98(%rbp)
+ffffffff80203eff:	4c 89 85 70 ff ff ff 	mov    %r8,-0x90(%rbp)
+ffffffff80203f06:	4c 89 8d 78 ff ff ff 	mov    %r9,-0x88(%rbp)
+ffffffff80203f0d:	84 c0                	test   %al,%al
+ffffffff80203f0f:	74 20                	je     ffffffff80203f31 <_ZN3VGA12print_formatEPKcz+0x5d>
+ffffffff80203f11:	0f 29 45 80          	movaps %xmm0,-0x80(%rbp)
+ffffffff80203f15:	0f 29 4d 90          	movaps %xmm1,-0x70(%rbp)
+ffffffff80203f19:	0f 29 55 a0          	movaps %xmm2,-0x60(%rbp)
+ffffffff80203f1d:	0f 29 5d b0          	movaps %xmm3,-0x50(%rbp)
+ffffffff80203f21:	0f 29 65 c0          	movaps %xmm4,-0x40(%rbp)
+ffffffff80203f25:	0f 29 6d d0          	movaps %xmm5,-0x30(%rbp)
+ffffffff80203f29:	0f 29 75 e0          	movaps %xmm6,-0x20(%rbp)
+ffffffff80203f2d:	0f 29 7d f0          	movaps %xmm7,-0x10(%rbp)
+ffffffff80203f31:	c7 85 38 ff ff ff 08 	movl   $0x8,-0xc8(%rbp)
+ffffffff80203f38:	00 00 00 
+ffffffff80203f3b:	c7 85 3c ff ff ff 30 	movl   $0x30,-0xc4(%rbp)
+ffffffff80203f42:	00 00 00 
+ffffffff80203f45:	48 8d 45 10          	lea    0x10(%rbp),%rax
+ffffffff80203f49:	48 89 85 40 ff ff ff 	mov    %rax,-0xc0(%rbp)
+ffffffff80203f50:	48 8d 85 50 ff ff ff 	lea    -0xb0(%rbp),%rax
+ffffffff80203f57:	48 89 85 48 ff ff ff 	mov    %rax,-0xb8(%rbp)
+ffffffff80203f5e:	48 8d 95 38 ff ff ff 	lea    -0xc8(%rbp),%rdx
+ffffffff80203f65:	48 8b 85 28 ff ff ff 	mov    -0xd8(%rbp),%rax
+ffffffff80203f6c:	48 89 d6             	mov    %rdx,%rsi
+ffffffff80203f6f:	48 89 c7             	mov    %rax,%rdi
+ffffffff80203f72:	e8 a2 fd ff ff       	call   ffffffff80203d19 <_ZN3VGA13vprint_formatEPKcP13__va_list_tag>
+ffffffff80203f77:	90                   	nop
+ffffffff80203f78:	c9                   	leave  
+ffffffff80203f79:	c3                   	ret    
+
+ffffffff80203f7a <_Z7MapPagemmi>:
+ffffffff80203f7a:	f3 0f 1e fa          	endbr64 
+ffffffff80203f7e:	55                   	push   %rbp
+ffffffff80203f7f:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80203f82:	48 83 ec 60          	sub    $0x60,%rsp
+ffffffff80203f86:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+ffffffff80203f8a:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+ffffffff80203f8e:	89 55 ac             	mov    %edx,-0x54(%rbp)
+ffffffff80203f91:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+ffffffff80203f95:	48 c1 e8 27          	shr    $0x27,%rax
+ffffffff80203f99:	25 ff 01 00 00       	and    $0x1ff,%eax
+ffffffff80203f9e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+ffffffff80203fa2:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+ffffffff80203fa6:	48 c1 e8 1e          	shr    $0x1e,%rax
+ffffffff80203faa:	25 ff 01 00 00       	and    $0x1ff,%eax
+ffffffff80203faf:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+ffffffff80203fb3:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+ffffffff80203fb7:	48 c1 e8 15          	shr    $0x15,%rax
+ffffffff80203fbb:	25 ff 01 00 00       	and    $0x1ff,%eax
+ffffffff80203fc0:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+ffffffff80203fc4:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+ffffffff80203fc8:	48 c1 e8 0c          	shr    $0xc,%rax
+ffffffff80203fcc:	25 ff 01 00 00       	and    $0x1ff,%eax
+ffffffff80203fd1:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+ffffffff80203fd5:	48 8b 05 64 71 00 00 	mov    0x7164(%rip),%rax        # ffffffff8020b140 <top_level>
+ffffffff80203fdc:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff80203fe0:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff80203fe4:	48 85 c0             	test   %rax,%rax
+ffffffff80203fe7:	75 27                	jne    ffffffff80204010 <_Z7MapPagemmi+0x96>
+ffffffff80203fe9:	bf 01 00 00 00       	mov    $0x1,%edi
+ffffffff80203fee:	e8 62 f2 ff ff       	call   ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>
+ffffffff80203ff3:	48 89 c1             	mov    %rax,%rcx
+ffffffff80203ff6:	8b 45 ac             	mov    -0x54(%rbp),%eax
+ffffffff80203ff9:	48 98                	cltq   
+ffffffff80203ffb:	0f b6 d0             	movzbl %al,%edx
+ffffffff80203ffe:	48 8b 05 3b 71 00 00 	mov    0x713b(%rip),%rax        # ffffffff8020b140 <top_level>
+ffffffff80204005:	48 09 d1             	or     %rdx,%rcx
+ffffffff80204008:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff8020400c:	48 89 0c d0          	mov    %rcx,(%rax,%rdx,8)
+ffffffff80204010:	48 8b 05 29 71 00 00 	mov    0x7129(%rip),%rax        # ffffffff8020b140 <top_level>
+ffffffff80204017:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ffffffff8020401b:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff8020401f:	b0 00                	mov    $0x0,%al
+ffffffff80204021:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+ffffffff80204025:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80204029:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff8020402d:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff80204031:	48 85 c0             	test   %rax,%rax
+ffffffff80204034:	75 27                	jne    ffffffff8020405d <_Z7MapPagemmi+0xe3>
+ffffffff80204036:	bf 01 00 00 00       	mov    $0x1,%edi
+ffffffff8020403b:	e8 15 f2 ff ff       	call   ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>
+ffffffff80204040:	48 89 c2             	mov    %rax,%rdx
+ffffffff80204043:	8b 45 ac             	mov    -0x54(%rbp),%eax
+ffffffff80204046:	48 98                	cltq   
+ffffffff80204048:	0f b6 c0             	movzbl %al,%eax
+ffffffff8020404b:	48 89 d1             	mov    %rdx,%rcx
+ffffffff8020404e:	48 09 c1             	or     %rax,%rcx
+ffffffff80204051:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80204055:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80204059:	48 89 0c d0          	mov    %rcx,(%rax,%rdx,8)
+ffffffff8020405d:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ffffffff80204061:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+ffffffff80204065:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff80204069:	b0 00                	mov    $0x0,%al
+ffffffff8020406b:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+ffffffff8020406f:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff80204073:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ffffffff80204077:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff8020407b:	48 85 c0             	test   %rax,%rax
+ffffffff8020407e:	75 27                	jne    ffffffff802040a7 <_Z7MapPagemmi+0x12d>
+ffffffff80204080:	bf 01 00 00 00       	mov    $0x1,%edi
+ffffffff80204085:	e8 cb f1 ff ff       	call   ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>
+ffffffff8020408a:	48 89 c2             	mov    %rax,%rdx
+ffffffff8020408d:	8b 45 ac             	mov    -0x54(%rbp),%eax
+ffffffff80204090:	48 98                	cltq   
+ffffffff80204092:	0f b6 c0             	movzbl %al,%eax
+ffffffff80204095:	48 89 d1             	mov    %rdx,%rcx
+ffffffff80204098:	48 09 c1             	or     %rax,%rcx
+ffffffff8020409b:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff8020409f:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ffffffff802040a3:	48 89 0c d0          	mov    %rcx,(%rax,%rdx,8)
+ffffffff802040a7:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ffffffff802040ab:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ffffffff802040af:	48 8b 04 d0          	mov    (%rax,%rdx,8),%rax
+ffffffff802040b3:	b0 00                	mov    $0x0,%al
+ffffffff802040b5:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+ffffffff802040b9:	8b 45 ac             	mov    -0x54(%rbp),%eax
+ffffffff802040bc:	48 98                	cltq   
+ffffffff802040be:	48 0b 45 b8          	or     -0x48(%rbp),%rax
+ffffffff802040c2:	48 89 c1             	mov    %rax,%rcx
+ffffffff802040c5:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ffffffff802040c9:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+ffffffff802040cd:	48 89 0c d0          	mov    %rcx,(%rax,%rdx,8)
+ffffffff802040d1:	90                   	nop
+ffffffff802040d2:	c9                   	leave  
+ffffffff802040d3:	c3                   	ret    
+
+ffffffff802040d4 <_Z7MapPagemmmi>:
+ffffffff802040d4:	f3 0f 1e fa          	endbr64 
+ffffffff802040d8:	55                   	push   %rbp
+ffffffff802040d9:	48 89 e5             	mov    %rsp,%rbp
+ffffffff802040dc:	48 83 ec 30          	sub    $0x30,%rsp
+ffffffff802040e0:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+ffffffff802040e4:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+ffffffff802040e8:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+ffffffff802040ec:	89 4d d4             	mov    %ecx,-0x2c(%rbp)
+ffffffff802040ef:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)
+ffffffff802040f6:	00 
+ffffffff802040f7:	eb 38                	jmp    ffffffff80204131 <_Z7MapPagemmmi+0x5d>
+ffffffff802040f9:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff802040fd:	48 c1 e0 0c          	shl    $0xc,%rax
+ffffffff80204101:	48 89 c2             	mov    %rax,%rdx
+ffffffff80204104:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+ffffffff80204108:	48 8d 34 02          	lea    (%rdx,%rax,1),%rsi
+ffffffff8020410c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80204110:	48 c1 e0 0c          	shl    $0xc,%rax
+ffffffff80204114:	48 89 c2             	mov    %rax,%rdx
+ffffffff80204117:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+ffffffff8020411b:	48 8d 0c 02          	lea    (%rdx,%rax,1),%rcx
+ffffffff8020411f:	8b 45 d4             	mov    -0x2c(%rbp),%eax
+ffffffff80204122:	89 c2                	mov    %eax,%edx
+ffffffff80204124:	48 89 cf             	mov    %rcx,%rdi
+ffffffff80204127:	e8 4e fe ff ff       	call   ffffffff80203f7a <_Z7MapPagemmi>
+ffffffff8020412c:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
+ffffffff80204131:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ffffffff80204135:	48 3b 45 d8          	cmp    -0x28(%rbp),%rax
+ffffffff80204139:	72 be                	jb     ffffffff802040f9 <_Z7MapPagemmmi+0x25>
+ffffffff8020413b:	90                   	nop
+ffffffff8020413c:	90                   	nop
+ffffffff8020413d:	c9                   	leave  
+ffffffff8020413e:	c3                   	ret    
+
+ffffffff8020413f <_ZN13VirtualMemory10InitializeEv>:
+ffffffff8020413f:	f3 0f 1e fa          	endbr64 
+ffffffff80204143:	55                   	push   %rbp
+ffffffff80204144:	48 89 e5             	mov    %rsp,%rbp
+ffffffff80204147:	bf 01 00 00 00       	mov    $0x1,%edi
+ffffffff8020414c:	e8 04 f1 ff ff       	call   ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>
+ffffffff80204151:	48 89 05 e8 6f 00 00 	mov    %rax,0x6fe8(%rip)        # ffffffff8020b140 <top_level>
+ffffffff80204158:	b9 03 00 00 00       	mov    $0x3,%ecx
+ffffffff8020415d:	ba 00 c0 00 00       	mov    $0xc000,%edx
+ffffffff80204162:	48 c7 c6 00 00 00 80 	mov    $0xffffffff80000000,%rsi
+ffffffff80204169:	bf 00 00 00 00       	mov    $0x0,%edi
+ffffffff8020416e:	e8 61 ff ff ff       	call   ffffffff802040d4 <_Z7MapPagemmmi>
+ffffffff80204173:	bf 08 00 00 00       	mov    $0x8,%edi
+ffffffff80204178:	e8 d8 f0 ff ff       	call   ffffffff80203255 <_ZN14PhysicalMemory10AllocPagesEm>
+ffffffff8020417d:	48 89 c7             	mov    %rax,%rdi
+ffffffff80204180:	b9 03 00 00 00       	mov    $0x3,%ecx
+ffffffff80204185:	ba 08 00 00 00       	mov    $0x8,%edx
+ffffffff8020418a:	48 b8 00 00 00 00 00 	movabs $0xffffa00000000000,%rax
+ffffffff80204191:	a0 ff ff 
+ffffffff80204194:	48 89 c6             	mov    %rax,%rsi
+ffffffff80204197:	e8 38 ff ff ff       	call   ffffffff802040d4 <_Z7MapPagemmmi>
+ffffffff8020419c:	48 8b 05 9d 6f 00 00 	mov    0x6f9d(%rip),%rax        # ffffffff8020b140 <top_level>
+ffffffff802041a3:	0f 22 d8             	mov    %rax,%cr3
+ffffffff802041a6:	90                   	nop
+ffffffff802041a7:	5d                   	pop    %rbp
+ffffffff802041a8:	c3                   	ret    

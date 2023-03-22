@@ -8,6 +8,8 @@
 #include <x86/idt.h>
 
 #include <mem/pmm.h>
+#include <mem/vmm.h>
+#include <mem/heap.h>
 
 uint8_t stack[16384];
 
@@ -58,6 +60,14 @@ extern "C" void kmain(stivale2_struct* stivale)
 	PhysicalMemory::Initialize((stivale2_struct_tag_memmap*)get_tag(stivale, STIVALE2_STRUCT_TAG_MEMMAP_ID));
 
 	VGA::puts("[x]: Loading virtual memory\n");
+
+	VirtualMemory::Initialize();
+
+	VGA::puts("[x]: Initializing kernel heap\n");
+
+	Heap::Initialize();
+
+	VGA::puts("[x]: Kernel core initialized\n");
 
 	for (;;);
 }
