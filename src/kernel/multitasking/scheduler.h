@@ -10,6 +10,6 @@ void Initialize();
 
 void AddThread(uint64_t entry);
 
-IDT::registers_t* Tick(IDT::registers_t* regs);
+void Tick(IDT::registers_t* regs);
 
 }

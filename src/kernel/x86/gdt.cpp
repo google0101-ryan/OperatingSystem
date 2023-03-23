@@ -1,5 +1,7 @@
 #include "gdt.h"
 #include <stddef.h>
+#include <mem/pmm.h>
+#include <mem/vmm.h>
 
 extern "C" void loadGdt(uint64_t);
 
@@ -107,7 +109,7 @@ struct tss
 void memset(void* a, int c, size_t size)
 {
 	char* _a = (char*)a;
-	for (int i = 0; i < size; i++)
+	for (size_t i = 0; i < size; i++)
 		_a[i] = c;
 }
 
@@ -185,4 +187,26 @@ void GDT::Init()
 	setup_gdt_descriptors(&gdt_descriptors, tss_base, tss_limit);
 
 	loadGdt((uint64_t)&cgdt);
+}
+
+void GDT::InitTSS(uint64_t i)
+{
+	memset(&ctss, 0, sizeof(tss));
+
+	ctss.iomap_base = sizeof(tss);
+	ctss.rsp0 = (uintptr_t)i;
+	ctss.ist1 = (uintptr_t)PhysicalMemory::AllocPages(8);
+	ctss.ist2 = (uintptr_t)PhysicalMemory::AllocPages(8);
+	ctss.ist3 = (uintptr_t)PhysicalMemory::AllocPages(8);
+
+	ctss.ist1 += 0x1000*8;
+	ctss.ist2 += 0x1000*8;
+	ctss.ist3 += 0x1000*8;
+
+	asm volatile("movw %0, %%ax\n ltr %%ax" :: "i"(gdt_selector::TSS_SELECTOR) : "rax");
+}
+
+void GDT::SetKernelStack(uint64_t rsp0)
+{
+	ctss.rsp0 = rsp0;
 }

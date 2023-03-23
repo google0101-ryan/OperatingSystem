@@ -21,9 +21,61 @@ void RegisterIDTEntry(int index, uint64_t addr, uint8_t gate_type, uint8_t ist)
 	idt[index].offset3 = addr >> 32;
 }
 
-extern "C" IDT::registers_t* InterruptHandler(IDT::registers_t* r)
+static const char *exception_messages[32] = {
+    "Division by zero",
+    "Debug",
+    "Non-maskable interrupt",
+    "Breakpoint",
+    "Detected overflow",
+    "Out-of-bounds",
+    "Invalid opcode",
+    "No coprocessor",
+    "Double fault",
+    "Coprocessor segment overrun",
+    "Bad TSS",
+    "Segment not present",
+    "Stack fault",
+    "General protection fault",
+    "Page fault",
+    "Unknown interrupt",
+    "Coprocessor fault",
+    "Alignment check",
+    "Machine check",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+};
+
+extern "C" void InterruptHandler(IDT::registers_t* r)
 {
-	uint8_t int_no = r->info & 0xFF;
+	uint8_t int_no = r->int_no;
+
+	if (r->int_no < 32)
+	{
+		printf("Exception!\n");
+		printf("Exception: "); printf(exception_messages[r->int_no]);
+		printf(" on cpu0\n");
+		printf("Address: 0x%x\n", r->rip);
+		printf("Error code: 0x%x\n", r->error_code);
+
+		printf("\n\n*******************************\n");
+			printf("*            ERROR            *\n");
+			printf("*          CPU HALTED         *\n");
+			printf("*******************************\n\n");
+		asm volatile("cli");
+		for (;;)
+			asm volatile("hlt");
+	}
 
 	if (!lookup_table[int_no])
 	{
@@ -33,13 +85,13 @@ extern "C" IDT::registers_t* InterruptHandler(IDT::registers_t* r)
 			asm volatile("hlt");
 	}
 
-	return lookup_table[int_no](r);
+	lookup_table[int_no](r);
 }
 
 void IDT::Init()
 {
 	for (int i = 0; i < 256; i++)
-		RegisterIDTEntry(i, isr_table[i], 0x8E, 0);
+		RegisterIDTEntry(i, isr_table[i], 0x8E, /*i == 32 ? 1 :*/ 0);
 	
 	idtDescriptor.offset = (uint64_t)idt;
 	idtDescriptor.size = sizeof(idt) - 1;

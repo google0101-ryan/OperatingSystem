@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <stddef.h>
 
 namespace flags
 {
@@ -18,6 +19,7 @@ enum : uint64_t
 	big_page = 128,
 	huge_page = 128,
 	global = 256,
+	no_execute = 0x8000000000000000
 };
 
 }
@@ -32,9 +34,12 @@ struct PageMapLevel4
 };
 	
 void Initialize();
+
+void SwitchToKernelPageMap();
+
 void MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, uint64_t count, int flags);
 void MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, int flags);
 
-uint64_t CreateNewAddressSpace();
+uint64_t CreateNewAddressSpace(uint64_t stack, size_t stack_size);
 
 }

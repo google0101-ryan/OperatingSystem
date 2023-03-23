@@ -22,32 +22,16 @@ struct IDTEntry
     uint32_t zero;
 } __attribute__((packed));
 
-typedef struct __attribute__((packed))
-{ 
-	uint64_t r11;
-	uint64_t r10;
-	uint64_t r9;
-	uint64_t r8;
-	uint64_t rax;
-	uint64_t rcx;
-	uint64_t rdx;
-	uint64_t rsi;
-	uint64_t rdi;
-	// Contains error code and interrupt number for exceptions
-	// Contains syscall number for syscalls
-	// Contains just the interrupt number otherwise
-	uint64_t info;
-	// Interrupt stack frame
-	uint64_t rip;
-	uint64_t cs;
-	uint64_t rflags;
-	uint64_t rsp;
-	uint64_t ss;
-} registers_t;
+struct registers_t
+{
+    uint64_t r15, r14, r13, r12, r11, r10, r9, r8;
+    uint64_t rbp, rdi, rsi, rdx, rcx, rbx, rax;
+    uint64_t int_no, error_code, rip, cs, rflags, rsp, ss;
+} __attribute__((packed));
 
 void Init();
 
-using IntFunc = registers_t* (*)(registers_t*);
+using IntFunc = void (*)(registers_t*);
 
 void RegisterEntry(int interrupt, IntFunc func);
 

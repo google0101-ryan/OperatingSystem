@@ -8,4 +8,8 @@ namespace GDT
 
 void Init();
 
+void InitTSS(uint64_t i);
+
+void SetKernelStack(uint64_t rsp0);
+
 }

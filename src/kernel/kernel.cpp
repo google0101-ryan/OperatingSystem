@@ -57,16 +57,13 @@ void* get_tag(stivale2_struct* first_tag, uint64_t tag_id)
     }
 }
 
-void ThreadA()
+// We go here once our scheduler is initialized
+void KernelTask()
 {
-	while (1)
-		printf("[A]: A\n");
-}
+	printf("[x]: Entered kernel task, setting up initrd");
 
-void ThreadB()
-{
-	while (1)
-		printf("[B]: B\n");
+	for (;;)
+		asm volatile("hlt");
 }
 
 extern "C" void kmain(stivale2_struct* stivale)
@@ -97,9 +94,8 @@ extern "C" void kmain(stivale2_struct* stivale)
 
 	VirtualMemory::Initialize();
 
-	printf("[x]: Initializing kernel heap at 0xffffffffa0000000 -> 0xffffffffa0008000\n");
-
-	Heap::Initialize();
+	// We have new and delete now
+	GDT::InitTSS((uint64_t)stack + sizeof(char) * 16384);
 
 	printf("[x]: Kernel core initialized\n");
 
@@ -118,8 +114,11 @@ extern "C" void kmain(stivale2_struct* stivale)
 
 	Scheduler::Initialize();
 
-	Scheduler::AddThread((uint64_t)ThreadA);
-	Scheduler::AddThread((uint64_t)ThreadB);
+	asm volatile("cli");
+
+	Scheduler::AddThread((uint64_t)KernelTask);
+
+	asm volatile("sti");
 
 	for (;;)
 		asm volatile("hlt");

@@ -35,7 +35,7 @@ void  VirtualMemory::MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, 
 	if (!pml4->entries[pml4_index])
 		pml4->entries[pml4_index] = ((uint64_t)PhysicalMemory::AllocPages(sizeof(PageDirPointerTable) / 0x1000)) | (flags & 0xFF);
 	
-	auto ptr = (PageDirPointerTable*)(top_level->entries[pml4_index] & ~0xFF);
+	auto ptr = (PageDirPointerTable*)(pml4->entries[pml4_index] & ~0xFF);
 
 	if (!ptr->entries[pdpt_index])
 		ptr->entries[pdpt_index] = ((uint64_t)PhysicalMemory::AllocPages(sizeof(PageDirTable) / 0x1000)) | (flags & 0xFF);
@@ -50,7 +50,7 @@ void  VirtualMemory::MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, 
 	pagetable->entries[pt_index] = phys | flags;
 }
 
-uint64_t VirtualMemory::CreateNewAddressSpace()
+uint64_t VirtualMemory::CreateNewAddressSpace(uint64_t stack, size_t stack_size)
 {
 	PageMapLevel4* top = (PageMapLevel4*)PhysicalMemory::AllocPages(sizeof(PageMapLevel4) / 0x1000);
 
@@ -58,7 +58,22 @@ uint64_t VirtualMemory::CreateNewAddressSpace()
 	MapPage(top, 0, 0xffffffff80000000, 0x50000, flags::present | flags::writable);
 	
 	// Map VGA
-	MapPage(top, 0xB8000, 0xB8000, flags::present | flags::writable);
+	MapPage(top, 0xB8000, 0xB8000, 2, flags::present | flags::writable);
+
+	// Map the stack to 0xffffb00000000000
+	for (uint64_t i = 0; i < ALIGN(stack_size, 0x1000); i += 0x1000)
+	{
+		MapPage(top, stack+i, 0xffffb00000000000+i, flags::writable | flags::present | flags::user_mode | flags::no_execute);
+	}
+
+	// Map the bottom GiB for kernel use
+	for (int i = 0; i < 0x50000; i++)
+	{
+		uint64_t addr = i * 0x1000;
+		MapPage(top, addr, addr, flags::present | flags::writable);
+	}
+
+	MapPage(top, 0xfee00000, 0xfee00000, flags::present | flags::writable); // Need the LAPIC to be mapped so we can ack interrupts
 
 	return (uint64_t)top;
 }
@@ -81,8 +96,8 @@ void VirtualMemory::Initialize()
 	// Map VGA
 	MapPage(nullptr, 0xB8000, 0xB8000, flags::present | flags::writable);
 
-	// Identity map the bottom 2MiB, and mirror it to 0xffff800000000000
-	for (int i = 0; i < (FOUR_MEGS / 0x1000); i++)
+	// Identity map the bottom 1GiB
+	for (int i = 0; i < 0x50000; i++)
 	{
 		uint64_t addr = i * 0x1000;
 		MapPage(nullptr, addr, addr, flags::present | flags::writable);
@@ -91,5 +106,10 @@ void VirtualMemory::Initialize()
 	// Find and map the heap
 	MapPage(nullptr, (uint64_t)PhysicalMemory::AllocPages(HEAP_SIZE / 0x1000), HEAP_BEGIN, ALIGN(HEAP_SIZE / 0x1000, 0x1000), flags::present | flags::writable);
 
+	asm volatile("mov %0, %%cr3\n\t" :: "r"(top_level) : "memory");
+}
+
+void VirtualMemory::SwitchToKernelPageMap()
+{
 	asm volatile("mov %0, %%cr3\n\t" :: "r"(top_level) : "memory");
 }

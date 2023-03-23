@@ -10,6 +10,7 @@ struct Thread
 	uint64_t new_address_space;
 	Thread* next;
 	IDT::registers_t saved_regs;
+	uint64_t kernelStack;
 };
 
 Thread* CreateThread(uint64_t entry);

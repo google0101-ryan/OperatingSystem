@@ -1,6 +1,7 @@
 #include "pit.h"
 #include <util/ports.h>
 #include <x86/idt.h>
+#include <mem/vmm.h>
 #include <drivers/vga.hpp>
 #include <drivers/apic.h>
 #include <drivers/ioapic.h>
@@ -16,8 +17,10 @@ static const char ticker[] =
 
 static int ticker_index = 0;
 
-IDT::registers_t* HandleTimer(IDT::registers_t* regs)
+void HandleTimer(IDT::registers_t* regs)
 {
+	lapic->EOI();
+
 	int x = VGA::get_x();
 	int y = VGA::get_y();
 
@@ -30,9 +33,7 @@ IDT::registers_t* HandleTimer(IDT::registers_t* regs)
 	
 	VGA::seek_to(x, y);
 
-	lapic->EOI();
-
-	return Scheduler::Tick(regs);
+	Scheduler::Tick(regs);
 }
 
 int hz = 100; // Hardcoded to 100Hz

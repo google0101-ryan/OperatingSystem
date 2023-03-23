@@ -196,7 +196,7 @@ void VGA::vprint_format(const char *fmt, va_list args)
 			{
 			case 'd':
 			{
-				int d = va_arg(args, int);
+				int d = va_arg(args, long);
 				char buf[32] = {0};
 				itoa(buf, d, 10);
 				puts(buf);
@@ -204,7 +204,7 @@ void VGA::vprint_format(const char *fmt, va_list args)
 			}
 			case 'x':
 			{
-				int x = va_arg(args, int);
+				long x = va_arg(args, int);
 				char buf[32] = {0};
 				itoa(buf, x, 16);
 				puts(buf);

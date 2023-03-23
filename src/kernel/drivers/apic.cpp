@@ -82,10 +82,9 @@ uint32_t LAPIC::ReadReg(uint32_t reg)
 	return *(uint32_t*)((uint8_t*)lapic_base + reg);
 }
 
-IDT::registers_t* SpuriousInterruptHandler(IDT::registers_t* r)
+void SpuriousInterruptHandler(IDT::registers_t* r)
 {
 	printf("[APIC]: Spurious interrupt\n");
-	return r;
 }
 
 LAPIC::LAPIC()
