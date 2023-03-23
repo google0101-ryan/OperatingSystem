@@ -28,7 +28,7 @@ uint32_t IOAPIC::ReadReg(uint32_t reg)
 
 IOAPIC::IOAPIC(uint64_t base)
 {
-	int i, id, maxintr;
+	int id, maxintr;
 
 	ioapic = (_IOAPIC*)base;
 
@@ -36,6 +36,8 @@ IOAPIC::IOAPIC(uint64_t base)
 
 	maxintr = (ReadReg(0x01) >> 16) & 0xFF;
 	id = ReadReg(0x00) >> 24;
+
+	printf("Initialized IOAPIC with id %d, maximum interrupts %d\n", id, maxintr);
 }
 
 void IOAPIC::Redirect(uint8_t irq, uint8_t vector, uint32_t delivery)

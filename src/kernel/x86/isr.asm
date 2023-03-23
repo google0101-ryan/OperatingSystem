@@ -61,7 +61,7 @@ isr_stub_noerr 29
 isr_stub_err 30
 isr_stub_noerr 31
 
-; Unused PIC interrupts
+; These are PIC IRQs. Some legacy interrupts still come through, so make them valid
 isr_stub_irq 32
 isr_stub_irq 33
 isr_stub_irq 34

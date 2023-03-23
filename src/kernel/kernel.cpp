@@ -7,6 +7,7 @@
 #include <drivers/ioapic.h>
 #include <drivers/pit.h>
 #include <drivers/acpi.h>
+#include <drivers/rtc.h>
 
 #include <x86/gdt.h>
 #include <x86/idt.h>
@@ -95,6 +96,10 @@ extern "C" void kmain(stivale2_struct* stivale)
 	PIT::Initialize();
 
 	VGA::puts("[x]: Initialized PIT\n");
+
+	auto time = RealTimeClock::ReadTime();
+
+	printf("Booted on %d/%d/%d, %d:%d:%d", time.month, time.day_of_month, time.year+2000, time.hours, time.minutes, time.seconds);
 
 	for (;;)
 		asm volatile("hlt");

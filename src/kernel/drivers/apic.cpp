@@ -74,15 +74,15 @@ void WriteBase(uint64_t val)
 
 void LAPIC::WriteReg(uint32_t reg, uint32_t value)
 {
-	lapic_base[reg] = value;
+	*(uint32_t*)((uint8_t*)lapic_base + reg) = value;
 }
 
 uint32_t LAPIC::ReadReg(uint32_t reg)
 {
-	return lapic_base[reg];
+	return *(uint32_t*)((uint8_t*)lapic_base + reg);
 }
 
-void SpuriousInterruptHandler()
+void SpuriousInterruptHandler(IDT::registers_t*)
 {
 	printf("[APIC]: Spurious interrupt\n");
 }

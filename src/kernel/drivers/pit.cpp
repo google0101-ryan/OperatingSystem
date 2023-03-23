@@ -13,9 +13,9 @@ static const char ticker[] =
 	'|'
 };
 
-static int ticker_index;
+static int ticker_index = 0;
 
-void HandleTimer()
+void HandleTimer(IDT::registers_t*)
 {
 	int x = VGA::get_x();
 	int y = VGA::get_y();
@@ -38,7 +38,7 @@ void PIT::Initialize()
 {
 	IDT::RegisterEntry(32, HandleTimer);
 
-	uint32_t divisor = 1193182 / 100;
+	uint32_t divisor = 1193182 / hz;
 
 	outb(0x43, 0x36);
 
