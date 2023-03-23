@@ -4,6 +4,7 @@
 #include <drivers/vga.hpp>
 #include <drivers/apic.h>
 #include <drivers/ioapic.h>
+#include <multitasking/scheduler.h>
 
 static const char ticker[] =
 {
@@ -15,7 +16,7 @@ static const char ticker[] =
 
 static int ticker_index = 0;
 
-void HandleTimer(IDT::registers_t*)
+IDT::registers_t* HandleTimer(IDT::registers_t* regs)
 {
 	int x = VGA::get_x();
 	int y = VGA::get_y();
@@ -30,6 +31,8 @@ void HandleTimer(IDT::registers_t*)
 	VGA::seek_to(x, y);
 
 	lapic->EOI();
+
+	return Scheduler::Tick(regs);
 }
 
 int hz = 100; // Hardcoded to 100Hz

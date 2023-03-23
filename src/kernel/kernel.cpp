@@ -16,6 +16,9 @@
 #include <mem/vmm.h>
 #include <mem/heap.h>
 
+#include <multitasking/scheduler.h>
+#include <multitasking/thread.h>
+
 LAPIC* lapic;
 IOAPIC* ioapic;
 
@@ -54,52 +57,69 @@ void* get_tag(stivale2_struct* first_tag, uint64_t tag_id)
     }
 }
 
+void ThreadA()
+{
+	while (1)
+		printf("[A]: A\n");
+}
+
+void ThreadB()
+{
+	while (1)
+		printf("[B]: B\n");
+}
+
 extern "C" void kmain(stivale2_struct* stivale)
 {
 	VGA::Init();
 	
-	VGA::puts("[x]: Kernel console initialized, debug messages enabled\n");
+	printf("[x]: Kernel console initialized, debug messages enabled\n");
 
 	GDT::Init();
 
-	VGA::puts("[x]: Kernel GDT initialized\n");
+	printf("[x]: Kernel GDT initialized\n");
 
 	IDT::Init();
 
-	VGA::puts("[x]: Kernel IDT initialized\n");
+	printf("[x]: Kernel IDT initialized\n");
 
 	PIC::RemapIRQs();
 
-	VGA::puts("[x]: Remapped IRQs via PIC\n");
+	printf("[x]: Remapped IRQs via PIC\n");
 
 	ACPI::FindTables(stivale);
 
-	VGA::puts("[x]: Loading physical memory\n");
+	printf("[x]: Loading physical memory\n");
 
 	PhysicalMemory::Initialize((stivale2_struct_tag_memmap*)get_tag(stivale, STIVALE2_STRUCT_TAG_MEMMAP_ID));
 
-	VGA::puts("[x]: Loading virtual memory\n");
+	printf("[x]: Loading virtual memory\n");
 
 	VirtualMemory::Initialize();
 
-	VGA::puts("[x]: Initializing kernel heap at 0xffffffffa0000000 -> 0xffffffffa0008000\n");
+	printf("[x]: Initializing kernel heap at 0xffffffffa0000000 -> 0xffffffffa0008000\n");
 
 	Heap::Initialize();
 
-	VGA::puts("[x]: Kernel core initialized\n");
+	printf("[x]: Kernel core initialized\n");
 
 	lapic = new LAPIC();
 	ACPI::SetupAPIC();
 
-	VGA::puts("[x]: Initialized APIC\n");
+	printf("[x]: Initialized APIC\n");
 
 	PIT::Initialize();
 
-	VGA::puts("[x]: Initialized PIT\n");
+	printf("[x]: Initialized PIT\n");
 
 	auto time = RealTimeClock::ReadTime();
 
-	printf("Booted on %d/%d/%d, %d:%d:%d", time.month, time.day_of_month, time.year+2000, time.hours, time.minutes, time.seconds);
+	printf("Booted on %d/%d/%d, %d:%d:%d\n", time.month, time.day_of_month, time.year+2000, time.hours, time.minutes, time.seconds);
+
+	Scheduler::Initialize();
+
+	Scheduler::AddThread((uint64_t)ThreadA);
+	Scheduler::AddThread((uint64_t)ThreadB);
 
 	for (;;)
 		asm volatile("hlt");

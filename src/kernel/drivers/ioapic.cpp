@@ -32,7 +32,7 @@ IOAPIC::IOAPIC(uint64_t base)
 
 	ioapic = (_IOAPIC*)base;
 
-	VirtualMemory::MapPage(0xFEC00000, 0xFEC00000, flags::present | flags::writable | flags::cache_disable);
+	VirtualMemory::MapPage(nullptr, base, base, flags::present | flags::writable | flags::cache_disable);
 
 	maxintr = (ReadReg(0x01) >> 16) & 0xFF;
 	id = ReadReg(0x00) >> 24;

@@ -82,9 +82,10 @@ uint32_t LAPIC::ReadReg(uint32_t reg)
 	return *(uint32_t*)((uint8_t*)lapic_base + reg);
 }
 
-void SpuriousInterruptHandler(IDT::registers_t*)
+IDT::registers_t* SpuriousInterruptHandler(IDT::registers_t* r)
 {
 	printf("[APIC]: Spurious interrupt\n");
+	return r;
 }
 
 LAPIC::LAPIC()
@@ -92,7 +93,7 @@ LAPIC::LAPIC()
 	uint64_t base = ReadBase() & LOCAL_APIC_BASE;
 	lapic_base = (uint32_t*)base;
 
-	VirtualMemory::MapPage(base, base, flags::present | flags::writable | flags::cache_disable);
+	VirtualMemory::MapPage(nullptr, base, base, flags::present | flags::writable | flags::cache_disable);
 
 	IDT::RegisterEntry(0xFF, SpuriousInterruptHandler);
 

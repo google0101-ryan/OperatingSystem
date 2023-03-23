@@ -12,4 +12,7 @@ g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/driv
 g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/pit.cpp -o build/pit.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/acpi.cpp -o build/acpi.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/drivers/rtc.cpp -o build/rtc.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/multitasking/thread.cpp -o build/thread.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/multitasking/scheduler.cpp -o build/scheduler.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
+g++ -Wall -Wextra -ffreestanding -ggdb -O0 -ggdb -I ./src/kernel src/kernel/lib/spinlock.cpp -o build/spinlock.o -c -m64 -mcmodel=kernel -mno-red-zone -fno-exceptions -fno-pic -fno-pie -std=c++23
 ld -n -nostdlib -T linkd/link.ld build/*.o -o kernel.elf

@@ -47,7 +47,7 @@ typedef struct __attribute__((packed))
 
 void Init();
 
-using IntFunc = void (*)(registers_t*);
+using IntFunc = registers_t* (*)(registers_t*);
 
 void RegisterEntry(int interrupt, IntFunc func);
 

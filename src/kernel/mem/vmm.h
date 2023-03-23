@@ -24,9 +24,17 @@ enum : uint64_t
 
 namespace VirtualMemory
 {
+
+typedef uint64_t pml4_entry;
+struct PageMapLevel4
+{
+	pml4_entry entries[512];
+};
 	
 void Initialize();
-void MapPage(uint64_t phys, uint64_t virt, uint64_t count, int flags);
-void MapPage(uint64_t phys, uint64_t virt, int flags);
+void MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, uint64_t count, int flags);
+void MapPage(PageMapLevel4* pml4, uint64_t phys, uint64_t virt, int flags);
+
+uint64_t CreateNewAddressSpace();
 
 }

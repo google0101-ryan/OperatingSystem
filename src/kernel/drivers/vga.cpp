@@ -1,5 +1,8 @@
 #include "vga.hpp"
 #include <util/ports.h>
+#include <lib/spinlock.h>
+
+Spinlock vga_spinlock;
 
 uint16_t* fb_ptr;
 uint16_t x, y;
@@ -224,11 +227,15 @@ void VGA::vprint_format(const char *fmt, va_list args)
 
 void VGA::print_format(const char *fmt, ...)
 {
+	vga_spinlock.Lock();
+
 	va_list args;
 	va_start(args, fmt);
 
 	vprint_format(fmt, args);
 
 	va_end(args);
+
+	vga_spinlock.Release();
 }
 

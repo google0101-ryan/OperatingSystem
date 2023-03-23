@@ -33,17 +33,7 @@ extern "C" IDT::registers_t* InterruptHandler(IDT::registers_t* r)
 			asm volatile("hlt");
 	}
 
-	lookup_table[int_no](r);
-
-	if (int_no >= 32)
-	{
-		int_no -= 32;
-		if (int_no >= 8)
-			PIC::AckInterruptSlave();
-		PIC::AckInterruptMaster();
-	}
-
-	return r;
+	return lookup_table[int_no](r);
 }
 
 void IDT::Init()
