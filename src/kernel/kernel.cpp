@@ -19,6 +19,8 @@
 #include <multitasking/scheduler.h>
 #include <multitasking/thread.h>
 
+#include <fs/vfs.h>
+
 LAPIC* lapic;
 IOAPIC* ioapic;
 
@@ -57,10 +59,14 @@ void* get_tag(stivale2_struct* first_tag, uint64_t tag_id)
     }
 }
 
+stivale2_struct* g_root;
+
 // We go here once our scheduler is initialized
 void KernelTask()
 {
-	printf("[x]: Entered kernel task, setting up initrd");
+	printf("[x]: Entered kernel task, setting up initrd\n");
+
+	VFS::the()->Initialize(g_root);
 
 	for (;;)
 		asm volatile("hlt");
@@ -113,6 +119,8 @@ extern "C" void kmain(stivale2_struct* stivale)
 	printf("Booted on %d/%d/%d, %d:%d:%d\n", time.month, time.day_of_month, time.year+2000, time.hours, time.minutes, time.seconds);
 
 	Scheduler::Initialize();
+
+	g_root = stivale;
 
 	asm volatile("cli");
 

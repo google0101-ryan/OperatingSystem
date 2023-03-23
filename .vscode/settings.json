@@ -8,6 +8,23 @@
 		"string_view": "cpp",
 		"ranges": "cpp",
 		"span": "cpp",
-		"memory": "cpp"
+		"memory": "cpp",
+		"initializer_list": "cpp",
+		"utility": "cpp",
+		"list": "cpp",
+		"unordered_map": "cpp",
+		"*.tcc": "cpp",
+		"chrono": "cpp",
+		"atomic": "cpp",
+		"iterator": "cpp",
+		"memory_resource": "cpp",
+		"optional": "cpp",
+		"functional": "cpp",
+		"new": "cpp",
+		"ostream": "cpp",
+		"tuple": "cpp",
+		"stdexcept": "cpp",
+		"streambuf": "cpp",
+		"system_error": "cpp"
 	}
 }

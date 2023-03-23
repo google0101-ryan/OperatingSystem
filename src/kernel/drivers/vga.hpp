@@ -18,6 +18,8 @@ int get_y();
 void vprint_format(const char* fmt, va_list args);
 void print_format(const char* fmt, ...);
 
+void panic(const char* func, int line);
+
 }
 
 #define printf VGA::print_format

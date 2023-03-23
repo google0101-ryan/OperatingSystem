@@ -79,6 +79,8 @@ void VGA::putc(char c)
 		y++;
 		x = 0;
 		SetCursorPos();
+		if (y >= VGA_HEIGHT)
+			Scroll();
 		return;
 	}
 	else if (c == '\t')
@@ -239,3 +241,21 @@ void VGA::print_format(const char *fmt, ...)
 	vga_spinlock.Release();
 }
 
+void VGA::panic(const char* func, int line)
+{
+	for (int i = 0; i < 80; i++)
+		printf("*");
+	for (int i = 0; i < 37; i++)
+		printf(" ");
+	printf("PANIC!\n");
+	for (int i = 0; i < 27; i++)
+		printf(" ");
+	printf("Kernel panic encountered!\n");
+	for (int i = 0; i < 80; i++)
+		printf("*");
+	printf("Panic occured at "); printf(func); printf(" line %d\n", line);
+	printf("\n");
+	asm volatile("cli");
+	for (;;)
+		asm volatile("hlt");
+}

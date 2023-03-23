@@ -73,6 +73,12 @@ uint64_t VirtualMemory::CreateNewAddressSpace(uint64_t stack, size_t stack_size)
 		MapPage(top, addr, addr, flags::present | flags::writable);
 	}
 
+	for (int i = 0; i < 0x80000; i++)
+	{
+		uint64_t addr = i * 0x1000;
+		MapPage(top, addr, addr+0xffff800000000000, flags::present | flags::writable);
+	}
+
 	MapPage(top, 0xfee00000, 0xfee00000, flags::present | flags::writable); // Need the LAPIC to be mapped so we can ack interrupts
 
 	return (uint64_t)top;
